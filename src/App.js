@@ -2,17 +2,22 @@ import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import Home from "./routes/home";
 import Header from "./components/header";
-
+import Apropos from "./routes/a-propos";
 function App() {
   return (
-    <div className="App">
+    <>
       <Header />
-      <Switch>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </div>
+      <div className="App" style={{ marginTop: "120px" }}>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/Apropos">
+            <Apropos />
+          </Route>
+        </Switch>
+      </div>
+    </>
   );
 }
 

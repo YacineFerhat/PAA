@@ -1,8 +1,30 @@
 const Menu = [
   {
     id: 1,
-    title: "A propos de nous",
-    link: "/A-propos",
+    title: "PLOGGING ASSOCIATION ALGERIA",
+    link: "/Apropos",
+    sub: [
+      {
+        id: 1,
+        title: "Qui sommes-nous?",
+        link: "/QuiSommeNous",
+      },
+      {
+        id: 2,
+        title: "Qu’est-ce que le Plogging?",
+        link: "/Plogging",
+      },
+      {
+        id: 3,
+        title: "Nos objectifs?",
+        link: "/Objectifs",
+      },
+      {
+        id: 4,
+        title: "Nous rejoindre",
+        link: "/RejoignezNous",
+      },
+    ],
   },
   {
     id: 2,
@@ -31,8 +53,8 @@ const Menu = [
       },
       {
         id: 5,
-        title: "Réseaux sociaux",
-        link: "/réseaux-sociaux",
+        title: "Biodiversité",
+        link: "/Biodiversité",
       },
     ],
   },
@@ -43,8 +65,23 @@ const Menu = [
   },
   {
     id: 4,
+    title: "Collaborateurs",
+    link: "/Collaborateurs",
+  },
+  {
+    id: 5,
     title: "Nos évenements ",
     link: "/Evenements",
+  },
+  {
+    id: 6,
+    title: "Articles",
+    link: "/Articles",
+  },
+  {
+    id: 7,
+    title: "Contacts",
+    link: "/Contacts",
   },
 ];
 

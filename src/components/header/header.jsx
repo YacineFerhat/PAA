@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <nav
+      style={{ position: "fixed", top: 0, left: 0, width: "100%" }}
       className="navbar header"
       role="navigation"
       aria-label="main navigation"
