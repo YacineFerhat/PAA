@@ -3,6 +3,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import Home from "./routes/home";
 import Header from "./components/header";
 import Apropos from "./routes/a-propos";
+import Comites from "./routes/comites";
 function App() {
   return (
     <>
@@ -14,6 +15,9 @@ function App() {
           </Route>
           <Route path="/Apropos">
             <Apropos />
+          </Route>
+          <Route path="/Comités">
+            <Comites />
           </Route>
         </Switch>
       </div>

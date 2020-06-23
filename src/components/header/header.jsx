@@ -47,7 +47,12 @@ const Header = () => {
                       className="navbar-item"
                       key={drop.id}
                     >
-                      {drop.title}
+                      {drop.icon && (
+                        <span className="icon">
+                          <img src={drop.icon} />
+                        </span>
+                      )}
+                      <span style={{ marginLeft: "2%" }}>{drop.title}</span>
                     </Link>
                   ))}
                 </div>

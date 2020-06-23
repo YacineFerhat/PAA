@@ -2,8 +2,8 @@ import React from "react";
 import MediaCard from "components/media-card";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import MediaAbout from "data/media-about";
 import DoubleTitle from "components/double-title";
+import Comites from "data/comites";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,13 +24,14 @@ const Main = () => {
       <div className="hero-main">
         <div className="container">
           <DoubleTitle
-            title=" PLOGGING ASSOCIATION ALGERIA"
-            sub="Venez découvrir Plogging Association Algeria !"
+            title="Nos comités"
+            sub="Venez découvrir les différents comités de PAA!"
           />
 
           <div className={classes.root}>
+            {" "}
             <Grid container spacing={3}>
-              {MediaAbout.map((media) => (
+              {Comites.map((media) => (
                 <Grid key={media.id} item xs={12} sm={6} md={3} xl={12}>
                   <MediaCard data={media} className={classes.paper}>
                     xs=12
@@ -44,4 +45,5 @@ const Main = () => {
     </section>
   );
 };
+
 export default Main;

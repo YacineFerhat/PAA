@@ -1,3 +1,13 @@
+import art from "assets/icones/art.png";
+import conf from "assets/icones/conf.png";
+import junior from "assets/icones/junior.png";
+import photographie from "assets/icones/photographie.png";
+import redac from "assets/icones/redac.png";
+import relation from "assets/icones/relation.png";
+import reseaux from "assets/icones/sport.png";
+import sport from "assets/icones/sport.png";
+import tourisme from "assets/icones/tourisme.png";
+
 const Menu = [
   {
     id: 1,
@@ -29,27 +39,31 @@ const Menu = [
   {
     id: 2,
     title: "Nos comités",
-    link: "/comités",
+    link: "/Comités",
     sub: [
       {
         id: 1,
         title: "Sport et bien être ",
-        link: "/sport",
+        link: "/Sport",
+        icon: sport,
       },
       {
         id: 2,
         title: "Junior",
-        link: "/junior",
+        link: "/Junior",
+        icon: junior,
       },
       {
         id: 3,
         title: "Eco-tourisme",
-        link: "/eco-tourisme",
+        link: "/Eco-tourisme",
+        icon: tourisme,
       },
       {
         id: 4,
         title: "Conférence",
-        link: "/conférence",
+        link: "/Conférence",
+        icon: conf,
       },
       {
         id: 5,

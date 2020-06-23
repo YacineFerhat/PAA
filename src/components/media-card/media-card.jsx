@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MediaCard = ({ data: { link, title, desc, picture } }) => {
+const MediaCard = ({ data: { link, title, desc, picture, icon } }) => {
   const classes = useStyles();
   let { path } = useRouteMatch();
 
@@ -31,15 +31,22 @@ const MediaCard = ({ data: { link, title, desc, picture } }) => {
             title={title}
           />
           <CardContent>
-            <Typography
-              align="center"
-              gutterBottom
-              paragraph
-              variant="h5"
-              component="h2"
-            >
-              {title}
-            </Typography>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              {icon && (
+                <figure class="image is-32x32">
+                  <img src={icon} />
+                </figure>
+              )}
+              <Typography
+                align="center"
+                gutterBottom
+                paragraph
+                variant="h5"
+                component="h2"
+              >
+                {title}
+              </Typography>
+            </div>
             <Typography variant="body2" color="textSecondary" component="p">
               {desc}
             </Typography>
