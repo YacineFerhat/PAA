@@ -6,6 +6,8 @@ import Apropos from "./routes/a-propos";
 import Comites from "./routes/comites";
 import Teams from "./routes/teams";
 import Blog from "./routes/blog";
+import Contact from "./routes/contact";
+
 import BreadCrumb from "components/breadcrumb";
 
 function App() {
@@ -29,6 +31,9 @@ function App() {
           </Route>
           <Route path="/Articles">
             <Blog />
+          </Route>
+          <Route path="/Contacts">
+            <Contact />
           </Route>
         </Switch>
       </div>
