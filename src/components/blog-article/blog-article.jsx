@@ -3,11 +3,9 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
+import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,21 +16,28 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
   },
+  title: {
+    marginTop: "5%",
+  },
   content: {
     flex: "1 0 auto",
   },
   cover: {
     width: 400,
   },
-  controls: {
-    display: "flex",
-    alignItems: "center",
-    paddingLeft: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
-  },
-  playIcon: {
-    height: 38,
-    width: 38,
+  button: {
+    backgroundColor: "hsl(141, 53%, 53%)",
+    marginTop: "5%",
+    "&:hover": {
+      backgroundColor: "hsl(130, 53%, 33%)",
+      borderColor: "hsl(130, 53%, 33%)",
+      boxShadow: "none",
+    },
+    "&:active": {
+      boxShadow: "none",
+      backgroundColor: "hsl(130, 53%, 33%)",
+      borderColor: "hsl(130, 53%, 33%)",
+    },
   },
 }));
 
@@ -41,42 +46,40 @@ const BlogArticle = ({ data: { id, title, subtitle, picture, categorie } }) => {
   const theme = useTheme();
 
   return (
-    <Card className={classes.root}>
-      <CardMedia
-        className={classes.cover}
-        image={picture}
-        title="Live from space album cover"
-      />
-      <div className={classes.details}>
-        <CardContent className={classes.content}>
-          <Typography component="h5" variant="h5">
-            Live From Space
-          </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
-            Mac Miller
-          </Typography>
-        </CardContent>
-        <div className={classes.controls}>
-          <IconButton aria-label="previous">
-            {theme.direction === "rtl" ? (
-              <SkipNextIcon />
-            ) : (
-              <SkipPreviousIcon />
-            )}
-          </IconButton>
-          <IconButton aria-label="play/pause">
-            <PlayArrowIcon className={classes.playIcon} />
-          </IconButton>
-          <IconButton aria-label="next">
-            {theme.direction === "rtl" ? (
-              <SkipPreviousIcon />
-            ) : (
-              <SkipNextIcon />
-            )}
-          </IconButton>
+    <Paper elevation={3}>
+      <Card className={classes.root}>
+        <CardMedia
+          className={classes.cover}
+          image={picture}
+          title="Live from space album cover"
+        />
+        <div className={classes.details}>
+          <CardContent className={classes.content}>
+            <Typography color="secondary" component="h5" variant="h5">
+              #{categorie}
+            </Typography>
+            <Typography
+              color="inherit"
+              component="h4"
+              variant="h4"
+              className={classes.title}
+            >
+              {title}
+            </Typography>
+            <Typography variant="subtitle1" color="textSecondary">
+              {subtitle}
+            </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.button}
+            >
+              Lire l'article
+            </Button>
+          </CardContent>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </Paper>
   );
 };
 

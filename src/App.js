@@ -6,11 +6,14 @@ import Apropos from "./routes/a-propos";
 import Comites from "./routes/comites";
 import Teams from "./routes/teams";
 import Blog from "./routes/blog";
+import BreadCrumb from "components/breadcrumb";
+
 function App() {
   return (
     <>
       <Header />
       <div className="App" style={{ marginTop: "120px" }}>
+        <BreadCrumb />
         <Switch>
           <Route exact path="/">
             <Home />
