@@ -76,7 +76,13 @@ const Junior = () => {
               </figure>
             </div>
             <div className="column">
-              <p style={{ textIndent: "20px", lineHeight: "35px" }}>
+              <p
+                style={{
+                  textIndent: "20px",
+                  lineHeight: "35px",
+                  marginTop: "14%",
+                }}
+              >
                 Le comité compte à présent environ{" "}
                 <strong>200 enfants sensibiliséss </strong>, toutes catégorie
                 confondues, et ambitionne toucher davantage d’enfants en

@@ -6,6 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { Link, useRouteMatch } from "react-router-dom";
+import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles({
   root: {
@@ -22,34 +23,40 @@ const MediaCard = ({ data: { link, title, desc, picture, icon } }) => {
   let { path } = useRouteMatch();
 
   return (
-    <Card className={classes.root}>
-      <Link to={`${path}${link}`}>
-        <CardActionArea>
-          <CardMedia className={classes.media} image={picture} title={title} />
-          <CardContent>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              {icon && (
-                <figure class="image is-32x32">
-                  <img src={icon} />
-                </figure>
-              )}
-              <Typography
-                align="center"
-                gutterBottom
-                paragraph
-                variant="h5"
-                component="h2"
-              >
-                {title}
+    <Paper elevation={3}>
+      <Card className={classes.root}>
+        <Link to={`${path}${link}`}>
+          <CardActionArea>
+            <CardMedia
+              className={classes.media}
+              image={picture}
+              title={title}
+            />
+            <CardContent>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                {icon && (
+                  <figure class="image is-32x32">
+                    <img src={icon} />
+                  </figure>
+                )}
+                <Typography
+                  align="center"
+                  gutterBottom
+                  paragraph
+                  variant="h5"
+                  component="h2"
+                >
+                  {title}
+                </Typography>
+              </div>
+              <Typography variant="body2" color="textSecondary" component="p">
+                {desc}
               </Typography>
-            </div>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {desc}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Link>
-    </Card>
+            </CardContent>
+          </CardActionArea>
+        </Link>
+      </Card>
+    </Paper>
   );
 };
 

@@ -7,7 +7,7 @@ import Link from "@material-ui/core/Link";
 const useStyles = makeStyles({
   root: {
     height: 100,
-    backgroundColor: "green",
+    backgroundColor: "#234915",
     marginTop: "10%",
     display: "flex",
     alignItems: "center",
