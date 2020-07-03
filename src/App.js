@@ -7,7 +7,7 @@ import Comites from "./routes/comites";
 import Teams from "./routes/teams";
 import Blog from "./routes/blog";
 import Contact from "./routes/contact";
-
+import Colab from "./routes/colab";
 import BreadCrumb from "components/breadcrumb";
 
 function App() {
@@ -34,6 +34,9 @@ function App() {
           </Route>
           <Route path="/Contacts">
             <Contact />
+          </Route>
+          <Route path="/Collaborateurs">
+            <Colab />
           </Route>
         </Switch>
       </div>
