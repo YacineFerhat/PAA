@@ -12,9 +12,13 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 345,
     marginTop: "10%",
+    height: 400,
   },
   media: {
     height: 250,
+  },
+  title: {
+    height: 70,
   },
 });
 
@@ -40,6 +44,7 @@ const MediaCard = ({ data: { link, title, desc, picture, icon } }) => {
                   </figure>
                 )}
                 <Typography
+                  className={classes.title}
                   align="center"
                   gutterBottom
                   paragraph
