@@ -3,19 +3,19 @@ import demo from "assets/articles/demo.jpg";
 const Data = [
   {
     id: 0,
-    title: "Les déchets dans les océans",
+    title: "Recyclons nos conserves",
     subtitle:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis nihil aspernatur non, cupiditate ullam veniam perspiciatis assumenda error! Accusantium, suscipit est? Quasi eveniet tempora aperiam ullam quod accusantium aliquid? Voluptate!",
-    categorie: "polution",
+    categorie: "Recyclage",
     picture: demo,
     date: "01-07-2020",
   },
   {
-    id: 1,
+    id: 2,
     title: "Les déchets dans les océans",
     subtitle:
       "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis nihil aspernatur non, cupiditate ullam veniam perspiciatis assumenda error! Accusantium, suscipit est? Quasi eveniet tempora aperiam ullam quod accusantium aliquid? Voluptate!",
-    categorie: "polution",
+    categorie: "Recyclage",
     picture: demo,
     date: "01-07-2020",
   },

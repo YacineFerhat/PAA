@@ -9,7 +9,7 @@ import Blog from "./routes/blog";
 import Contact from "./routes/contact";
 import Colab from "./routes/colab";
 import BreadCrumb from "components/breadcrumb";
-
+import BlogArticle from "./routes/blog-article";
 function App() {
   return (
     <>
@@ -29,8 +29,11 @@ function App() {
           <Route path="/Teams">
             <Teams />
           </Route>
-          <Route path="/Articles">
+          <Route exact path="/Articles">
             <Blog />
+          </Route>
+          <Route path="/Articles/:id">
+            <BlogArticle />
           </Route>
           <Route path="/Contacts">
             <Contact />

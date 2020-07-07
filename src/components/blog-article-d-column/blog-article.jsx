@@ -7,7 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-
+import { Link } from "react-router-dom";
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -26,11 +26,16 @@ const useStyles = makeStyles({
     textTransform: "uppercase",
   },
   button: {
-    color: "hsl(141, 53%, 53%)",
     "&:hover": {
       backgroundColor: "hsl(130, 53%, 33%)",
       borderColor: "hsl(130, 53%, 33%)",
       boxShadow: "none",
+    },
+  },
+  link: {
+    textDecoration: "none",
+    color: "hsl(141, 53%, 53%)",
+    "&:hover": {
       color: "white",
     },
   },
@@ -74,7 +79,10 @@ const MediaCard = ({
       </CardActionArea>
       <CardActions>
         <Button size="small" className={classes.button}>
-          Lire l'article
+          <Link to={`/Articles/${id}`} className={classes.link}>
+            {" "}
+            Lire l'article
+          </Link>
         </Button>
       </CardActions>
     </Card>
