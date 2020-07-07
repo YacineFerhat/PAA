@@ -10,6 +10,15 @@ const Data = [
     picture: demo,
     date: "01-07-2020",
   },
+  {
+    id: 1,
+    title: "Les déchets dans les océans",
+    subtitle:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis nihil aspernatur non, cupiditate ullam veniam perspiciatis assumenda error! Accusantium, suscipit est? Quasi eveniet tempora aperiam ullam quod accusantium aliquid? Voluptate!",
+    categorie: "polution",
+    picture: demo,
+    date: "01-07-2020",
+  },
 ];
 
 export default Data;

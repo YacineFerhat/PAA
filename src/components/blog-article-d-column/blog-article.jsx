@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     width: "100%",
   },
   media: {
-    height: 450,
+    height: 400,
   },
   header: {
     display: "flex",
@@ -42,7 +42,7 @@ const MediaCard = ({
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} style={{ marginTop: id !== 0 ? "5%" : "" }}>
       <CardActionArea>
         <CardMedia className={classes.media} image={picture} title={title} />
         <CardContent>
