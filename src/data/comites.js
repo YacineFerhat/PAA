@@ -7,7 +7,7 @@ import relation from "assets/icones/relation.png";
 import reseaux from "assets/icones/sport.png";
 import sport from "assets/icones/sport.png";
 import tourisme from "assets/icones/tourisme.png";
-
+import j1 from "assets/pictures/j1.jpg";
 const Media = [
   {
     id: 1,
@@ -21,10 +21,11 @@ const Media = [
     id: 2,
     title: "Junior",
     link: "/Junior",
-    picture: "",
+    picture: j1,
 
     icon: junior,
-    desc: "Phrase d'accroche à rajouter",
+    desc:
+      "œuvre pour la sensibilisation des enfants, et ce via les différentes activités des jeux , des ateliers éducatifs",
   },
   {
     id: 3,

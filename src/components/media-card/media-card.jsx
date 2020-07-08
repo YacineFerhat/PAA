@@ -11,6 +11,8 @@ import Paper from "@material-ui/core/Paper";
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+  },
+  card: {
     marginTop: "10%",
     height: 400,
   },
@@ -18,7 +20,7 @@ const useStyles = makeStyles({
     height: 250,
   },
   title: {
-    height: 70,
+    height: 30,
   },
 });
 
@@ -27,8 +29,8 @@ const MediaCard = ({ data: { link, title, desc, picture, icon } }) => {
   let { path } = useRouteMatch();
 
   return (
-    <Paper elevation={3}>
-      <Card className={classes.root}>
+    <Paper className={classes.root} elevation={3}>
+      <Card className={classes.card}>
         <Link to={`${path}${link}`}>
           <CardActionArea>
             <CardMedia

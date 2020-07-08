@@ -1,5 +1,7 @@
 import React from "react";
-
+import j2 from "assets/pictures/j2.jpg";
+import j3 from "assets/pictures/j3.jpg";
+import j4 from "assets/pictures/j4.jpg";
 const Junior = () => {
   return (
     <section className="hero ">
@@ -7,8 +9,8 @@ const Junior = () => {
         <div className="container">
           <div className="columns">
             <div className="column is-6">
-              <figure class="image">
-                <img src="https://bulma.io/images/placeholders/128x128.png" />
+              <figure class="image is-square">
+                <img src={j2} />
               </figure>
             </div>
             <div className="column">
@@ -62,8 +64,8 @@ const Junior = () => {
               <br />
             </div>
             <div className="column is-6">
-              <figure class="image">
-                <img src="https://bulma.io/images/placeholders/128x128.png" />
+              <figure className="image is-square">
+                <img src={j3} />
               </figure>
             </div>
           </div>
@@ -71,8 +73,8 @@ const Junior = () => {
 
           <div className="columns">
             <div className="column is-6">
-              <figure class="image">
-                <img src="https://bulma.io/images/placeholders/128x128.png" />
+              <figure class="image is-square">
+                <img src={j4} />
               </figure>
             </div>
             <div className="column">
