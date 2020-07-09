@@ -1,5 +1,7 @@
 import React from "react";
-
+import s2 from "assets/pictures/s2.jpg";
+import s3 from "assets/pictures/s3.jpg";
+import s4 from "assets/pictures/s4.jpg";
 const Sport = () => {
   return (
     <section className="hero is-fullheight">
@@ -7,8 +9,8 @@ const Sport = () => {
         <div className="container">
           <div className="columns">
             <div className="column is-6">
-              <figure class="image">
-                <img src="https://bulma.io/images/placeholders/128x128.png" />
+              <figure class="image is-square">
+                <img src={s3} />
               </figure>
             </div>
             <div className="column">
@@ -69,8 +71,8 @@ const Sport = () => {
               <br />
             </div>
             <div className="column is-6">
-              <figure class="image">
-                <img src="https://bulma.io/images/placeholders/128x128.png" />
+              <figure class="image is-square">
+                <img src={s2} />
               </figure>
             </div>
           </div>

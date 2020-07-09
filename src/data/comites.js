@@ -8,14 +8,17 @@ import reseaux from "assets/icones/sport.png";
 import sport from "assets/icones/sport.png";
 import tourisme from "assets/icones/tourisme.png";
 import j1 from "assets/pictures/j1.jpg";
+import t1 from "assets/pictures/t1.jpg";
+import s1 from "assets/pictures/s1.jpg";
 const Media = [
   {
     id: 1,
     title: "Sport et bien être ",
     link: "/Sport",
-    picture: "",
+    picture: s1,
     icon: sport,
-    desc: "Phrase d'accroche à rajouter",
+    desc:
+      "Organise des séances de sport diversifiés, accompagnées de séances de nettoyage des lieux à travers le Plogging",
   },
   {
     id: 2,
@@ -25,16 +28,17 @@ const Media = [
 
     icon: junior,
     desc:
-      "œuvre pour la sensibilisation des enfants, et ce via les différentes activités des jeux , des ateliers éducatifs",
+      "Oeuvre pour la sensibilisation des enfants, et ce via les différentes activités des jeux , des ateliers éducatifs",
   },
   {
     id: 3,
     title: "Eco-tourisme",
-    picture: "",
+    picture: t1,
 
     link: "/Eco-tourisme",
     icon: tourisme,
-    desc: "Phrase d'accroche à rajouter",
+    desc:
+      "Promouvoir l’éco-tourisme en Algérie et participer à sa manière à la préservation de ces sites visités.",
   },
   {
     id: 4,

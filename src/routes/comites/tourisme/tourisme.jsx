@@ -1,5 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import t2 from "assets/pictures/t2.jpg";
+import t3 from "assets/pictures/t3.jpg";
+import t4 from "assets/pictures/t4.jpg";
 
 const useStyles = makeStyles({
   figure: {
@@ -7,8 +10,8 @@ const useStyles = makeStyles({
     justifyContent: "center",
   },
   image: {
-    height: 450,
-    width: 450,
+    height: 550,
+    width: 550,
   },
 });
 
@@ -21,11 +24,8 @@ const Tourisme = () => {
         <div className="container">
           <div className="columns">
             <div className="column is-6">
-              <figure className={classes.figure}>
-                <img
-                  className={classes.image}
-                  src="https://bulma.io/images/placeholders/128x128.png"
-                />
+              <figure className="image is-square">
+                <img src={t2} />
               </figure>
             </div>
             <div className="column">
@@ -66,11 +66,8 @@ const Tourisme = () => {
               <br />
             </div>
             <div className="column is-6">
-              <figure className={classes.figure}>
-                <img
-                  className={classes.image}
-                  src="https://bulma.io/images/placeholders/128x128.png"
-                />
+              <figure className="image is-square">
+                <img src={t3} />
               </figure>
             </div>
           </div>
@@ -78,11 +75,8 @@ const Tourisme = () => {
 
           <div className="columns">
             <div className="column is-6">
-              <figure className={classes.figure}>
-                <img
-                  className={classes.image}
-                  src="https://bulma.io/images/placeholders/128x128.png"
-                />
+              <figure className="image is-square">
+                <img src={t4} />
               </figure>
             </div>
             <div className="column">
