@@ -23,6 +23,13 @@ const Media = [
   {
     id: 4,
     picture: "",
+    title: "Nos activités?",
+    link: "/Activités",
+    desc: "Phrase d'accorche",
+  },
+  {
+    id: 5,
+    picture: "",
     title: "Nous rejoindre",
     link: "/RejoignezNous",
     desc: "Phrase d'accorche",

@@ -5,7 +5,7 @@ import Objectifs from "./objectifs";
 import Plogging from "./plogging";
 import QuiSommesNous from "./qui-sommes-nous";
 import Rejoindre from "./rejoindre";
-
+import Activite from "./activites";
 const Apropos = () => {
   let { path } = useRouteMatch();
   return (
@@ -24,6 +24,9 @@ const Apropos = () => {
       </Route>
       <Route path={`${path}/RejoignezNous`}>
         <Rejoindre />
+      </Route>
+      <Route path={`${path}/Activités`}>
+        <Activite />
       </Route>
     </Switch>
   );

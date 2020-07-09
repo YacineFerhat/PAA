@@ -29,9 +29,9 @@ const Main = () => {
           />
 
           <div className={classes.root}>
-            <Grid container spacing={3}>
+            <Grid container spacing={3} direction="row" justify="center">
               {MediaAbout.map((media) => (
-                <Grid key={media.id} item xs={12} sm={6} md={3} xl={12}>
+                <Grid key={media.id} item xs={12} sm={6} md={3} xl={2}>
                   <MediaCard data={media} className={classes.paper}>
                     xs=12
                   </MediaCard>

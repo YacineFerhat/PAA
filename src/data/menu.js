@@ -31,6 +31,11 @@ const Menu = [
       },
       {
         id: 4,
+        title: "Nos activités?",
+        link: "/Activités",
+      },
+      {
+        id: 5,
         title: "Nous rejoindre",
         link: "/RejoignezNous",
       },
