@@ -3,7 +3,9 @@ import { Gallery, GalleryImage } from "react-gesture-gallery";
 import data from "data/carouselActivities";
 const Activites = () => {
   const [index, setIndex] = useState(0);
-
+  const handleIndex = (i) => {
+    setIndex(i);
+  };
   return (
     <section className="hero is-fullheight">
       <div className="hero-body">
@@ -49,7 +51,7 @@ const Activites = () => {
               <Gallery
                 index={index}
                 onRequestChange={(i) => {
-                  setIndex(i);
+                  handleIndex(i);
                 }}
               >
                 {data.map((img) => (
