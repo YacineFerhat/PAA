@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="header.js"></script>
+    <script src="cARousel.js"></script>
+    <script src="event.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cARousel.css">
+    <link rel="stylesheet" href="event.css">
+    <link rel="stylesheet" href="header.css">
+    <title>Events</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="a-navbar">
+        <div class="a-nav-1">
+            <div></div>
+            <div class="right-side">
+                <a href="#">
+                    <button class="nav-mail">
+                        <i class="fa fa-envelope"></i> plogging_association_algeria@hotmail.com
+                    </button>
+                </a>
+                <span class="icons">
+                    <a href="#">
+                        <a href="#"><button class="fa fa-youtube-play"></button>
+                    </a>
+                    <a href="#">
+                        <a href="#"><button class="fa fa-instagram"></button>
+                    </a>
+                    <a href="#">
+                        <a href="#"><button class="fa fa-facebook-square"></button>
+                    </a>
+                </span>
+            </div>
+        </div>
+
+        <div class="a-nav-2">
+            <div class="left-side">
+                <img src="logo.png" alt="Logo plogging_association_algeria">
+
+                <div class="nav-item-holder">
+                    <a href="#">
+                        <button class="nav-item">
+                            <span>
+                                PLOGGING ASSOCIATION ALGERIA 
+                                <i class="fa fa-angle-down l-sign"></i>
+                            </span>
+                        </button>
+                    </a>
+                    <div class="sub-nav">
+                        <div class="arrow-up">
+
+                        </div>
+
+                        <a href="#">
+                            <button class="sub-nav-item">
+                                Qui sommes-nous ?
+                            </button>
+                        </a>
+
+                        <a href="#">
+                            <button class="sub-nav-item">
+                                Qu’est-ce que le Plogging ?
+                            </button>
+                        </a>
+
+                        <a href="#">
+                            <button class="sub-nav-item">
+                                Nos objectifs ?
+                            </button>
+                        </a>
+                        
+                        <a href="#">
+                            <button class="sub-nav-item">
+                                Nous rejoindre
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="a-mobile nav-trigger fa fa-bars">
+            </button>
+
+            <div class="right-side">
+                <div class="nav-item-holder">
+                    <a href="#">
+                        <button class="nav-item">
+                            Accueil
+                        </button>
+                    </a>
+                </div>
+
+                <div class="nav-item-holder">
+                    <a href="#">
+                        <button class="nav-item">
+                            <span>Nos comités</span>
+                            <i class="fa fa-plus n-sign"></i>
+                            <span class="desktop">
+                                &nbsp;
+                                <i class="fa fa-angle-down l-sign"></i>
+                            </span>
+                        </button>
+                    </a>
+                    <div class="sub-nav">
+
+                        <div class="arrow-up">
+
+                        </div>
+                        <a href="#">
+                            <button class="sub-nav-item">
+                                Sport et bien être
+                            </button>
+                        </a>
+                        
+                        <a href="#">
+                            <button class="sub-nav-item">
+                                Junior
+                            </button>
+                        </a>
+
+                        <a href="#">
+                            <button class="sub-nav-item">
+                                Eco-tourisme
+                            </button>
+                        </a>
+
+                        <a href="#">
+                            <button class="sub-nav-item">
+                                Conférence
+                            </button>
+                        </a>
+
+                        <a href="#">
+                            <button class="sub-nav-item">
+                                Biodiversité
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-item-holder">
+                    <a href="#">
+                        <button class="nav-item">
+                            Nos teams
+                        </button>
+                    </a>
+                </div>
+
+                <div class="nav-item-holder">
+                    <a href="#">
+                        <button class="nav-item">
+                            Collaborateurs
+                        </button>
+                    </a>
+                </div>
+
+                <div class="nav-item-holder">
+                    <a href="#">
+                        <button class="nav-item">
+                            Nos évenements
+                        </button>
+                    </a>
+                </div>
+
+                <div class="nav-item-holder">
+                    <a href="#">
+                        <button class="nav-item">
+                            Articles
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Le carousel qui va contenir les annonces des évenements à venir-->
+    <section class="new_event">
+        <div class="event-carousel">
+            <div class="c-item ev" id="ev1">
+                <div class="b-panel">
+                    <h1 class="up-ev">Evenements à venir</h1>
+                    <h1 class="ev-title">Plantation des Arbres</h1> 
+
+                    <div class="ev-infos">
+                        <button class="date">
+                            <i class="fa fa-calendar"></i>
+                            &nbsp;
+                            <span class="date-content">14-07-2019</span>
+                        </button>
+
+                        <button class="time">
+                            <i class="fa fa-clock-o"></i>
+                            &nbsp;
+                            <span class="time-content">08:00</span>
+                        </button>
+                        
+                        <button class="place">
+                            <i class="fa fa-map"></i>
+                            &nbsp;
+                            <span class="place-content">Alger</span>
+                        </button>
+                    </div>
+
+                    <button class="know-more">En savoir plus</button>
+                </div>
+            </div>
+
+            <div class="c-item ev" id="ev2">
+                <div class="b-panel">
+                    <h1 class="up-ev">Evenements à venir</h1>
+                    <h1 class="ev-title">Nwa3i Wlidi</h1> 
+
+                    <div class="ev-infos">
+                        <button class="date">
+                            <i class="fa fa-calendar"></i>
+                            &nbsp;
+                            <span class="date-content">14-11-2019</span>
+                        </button>
+
+                        <button class="time">
+                            <i class="fa fa-clock-o"></i>
+                            &nbsp;
+                            <span class="time-content">10:00</span>
+                        </button>
+                        
+                        <button class="place">
+                            <i class="fa fa-map"></i>
+                            &nbsp;
+                            <span class="place-content">Alger</span>
+                        </button>
+                    </div>
+
+                    <button class="know-more">En savoir plus</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Les cards des anciens évenements-->
+    <section class="old_event">
+        <h1 class="old-ev">
+            Anciens évenements
+        </h1>
+
+        <div class="ev-manager">
+            <div class="wilaya-selection">
+                Wilaya
+                <br>
+                <select id="wilaya">
+                    <option value="all">
+                        Toutes
+                    </option>
+
+                    <option value="Alger">
+                        Alger
+                    </option>
+                    
+                    <option value="Blida">
+                        Blida
+                    </option>
+                    
+                    <option value="Annaba">
+                        Annaba
+                    </option>
+
+                    <option value="Tipaza">
+                        Tipaza
+                    </option>
+
+                    <option value="Batna">
+                        Batna
+                    </option>
+
+                    <option value="Boumerdes">
+                        Boumerdes
+                    </option>
+
+                    <option value="Mostaghanem">
+                        Mostaghanem
+                    </option>
+
+                    <option value="Constantine">
+                        Constantine
+                    </option>
+                </select>
+            </div>
+
+            <div class="year-selection">
+                Année 
+                <br>
+                <select id="year">
+                    <option value="all">
+                        Toutes
+                    </option>
+
+                    <option value="2020">
+                        2020
+                    </option>
+                    
+                    <option value="2019">
+                        2019
+                    </option>
+                </select>
+            </div>
+
+            <div class="month-selection">
+                Mois 
+                <br>
+                <select id="month">
+                    <option value="all">
+                        Tous
+                    </option>
+
+                    <option value="1">
+                        Janvier
+                    </option>
+
+                    <option value="2">
+                        Février
+                    </option>
+
+                    <option value="3">
+                        Mars
+                    </option>
+
+                    <option value="4">
+                        Avril
+                    </option>
+
+                    <option value="5">
+                        Mai
+                    </option>
+
+                    <option value="6">
+                        Juin
+                    </option>
+
+                    <option value="7">
+                        Juillet
+                    </option>
+
+                    <option value="8">
+                        Aoûte
+                    </option>
+
+                    <option value="9">
+                        Septembre
+                    </option>
+
+                    <option value="10">
+                        Octobre
+                    </option>
+
+                    <option value="11">
+                        Novembre
+                    </option>
+
+                    <option value="12">
+                        Décembre
+                    </option>
+
+                </select>
+            </div>
+
+            <div class="search">
+                <span><i class="fa fa-search"></i> &nbsp; Rechercher</span>
+                <br>
+                <input type="search" id="search">
+            </div>
+        </div>
+
+        <div class="old-evs">
+            <div class="ev-card">
+                <div class="event-img" style="background-image: url('bg_1.jpg');">
+
+                </div>
+                <div class="event-description">
+                    <div>
+                        <h1 class="evd-title">
+                            Sortie chreat
+                        </h1>
+                        <br>
+                        <p class="ev-infos-card">
+                            <span class="date-info">
+                                <i class="fa fa-calendar"></i>
+                                <span class="date-info-content">26-06-2020</span>
+                            </span>
+                            <span class="time-info">
+                                <i class="fa fa-clock-o"></i>
+                                <span class="time-info-content">18:00</span>
+                            </span>
+                            <span class="place-info">
+                                <i class="fa fa-map"></i>
+                                <span class="place-info-content">Blida</span>
+                            </span>
+                        </p>
+                        <p>
+                            La plantation d’un arbre est un geste qui nous permet de 
+                            redonner vie à notre environnement sur le long terme. Par 
+                            ce geste simple, nous compensons l’impact désastreux de 
+                            la déforestation et du réchauffement climatique sur notre environnement. Et Contribuons ainsi à l’amélioration de la vie de demain.
+                        </p>
+                    </div>
+                    <a href="" class="l-ev">Voir l'évenement</a>
+                </div>
+            </div>
+            
+            <div class="ev-card">
+                <div class="event-img" style="background-image: url('bg_1.jpg');">
+
+                </div>
+                <div class="event-description">
+                    <div>
+                        <h1 class="evd-title">
+                            Sortie chreat
+                        </h1>
+                        <br>
+                        <p class="ev-infos-card">
+                            <span class="date-info">
+                                <i class="fa fa-calendar"></i>
+                                <span class="date-info-content">26-06-2020</span>
+                            </span>
+                            <span class="time-info">
+                                <i class="fa fa-clock-o"></i>
+                                <span class="time-info-content">18:00</span>
+                            </span>
+                            <span class="place-info">
+                                <i class="fa fa-map"></i>
+                                <span class="place-info-content">Blida</span>
+                            </span>
+                        </p>
+                        <p>
+                            La plantation d’un arbre est un geste qui nous permet de 
+                            redonner vie à notre environnement sur le long terme. Par 
+                            ce geste simple, nous compensons l’impact désastreux de 
+                            la déforestation et du réchauffement climatique sur notre environnement. Et Contribuons ainsi à l’amélioration de la vie de demain.
+                        </p>
+                    </div>
+                    <a href="" class="l-ev">Voir l'évenement</a>
+                </div>
+            </div>
+
+            <div class="ev-card">
+                <div class="event-img" style="background-image: url('bg_1.jpg');">
+
+                </div>
+                <div class="event-description">
+                    <div>
+                        <h1 class="evd-title">
+                            Sortie chreat
+                        </h1>
+                        <br>
+                        <p class="ev-infos-card">
+                            <span class="date-info">
+                                <i class="fa fa-calendar"></i>
+                                <span class="date-info-content">26-06-2020</span>
+                            </span>
+                            <span class="time-info">
+                                <i class="fa fa-clock-o"></i>
+                                <span class="time-info-content">18:00</span>
+                            </span>
+                            <span class="place-info">
+                                <i class="fa fa-map"></i>
+                                <span class="place-info-content">Blida</span>
+                            </span>
+                        </p>
+                        <p>
+                            La plantation d’un arbre est un geste qui nous permet de 
+                            redonner vie à notre environnement sur le long terme. Par 
+                            ce geste simple, nous compensons l’impact désastreux de 
+                            la déforestation et du réchauffement climatique sur notre environnement. Et Contribuons ainsi à l’amélioration de la vie de demain.
+                        </p>
+                    </div>
+                    <a href="" class="l-ev">Voir l'évenement</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
