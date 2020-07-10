@@ -118,7 +118,7 @@ const Navbar = () => {
                 <div className="arrow-up"></div>
 
                 {Data[0].sub.map((subNav) => (
-                  <Link key={subNav.id} to={subNav.link}>
+                  <Link key={subNav.id} to={`${Data[0].link}${subNav.link}`}>
                     <button
                       onMouseEnter={() => toggleSubMenu(1, "enter")}
                       onMouseLeave={() => toggleSubMenu(0, "leave")}
