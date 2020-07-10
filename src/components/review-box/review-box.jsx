@@ -5,18 +5,14 @@ import { useCountUp } from "react-countup";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 200,
-    margin: "5% 2%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
+    height: 200,
   },
   figure: {
     height: 100,
   },
   icon: {
-    width: 75,
     height: 75,
+    width: 75,
   },
 });
 
