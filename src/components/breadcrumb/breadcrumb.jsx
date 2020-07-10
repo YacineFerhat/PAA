@@ -8,7 +8,6 @@ const useStyles = makeStyles({
   root: {
     height: 100,
     backgroundColor: "#234915",
-    marginTop: "10%",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",

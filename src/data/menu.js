@@ -8,7 +8,7 @@ import reseaux from "assets/icones/sport.png";
 import sport from "assets/icones/sport.png";
 import tourisme from "assets/icones/tourisme.png";
 
-const Menu = [
+const Data = [
   {
     id: 1,
     title: "PLOGGING ASSOCIATION ALGERIA",
@@ -41,6 +41,7 @@ const Menu = [
       },
     ],
   },
+
   {
     id: 2,
     title: "Nos comités",
@@ -104,4 +105,4 @@ const Menu = [
   },
 ];
 
-export default Menu;
+export default Data;

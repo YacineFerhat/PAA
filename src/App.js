@@ -10,11 +10,12 @@ import Contact from "./routes/contact";
 import Colab from "./routes/colab";
 import BreadCrumb from "components/breadcrumb";
 import BlogArticle from "./routes/blog-article";
+import NavBar from "components/navbar";
 function App() {
   return (
     <>
-      <Header />
-      <div className="App" style={{ marginTop: "120px" }}>
+      <NavBar />
+      <div className="App">
         <BreadCrumb />
         <Switch>
           <Route exact path="/">
