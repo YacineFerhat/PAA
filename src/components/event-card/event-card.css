@@ -1,0 +1,168 @@
+.new_event {
+    width: 100%;
+    height: 100vh;
+}
+
+.up-ev {
+    color: rgb(0, 180, 137);
+    font-size: 4em;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.ev {
+    width: 100%;
+    height: 100%;
+}
+
+.ev .b-panel {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.719);
+    color: white;
+    text-align: center;
+    overflow-y: auto;
+}
+
+#ev1 {
+    background-size: cover;
+}
+
+#ev2 {
+    background-size: cover;
+}
+
+.ev-title {
+    padding-top: 10%;
+    font-size: 3em;
+    text-align: center;
+}
+
+.event-carousel {
+    width: 100%;
+    height: 100%;
+}
+
+.event-carousel img {
+    width: 100%;
+}
+
+.ev-infos {
+    margin-top: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.ev-infos button {
+    border: solid white 1px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 20px;
+    font-size: 1.3em;
+    font-weight: lighter;
+}
+
+.know-more {
+    margin-top: 25px;
+    padding: 20px 50px 20px 50px;
+    font-size: 1em;
+    border: none;
+    background-color: rgb(0, 180, 137);
+    color: white;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.2s ease;
+}
+
+.know-more:hover {
+    background-color: rgb(23, 122, 99);
+}
+
+.old_event {
+    margin-bottom: 50px;
+    width: 100%;
+    margin: auto;
+}
+
+.old-ev {
+    margin-top: 50px;
+    font-size: 4em;
+    color: #177a63;
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+
+
+
+.ev-card {
+    width: 350px;
+    height: 600px;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.54);
+}
+
+.event-img {
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+}
+
+.event-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    height: 60%;
+    padding-top: 15px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    background-color: white;
+    position: relative;
+    top: -50px;
+}
+
+.evd-title {
+    text-align: center;
+    font-size: 25px;
+    color: black;
+    font-weight: bolder;
+}
+
+.l-ev {
+    text-decoration: none;
+    color: rgb(226, 65, 65);
+}
+
+.l-ev:hover {
+    color: rgb(23, 122, 99);
+}
+
+.ev-infos-card {
+    margin-top: 5px;
+    display: flex;
+    color: rgb(226, 65, 65);
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.date-info {
+
+    display: flex;
+    align-items: center;
+}
+
+.time-info {
+    display: flex;
+    align-items: center;
+}
+
+.place-info {
+    display: flex;
+    align-items: center;
+}

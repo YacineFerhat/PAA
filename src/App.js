@@ -11,6 +11,7 @@ import Colab from "./routes/colab";
 import BreadCrumb from "components/breadcrumb";
 import BlogArticle from "./routes/blog-article";
 import NavBar from "components/navbar";
+import Event from "routes/evenement";
 function App() {
   return (
     <>
@@ -41,6 +42,9 @@ function App() {
           </Route>
           <Route path="/Collaborateurs">
             <Colab />
+          </Route>
+          <Route path="/Evenements">
+            <Event />
           </Route>
         </Switch>
       </div>
