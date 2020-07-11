@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     display: "flex",
   },
   date: {
-    color: "hsl(130, 53%, 33%)",
+    color: "#177a63",
   },
   categorie: {
     marginLeft: "3%",
@@ -27,8 +27,8 @@ const useStyles = makeStyles({
   },
   button: {
     "&:hover": {
-      backgroundColor: "hsl(130, 53%, 33%)",
-      borderColor: "hsl(130, 53%, 33%)",
+      backgroundColor: "#177a63",
+      borderColor: "#177a63",
       boxShadow: "none",
     },
   },

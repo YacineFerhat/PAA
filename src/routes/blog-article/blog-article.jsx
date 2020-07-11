@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "2%",
   },
   date: {
-    color: "hsl(130, 53%, 33%)",
+    color: "#177a63",
   },
   categorie: {
     marginLeft: "3%",
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     color: "white",
-    backgroundColor: "#234915",
+    backgroundColor: "#177a63",
     "&:hover": {
       backgroundColor: "#233015",
     },

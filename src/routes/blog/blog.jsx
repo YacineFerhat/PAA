@@ -35,13 +35,13 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     fontSize: "20px",
-    color: "#234915",
+    color: "#177a63",
   },
   button: {
     margin: "3% 5%",
     "&:hover": {
       color: "white",
-      backgroundColor: "#234915",
+      backgroundColor: "#177a63",
     },
   },
 }));

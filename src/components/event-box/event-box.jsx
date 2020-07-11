@@ -4,7 +4,7 @@ import DataBox from "components/data-box";
 import event from "data/event";
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "#234915",
+    backgroundColor: "#177a63",
     height: 450,
     borderRadius: "10%",
     margin: "0% 10%",

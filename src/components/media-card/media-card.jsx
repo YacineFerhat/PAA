@@ -19,6 +19,10 @@ const useStyles = makeStyles({
   media: {
     height: 250,
   },
+  image: {
+    height: "100%",
+    width: "100%",
+  },
   title: {
     height: 30,
   },
@@ -33,11 +37,9 @@ const MediaCard = ({ data: { link, title, desc, picture, icon } }) => {
       <Card className={classes.card}>
         <Link to={`${path}${link}`}>
           <CardActionArea>
-            <CardMedia
-              className={classes.media}
-              image={picture}
-              title={title}
-            />
+            <CardMedia className={classes.media} title={title}>
+              <img className={classes.image} src={picture} />
+            </CardMedia>
             <CardContent>
               <div style={{ display: "flex", justifyContent: "center" }}>
                 {icon && (
