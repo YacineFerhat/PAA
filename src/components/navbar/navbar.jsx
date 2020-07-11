@@ -27,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
+  subNav: {
+    display: "flex",
+    flexDirection: "column",
+  },
 }));
 const Navbar = () => {
   const classes = useStyles();
@@ -44,6 +48,10 @@ const Navbar = () => {
     }
     setIdToToggle(id);
     console.log(id);
+  };
+  const [toggleSmallDevices, setToggleSmallDevices] = useState(false);
+  const handleSmallDevices = () => {
+    setToggleSmallDevices(!toggleSmallDevices);
   };
   return (
     <nav className="a-navbar">
@@ -109,7 +117,7 @@ const Navbar = () => {
             </Link>
             {Data[0].sub && (
               <div
-                className="sub-nav"
+                className={`sub-nav ${classes.subNav}`}
                 style={{
                   display:
                     idToToggle === 1 && ToggleArrowUp && matches ? "" : "none",
@@ -132,11 +140,11 @@ const Navbar = () => {
             )}
           </div>
         </div>
-        <button class="a-mobile nav-trigger">
+        <button onClick={handleSmallDevices} className="a-mobile nav-trigger">
           <MenuIcon />
         </button>
 
-        <div className="right-side">
+        <div className="right-side" style={{}}>
           {Data.map((nav) =>
             nav.id !== 1 ? (
               <div class="nav-item-holder">
@@ -163,7 +171,7 @@ const Navbar = () => {
                 </Link>
                 {nav.sub && (
                   <div
-                    className="sub-nav"
+                    className={`sub-nav ${classes.subNav}`}
                     style={{
                       display:
                         idToToggle === nav.id && ToggleArrowUp ? "" : "none",

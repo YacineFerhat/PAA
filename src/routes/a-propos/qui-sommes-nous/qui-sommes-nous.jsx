@@ -1,5 +1,5 @@
 import React from "react";
-
+import picture from "assets/pictures/g2.jpg";
 const QuiSommesNous = () => {
   return (
     <section className="hero is-fullheight">
@@ -8,7 +8,7 @@ const QuiSommesNous = () => {
           <div className="columns is-variable is-1-tablet is-6-desktop is-6-widescreen is-8-fullhd">
             <div className="column is-6 ">
               <figure class="image">
-                <img src="https://bulma.io/images/placeholders/128x128.png" />
+                <img src={picture} />
               </figure>
             </div>
             <div className="column is-6">

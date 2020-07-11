@@ -47,7 +47,8 @@ const Media = [
 
     link: "/Conférence",
     icon: conf,
-    desc: "Phrase d'accroche à rajouter",
+    desc:
+      "Prévoit des tables rondes, ciné-débat, conférences et workshop ,traitant différentes problématiques  environnementales",
   },
   {
     id: 5,
@@ -55,7 +56,7 @@ const Media = [
     picture: "",
 
     link: "/Biodiversité",
-    desc: "Phrase d'accroche à rajouter",
+    desc: "Description à rajouter",
   },
 ];
 
