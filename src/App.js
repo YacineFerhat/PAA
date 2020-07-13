@@ -12,9 +12,11 @@ import BreadCrumb from "components/breadcrumb";
 import BlogArticle from "./routes/blog-article";
 import NavBar from "components/navbar";
 import Event from "routes/evenement";
+import Loader from "./components/loader"
 function App() {
   return (
     <>
+      <Loader />
       <NavBar />
       <div className="App">
         <BreadCrumb />
