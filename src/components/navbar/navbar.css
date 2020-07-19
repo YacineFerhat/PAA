@@ -114,7 +114,10 @@ a {
     height: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+}
+
+.a-nav-2 .nav-item span {
+    align-items: center;   
 }
 
 .logo {
