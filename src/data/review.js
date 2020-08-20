@@ -1,8 +1,8 @@
-import calendar from "assets/icones/calendar.svg";
-import plant from "assets/icones/plant.svg";
-import student from "assets/icones/student.svg";
-import trash from "assets/icones/trash.svg";
-import volunteer from "assets/icones/volunteer.svg";
+import calendar from "assets/icones/calendar3.svg";
+import plant from "assets/icones/plant3.svg";
+import student from "assets/icones/student3.svg";
+import trash from "assets/icones/trash3.svg";
+import volunteer from "assets/icones/volunteer3.svg";
 
 const Data = [
   {

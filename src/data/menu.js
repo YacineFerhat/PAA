@@ -10,41 +10,13 @@ import tourisme from "assets/icones/tourisme.png";
 
 const Data = [
   {
-    id: 1,
-    title: "PLOGGING ASSOCIATION ALGERIA",
-    link: "/Apropos",
-    sub: [
-      {
-        id: 1,
-        title: "Qui sommes-nous?",
-        link: "/QuiSommeNous",
-      },
-      {
-        id: 2,
-        title: "Qu’est-ce que le Plogging?",
-        link: "/Plogging",
-      },
-      {
-        id: 3,
-        title: "Nos objectifs?",
-        link: "/Objectifs",
-      },
-      {
-        id: 4,
-        title: "Nos activités?",
-        link: "/Activités",
-      },
-      {
-        id: 5,
-        title: "Nous rejoindre",
-        link: "/RejoignezNous",
-      },
-    ],
+    id: 3,
+    title: "Teams",
+    link: "/Teams",
   },
-
   {
     id: 2,
-    title: "Nos comités",
+    title: "Comités",
     link: "/Comités",
     sub: [
       {
@@ -78,20 +50,50 @@ const Data = [
       },
     ],
   },
+
   {
-    id: 3,
-    title: "Nos teams",
-    link: "/Teams",
+    id: 5,
+    title: "Evénements ",
+    link: "/Evenements",
   },
+
+  {
+    id: 1,
+    title: "PLOGGING ASSOCIATION ALGERIA",
+    link: "/Apropos",
+    sub: [
+      {
+        id: 1,
+        title: "Qui sommes-nous?",
+        link: "/QuiSommeNous",
+      },
+      {
+        id: 2,
+        title: "Qu’est-ce que le Plogging?",
+        link: "/Plogging",
+      },
+      {
+        id: 3,
+        title: "Nos objectifs?",
+        link: "/Objectifs",
+      },
+      {
+        id: 4,
+        title: "Nos activités?",
+        link: "/Activités",
+      },
+      {
+        id: 5,
+        title: "Nous rejoindre",
+        link: "/RejoignezNous",
+      },
+    ],
+  },
+
   {
     id: 4,
     title: "Collaborateurs",
     link: "/Collaborateurs",
-  },
-  {
-    id: 5,
-    title: "Nos évenements ",
-    link: "/Evenements",
   },
   {
     id: 6,
@@ -100,7 +102,7 @@ const Data = [
   },
   {
     id: 7,
-    title: "Contacts",
+    title: "Contact",
     link: "/Contacts",
   },
 ];

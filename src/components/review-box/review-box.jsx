@@ -14,6 +14,10 @@ const useStyles = makeStyles({
     height: 75,
     width: 75,
   },
+  title: {
+    fontFamily: "Comic Sans MS",
+    fontSize: "16px",
+  },
 });
 
 const ReviewBox = ({ data: { title, icon, number } }) => {
@@ -32,7 +36,12 @@ const ReviewBox = ({ data: { title, icon, number } }) => {
       <Typography color="textPrimary" variant="h4" gutterBottom>
         {countUp}
       </Typography>
-      <Typography color="textPrimary" variant="h6" gutterBottom>
+      <Typography
+        className={classes.title}
+        color="textPrimary"
+        variant="h6"
+        gutterBottom
+      >
         {title}
       </Typography>
     </div>

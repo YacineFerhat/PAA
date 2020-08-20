@@ -23,10 +23,21 @@ a {
     width: 100%;
 }
 
+/*
+rgb(0, 180, 137)
+4ab25b
+75c058
+8bc856
+d3f7c5
+019860
+019961
+1a6d31
+75c058
+*/
 .a-nav-1 {
     width: 100%;
     height: 50px;
-    background-color: rgb(0, 180, 137);
+    background-image: linear-gradient(to right, #75c058 15%, #4ab25b);
     display: flex;
     justify-content: space-between;
 }

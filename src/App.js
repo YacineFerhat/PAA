@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import Home from "./routes/home";
-import Header from "./components/header";
 import Apropos from "./routes/a-propos";
 import Comites from "./routes/comites";
 import Teams from "./routes/teams";
@@ -11,13 +10,15 @@ import Colab from "./routes/colab";
 import BreadCrumb from "components/breadcrumb";
 import BlogArticle from "./routes/blog-article";
 import NavBar from "components/navbar";
+import Nav from "components/new-nav";
 import Event from "routes/evenement";
+import GlobalFonts from "./fonts/font";
 function App() {
   return (
     <>
-      <NavBar />
+      <GlobalFonts />
+      <Nav />
       <div className="App">
-        <BreadCrumb />
         <Switch>
           <Route exact path="/">
             <Home />

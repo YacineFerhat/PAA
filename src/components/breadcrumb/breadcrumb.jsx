@@ -5,9 +5,10 @@ import { useLocation } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 const useStyles = makeStyles({
+  //4ab25b 75c058 177a63
   root: {
     height: 100,
-    backgroundColor: "#177a63",
+    backgroundImage: "linear-gradient(to right, #75c058 80% , #4ab25b)",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",

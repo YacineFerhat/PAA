@@ -5,19 +5,38 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import EventBox from "components/event-box";
+import eti1 from "assets/etiquettes/eti1.png";
+import eti2 from "assets/etiquettes/eti2.png";
+import Event from "components/event-box/event";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    margin: "6% 10% 0% 10%",
+    backgroundColor: "white",
   },
+  video: {
+    display: "flex",
+    justifyContent: "center",
+    width: "100%",
+    fontSize: "170px",
+    fontFamily: "Ink Free",
+    color: "black",
+    fontWeight: "300",
+    height: 300,
+  },
+  numbers: {},
   title: {
-    marginBottom: "10%",
-    marginTop: "10%",
+    paddingLeft: "5%",
+    fontFamily: "Comic Sans MS",
+  },
+  grid: {
+    padding: "5% 25% 0% 2%",
   },
   slogan: {
     marginTop: "5%",
     height: "150px",
     width: "100%",
-    backgroundColor: "#177a63",
+    backgroundImage: "linear-gradient(to right, #66d366 50%, #009245)",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -25,7 +44,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "40px",
     fontFamily: "Inconsolata, monospace",
   },
-  events: {},
+  events: {
+    marginTop: "10%",
+    padding: "0 5% 0% 20%",
+  },
+  eventTitle: {
+    paddingLeft: "5%",
+    fontFamily: "Comic Sans MS",
+  },
   desc: {
     display: "flex",
     padding: "0% 5%",
@@ -33,31 +59,35 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     fontSize: "20px",
   },
+  etiq1: {
+    height: 550,
+    width: 700,
+    position: "absolute",
+    right: 0,
+  },
 }));
 
 const Home = () => {
   const classes = useStyles();
 
   return (
-    <div>
-      <section className="hero is-fullheight">
+    <div className={classes.root}>
+      <section className="hero">
         <div className="hero-body">
-          La video d'intro viendra ici et jouera en fond d'écran Un text sera
-          aussi affiché par dessus
+          <div className={classes.video}>la vidéo</div>
         </div>
       </section>
-      <div className="hero is-fullwidth">
-        <div className="container has-text-centered">
-          <Typography
-            className={classes.title}
-            color="textPrimary"
-            variant="h3"
-            gutterBottom
-          >
-            Plogging en chiffres !
-          </Typography>
-        </div>
+      <section className={`hero is-fullwidth ${classes.numbers}`}>
+        <Typography
+          className={classes.title}
+          color="textPrimary"
+          variant="h3"
+          gutterBottom
+        >
+          Plogging en chiffres !
+        </Typography>
         <Grid
+          className={classes.grid}
           direction="row"
           justify="space-evenly"
           alignItems="center"
@@ -70,31 +100,38 @@ const Home = () => {
             </Grid>
           ))}{" "}
         </Grid>
-        <div className={classes.slogan}>"Ensemble on est plus fort"</div>
-        <div className=" has-text-centered">
+      </section>
+      <section className={`hero is-fullwidth ${classes.events}`}>
+        <div className="">
           <Typography
-            className={classes.title}
+            className={classes.title && classes.eventTitle}
             color="textPrimary"
             variant="h3"
             gutterBottom
           >
-            Nos prochains événements !
+            Evénement à venir !
           </Typography>
-          <div className={`columns ${classes.events}`}>
-            <div className="column is-7">
-              <EventBox />
-            </div>
+          <div className={`columns ${classes.event}`}>
             <div className={`column is-5 ${classes.desc}`}>
-              Vous voulez préserver notre planète terre? nettoyer ses villes,
-              plages et montagnes? Tout ceci dans une très bonne ambiance ? Ne
-              réflaichissez plus ! Participiez à un de nos prochains événements
-              (A travailler)
+              Phrae d'accorce/ description à rajouter
+            </div>
+            <div className="column is-7">
+              <Event />
             </div>
           </div>
         </div>
-      </div>
+      </section>
+      <section className="hero-is-fullwidth">
+        <div className={classes.slogan}>"Ensemble on est plus fort"</div>
+      </section>
     </div>
   );
 };
 
 export default Home;
+/*
+ Vous voulez préserver notre planète terre? nettoyer ses villes,
+              plages et montagnes? Tout ceci dans une très bonne ambiance ? Ne
+              réflaichissez plus ! Participiez à un de nos prochains événements
+              (A travailler)
+*/
