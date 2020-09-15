@@ -18,9 +18,9 @@ import GlobalFonts from "./fonts/font";
 function App() {
   return (
     <>
+      <Loader />
       <GlobalFonts />
       <Nav />
-      <Loader />
       <div className="App">
         <Switch>
           <Route exact path="/">
