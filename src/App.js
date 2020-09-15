@@ -12,12 +12,15 @@ import BlogArticle from "./routes/blog-article";
 import NavBar from "components/navbar";
 import Nav from "components/new-nav";
 import Event from "routes/evenement";
+import Loader from "./components/loader";
+
 import GlobalFonts from "./fonts/font";
 function App() {
   return (
     <>
       <GlobalFonts />
       <Nav />
+      <Loader />
       <div className="App">
         <Switch>
           <Route exact path="/">

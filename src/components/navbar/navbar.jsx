@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
@@ -32,39 +32,89 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
 }));
+
 const Navbar = () => {
   const classes = useStyles();
-  const [ToggleArrowUp, setToggleArrowUp] = useState(false);
-  const [idToToggle, setIdToToggle] = useState(0);
-
-  const mediaMatch = window.matchMedia("(min-width: 1024px)");
+  const mediaMatch = window.matchMedia("(max-width: 1024px)");
   const [matches, setMatches] = useState(mediaMatch.matches);
-  console.log(matches);
-  const toggleSubMenu = (id, state) => {
-    if (state === "enter") {
-      setToggleArrowUp(true);
-    } else {
-      setToggleArrowUp(false);
+  const [lNav, setLNav] = useState(false);
+  const [lNav2, setLNav2] = useState(false);
+  const [rNav, setRNav] = useState(false);
+  const [rNav2, setRNav2] = useState(false);
+  const [mobileNav, setMobileNav] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      if (window.matchMedia("(max-width: 1024px)").matches != matches) {
+        setMatches(!matches);
+      }
+    });
+  });
+
+  function showNav1(dir) {
+    if (dir == "left") {
+      setLNav(true);
     }
-    setIdToToggle(id);
-    console.log(id);
-  };
-  const [toggleSmallDevices, setToggleSmallDevices] = useState(false);
-  const handleSmallDevices = () => {
-    setToggleSmallDevices(!toggleSmallDevices);
-  };
+    else if (dir == "right") {
+      setRNav(true);
+    }
+
+    return true;
+  }
+
+  function showNav2(dir) {
+    if (dir == "left") {
+      setLNav2(true);
+      setLNav(true);
+    }
+    else if (dir == "right") {
+      setRNav2(true);
+      setRNav(true);
+    }
+
+    return true;
+  }
+
+  function hideNav1(dir) {
+    if (dir == "left") {
+      if (!lNav2) {
+        setLNav(false);
+      }
+    }
+    else if (dir == "right") {
+      if (!rNav2) {
+        setRNav(false);
+      }
+    }
+
+    return true;
+  }
+
+  function hideNav2(dir) {
+    if (dir == "left") {
+      setLNav2(false);
+      setLNav(false);
+    }
+    else if (dir == "right") {
+      setRNav2(false);
+      setRNav(false);
+    }
+
+    console.log(lNav2);
+    return true;
+  }
+
   return (
     <nav className="a-navbar">
       <div className="a-nav-1">
         <div></div>
         <div className="right-side">
           <div className="nav-mail">
-            <div className="mail-icon">
-              {" "}
-              <EmailIcon />
-            </div>
+            <EmailIcon />
+            &nbsp;
             plogging_association_algeria@hotmail.com
           </div>
+
           <span className="icons">
             <a
               className={`links ${classes.links}`}
@@ -90,46 +140,45 @@ const Navbar = () => {
           </span>
         </div>
       </div>
+
       <div className="a-nav-2">
         <div className="left-side">
           <Link to="/">
             <img src={logo} alt="Logo plogging_association_algeria" />
           </Link>
+
           <div className="nav-item-holder">
-            <Link to={Data[0].link}>
+
+            <Link to={!Data[0].sub ? Data[0].link : !matches ? Data[0].link : "#"}>
               <button
                 className={`nav-item ${classes.navItem}`}
-                onMouseEnter={() => toggleSubMenu(1, "enter")}
-                onMouseLeave={() => toggleSubMenu(0, "leave")}
+                onMouseEnter={() => { !matches && showNav1("left") }}
+                onMouseLeave={() => { !matches && hideNav1("left") }}
+
+                onClick={() => { matches && ((!lNav2 && showNav2("left") && showNav1("left")) || lNav2 && hideNav2("left")) }}
               >
-                <span className={classes.flexDisplay}>
+                <span>
                   {Data[0].title}
-                  <div>
-                    {" "}
-                    {idToToggle === 1 && ToggleArrowUp ? (
-                      <ExpandLessIcon />
-                    ) : (
-                      <ExpandMoreIcon />
-                    )}
-                  </div>
+                  &nbsp;
+                  <i
+                    className={`fa ${lNav ? "fa-angle-up" : "fa-angle-down"}`}
+                  >
+                  </i>
                 </span>
               </button>
             </Link>
-            {Data[0].sub && (
+
+            {Data[0].sub && lNav && (
               <div
-                className={`sub-nav ${classes.subNav}`}
-                style={{
-                  display:
-                    idToToggle === 1 && ToggleArrowUp && matches ? "" : "none",
-                }}
+                className={`sub-nav`}
+                onMouseEnter={() => { !matches && showNav2("left") }}
+                onMouseLeave={() => { !matches && hideNav2("left") }}
               >
                 <div className="arrow-up"></div>
 
                 {Data[0].sub.map((subNav) => (
                   <Link key={subNav.id} to={`${Data[0].link}${subNav.link}`}>
                     <button
-                      onMouseEnter={() => toggleSubMenu(1, "enter")}
-                      onMouseLeave={() => toggleSubMenu(0, "leave")}
                       className={`sub-nav-item `}
                     >
                       <span>{subNav.title}</span>
@@ -139,52 +188,44 @@ const Navbar = () => {
               </div>
             )}
           </div>
+
         </div>
-        <button onClick={handleSmallDevices} className="a-mobile nav-trigger">
-          <MenuIcon />
+
+        <button onClick={() => setMobileNav(!mobileNav)} className={`a-mobile nav-trigger fa ${mobileNav ? "fa-close" : "fa-bars"}`}>
         </button>
 
-        <div className="right-side" style={{}}>
-          {Data.map((nav) =>
+        <div className="right-side">
+          {(!matches || mobileNav) && Data.map((nav) =>
             nav.id !== 1 ? (
-              <div class="nav-item-holder">
-                <Link to={nav.link}>
+              <div className="nav-item-holder">
+                <Link to={!nav.sub ? nav.link : !matches ? nav.link : "#"}>
                   <button
-                    className={`nav-item ${classes.navItem}`}
-                    onMouseEnter={() => toggleSubMenu(nav.id, "enter")}
-                    onMouseLeave={() => toggleSubMenu(0, "leave")}
+                    className={`nav-item`}
+                    onMouseEnter={() => { nav.sub && !matches && showNav1("right") }}
+                    onMouseLeave={() => { nav.sub && !matches && hideNav1("right") }}
+                    onClick={() => { nav.sub && matches && ((!rNav2 && showNav2("right") && showNav1("right")) || rNav2 && hideNav2("right")) }}
                   >
-                    <span className={classes.flexDisplay}>
+                    <span>
                       {nav.title}
+                      &nbsp;
                       {nav.sub && (
-                        <div>
-                          {" "}
-                          {idToToggle === nav.id && ToggleArrowUp && matches ? (
-                            <ExpandLessIcon />
-                          ) : (
-                            <ExpandMoreIcon />
-                          )}{" "}
-                        </div>
+                        <i className={`fa ${nav.sub && (rNav ? "fa-angle-up" : "fa-angle-down")}`}></i>
                       )}
                     </span>
                   </button>
                 </Link>
-                {nav.sub && (
+                {nav.sub && rNav && (
                   <div
-                    className={`sub-nav ${classes.subNav}`}
-                    style={{
-                      display:
-                        idToToggle === nav.id && ToggleArrowUp ? "" : "none",
-                    }}
+                    className={`sub-nav`}
+                    onMouseEnter={() => { !matches && showNav2("right") }}
+                    onMouseLeave={() => { !matches && hideNav2("right") }}
                   >
                     <div className="arrow-up"></div>
 
                     {nav.sub.map((subNav) => (
                       <Link key={subNav.id} to={`${nav.link}${subNav.link}`}>
                         <button
-                          className={`sub-nav-item `}
-                          onMouseEnter={() => toggleSubMenu(nav.id, "enter")}
-                          onMouseLeave={() => toggleSubMenu(0, "leave")}
+                          className={`sub-nav-item`}
                         >
                           <span>{subNav.title}</span>
                         </button>
@@ -193,7 +234,7 @@ const Navbar = () => {
                   </div>
                 )}
               </div>
-            ) : null
+            ) : ""
           )}
         </div>
       </div>
@@ -202,169 +243,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-/*
-
-<div className={classes.aNav2}>
-        <div className={classes.leftSide}>
-          <img
-            src={logo}
-            className={classes.logo}
-            alt="Logo plogging_association_algeria"
-          />
-          <div className={classes.navItemHolder}>
-            <a href="#">
-              <button className={classes.navItem}>
-                <span>
-                  PLOGGING ASSOCIATION ALGERIA
-                  <ExpandMoreIcon />
-                </span>
-              </button>
-            </a>
-          </div>
-        </div>
-      </div>*/
-/*
-  <nav class="a-navbar">
-        
-
-        <div class="a-nav-2">
-            <div class="left-side">
-                <img src="logo.png" alt="Logo plogging_association_algeria">
-
-                <div class="nav-item-holder">
-                    <a href="#">
-                        <button class="nav-item">
-                            <span>
-                                PLOGGING ASSOCIATION ALGERIA 
-                                <i class="fa fa-angle-down l-sign"></i>
-                            </span>
-                        </button>
-                    </a>
-                    <div class="sub-nav">
-                        <div class="arrow-up">
-
-                        </div>
-
-                        <a href="#">
-                            <button class="sub-nav-item">
-                                Qui sommes-nous ?
-                            </button>
-                        </a>
-
-                        <a href="#">
-                            <button class="sub-nav-item">
-                                Qu’est-ce que le Plogging ?
-                            </button>
-                        </a>
-
-                        <a href="#">
-                            <button class="sub-nav-item">
-                                Nos objectifs ?
-                            </button>
-                        </a>
-                        
-                        <a href="#">
-                            <button class="sub-nav-item">
-                                Nous rejoindre
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <button class="a-mobile nav-trigger fa fa-bars">
-            </button>
-
-            <div class="right-side">
-                <div class="nav-item-holder">
-                    <a href="#">
-                        <button class="nav-item">
-                            Accueil
-                        </button>
-                    </a>
-                </div>
-
-                <div class="nav-item-holder">
-                    <a href="#">
-                        <button class="nav-item">
-                            <span>Nos comités</span>
-                            <i class="fa fa-plus n-sign"></i>
-                            <span class="desktop">
-                                &nbsp;
-                                <i class="fa fa-angle-down l-sign"></i>
-                            </span>
-                        </button>
-                    </a>
-                    <div class="sub-nav">
-
-                        <div class="arrow-up">
-
-                        </div>
-                        <a href="#">
-                            <button class="sub-nav-item">
-                                Sport et bien être
-                            </button>
-                        </a>
-                        
-                        <a href="#">
-                            <button class="sub-nav-item">
-                                Junior
-                            </button>
-                        </a>
-
-                        <a href="#">
-                            <button class="sub-nav-item">
-                                Eco-tourisme
-                            </button>
-                        </a>
-
-                        <a href="#">
-                            <button class="sub-nav-item">
-                                Conférence
-                            </button>
-                        </a>
-
-                        <a href="#">
-                            <button class="sub-nav-item">
-                                Biodiversité
-                            </button>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="nav-item-holder">
-                    <a href="#">
-                        <button class="nav-item">
-                            Nos teams
-                        </button>
-                    </a>
-                </div>
-
-                <div class="nav-item-holder">
-                    <a href="#">
-                        <button class="nav-item">
-                            Collaborateurs
-                        </button>
-                    </a>
-                </div>
-
-                <div class="nav-item-holder">
-                    <a href="#">
-                        <button class="nav-item">
-                            Nos évenements
-                        </button>
-                    </a>
-                </div>
-
-                <div class="nav-item-holder">
-                    <a href="#">
-                        <button class="nav-item">
-                            Articles
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-*/

@@ -110,6 +110,12 @@ d3f7c5
     width: 150px;
 }
 
+.a-nav-2 .left-side 
+{
+    height: 100%;
+    overflow: hidden;
+}
+
 .a-nav-2 .nav-item {
     background-color: rgba(0, 0, 0, 0);
     border: none;
@@ -119,6 +125,10 @@ d3f7c5
     height: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+.a-nav-2 .nav-item span {
+    align-items: center;   
 }
 
 .logo {
@@ -141,6 +151,8 @@ d3f7c5
     position: absolute;
     flex-direction: column;
     top: 185px;
+    z-index: 99;
+    display: flex;
 }
 
 .sub-nav-item {
@@ -160,6 +172,10 @@ d3f7c5
 
 .sub-nav-item:hover {
     background-color: rgb(0, 180, 137);
+}
+
+.nav-item:hover {
+    color: rgb(0, 180, 137);
 }
 
 @media only screen and (max-width: 1024px) {
@@ -190,7 +206,7 @@ d3f7c5
         width: 100%;
         margin: 0;
         overflow: hidden;
-        display: none;
+        display: flex;
     }
 
     .sub-nav {
@@ -207,6 +223,7 @@ d3f7c5
 
     .sub-nav-item {
         width: 100vw;
+        padding-left: 40px;
     }
 
     .sub-nav-item:hover {
@@ -224,6 +241,7 @@ d3f7c5
     .right-side .nav-item {
         width: 100vw;
         padding: 15px;
+        padding-left: 25px;
         text-align: left;
     }
 
@@ -259,7 +277,7 @@ d3f7c5
     }
 
     .right-side .nav-item-holder:nth-child(1) {
-        padding-top: 40px;
+        padding-top: 20px;
     }
 
     .n-sign {
