@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import YouTubeIcon from "@material-ui/icons/YouTube";
 import { Link } from "react-router-dom";
 import Data from "data/menu";
 import youtube from "assets/icones/youtube.svg";

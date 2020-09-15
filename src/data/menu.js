@@ -59,7 +59,7 @@ const Data = [
 
   {
     id: 1,
-    title: "PLOGGING ASSOCIATION ALGERIA",
+    title: "A propos",
     link: "/Apropos",
     sub: [
       {

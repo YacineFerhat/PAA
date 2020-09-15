@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import Home from "./routes/home";
 import Apropos from "./routes/a-propos";
@@ -9,18 +9,26 @@ import Contact from "./routes/contact";
 import Colab from "./routes/colab";
 import BreadCrumb from "components/breadcrumb";
 import BlogArticle from "./routes/blog-article";
-import NavBar from "components/navbar";
 import Nav from "components/new-nav";
 import Event from "routes/evenement";
 import Loader from "./components/loader";
-
+import MobilNav from "components/mobile-nav";
 import GlobalFonts from "./fonts/font";
 function App() {
+  const mediaMatch = window.matchMedia("(min-width: 1114px)");
+  const [matches, setMatches] = useState(mediaMatch.matches);
+  useEffect(() => {
+    const handler = (e) => setMatches(e.matches);
+    mediaMatch.addListener(handler);
+    return () => mediaMatch.removeListener(handler);
+  });
+
+  let header = matches ? <Nav /> : <MobilNav />;
   return (
     <>
       <Loader />
       <GlobalFonts />
-      <Nav />
+      {header}
       <div className="App">
         <Switch>
           <Route exact path="/">
