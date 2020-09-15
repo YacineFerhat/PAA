@@ -95,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "white",
   },
   navItemTitlte: {
-    fontFamily: "Ink Free",
+    fontFamily: "Comic Sans MS",
     fontSize: "30px",
     fontWeight: "900",
   },
@@ -126,7 +126,7 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     fontSize: "16px",
     padding: "5%",
-    fontFamily: "Ink Free",
+    fontFamily: "Comic Sans MS",
     "&:hover": {
       backgroundImage: "linear-gradient(to right, #66d366 50%, #009245)",
       cursor: "pointer",
@@ -175,7 +175,7 @@ const Navbar = () => {
             </a>
           </div>
         </div>
-        <div className={classes.nav2} style={{ fontFamily: "Ink Normal" }}>
+        <div className={classes.nav2} style={{ fontFamily: "Comic Sans MS" }}>
           <div className={classes.left}>
             {dataLeft.map((lien) => (
               <>

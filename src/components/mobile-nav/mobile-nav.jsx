@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    width: "35%",
+    width: "40%",
     borderRadius: "5px",
     position: "relative",
   },
@@ -61,11 +61,11 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     fontSize: "20px",
     fontWeight: "500",
-    fontFamily: "Ink Free",
+    fontFamily: "Comic Sans MS",
     width: "100%",
     padding: "0% 5%",
     textAlign: "center",
-    letterSpacing: 2.5,
+    letterSpacing: 1.7,
   },
   hr: {
     height: "2px",
@@ -130,7 +130,6 @@ const MobileNav = () => {
                 >
                   {link.title}
                 </NavLink>
-                <div className={classes.hr} />
               </div>
             ))}
           </div>
