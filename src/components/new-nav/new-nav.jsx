@@ -8,14 +8,17 @@ import Data from "data/menu";
 import youtube from "assets/icones/youtube.svg";
 import fb from "assets/icones/fb.svg";
 import insta from "assets/icones/insta.svg";
-import logo from "assets/logo.png";
+import logo from "assets/logo2.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
     height: 150,
-    backgroundImage: "linear-gradient(to right, #66d366 20%, #009245)",
+    background: "rgb(92,143,62)",
+    backgroundImage:
+      "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 81%, rgba(215,226,121,1) 100%)",
+
     padding: "0.5% 2%",
     color: "white",
     fontSize: "20px",
@@ -46,6 +49,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
   },
   navItem: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     textDecoration: "none",
     color: "white",
     height: "100%",
@@ -68,8 +74,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-around",
     width: "100%",
   },
+  //5C8F3E A3CD39 D7E279
   rootIcon: {
-    backgroundImage: "linear-gradient(to right,#019240  20%,#72d469 )",
+    background: "rgb(92,143,62)",
+    backgroundImage:
+      "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 58%, rgba(215,226,121,1) 100%)",
+    //backgroundImage: "linear-gradient(to right,#019240  20%,#72d469 )",
     position: "relative",
     top: 7,
     height: 220,
@@ -80,8 +90,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "50%",
   },
   logo: {
-    width: "92%",
-    height: "92%",
+    width: "97%",
+    height: "97%",
     //boxShadow: "inset 0px 0px 0px 12px white",
     boxSizing: "border-box",
     borderRadius: "50%",
