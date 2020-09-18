@@ -8,6 +8,8 @@ import EventBox from "components/event-box";
 import eti1 from "assets/etiquettes/eti1.png";
 import eti2 from "assets/etiquettes/eti2.png";
 import Event from "components/event-box/event";
+import Arbre from "assets/home/arbre.svg";
+import espace1 from "assets/home/espace gris.svg";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -24,10 +26,16 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "300",
     height: 300,
   },
-  numbers: {},
+  numbers: {
+    position: "relative",
+  },
   title: {
     paddingLeft: "5%",
     fontFamily: "Comic Sans MS",
+    color: "#0a451d",
+    fontSize: "30px",
+    fontWeight: "900",
+    marginTop: "2%",
   },
   grid: {
     padding: "5% 25% 0% 2%",
@@ -45,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Inconsolata, monospace",
   },
   events: {
-    marginTop: "10%",
+    marginTop: "40%",
     padding: "0 5% 0% 20%",
   },
   eventTitle: {
@@ -65,6 +73,17 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     right: 0,
   },
+  arbreImg: {
+    position: "absolute",
+    right: -450,
+    top: -170,
+  },
+  espace1: {
+    position: "absolute",
+    zIndex: 0,
+    left: -175,
+    top: -80,
+  },
 }));
 
 const Home = () => {
@@ -72,20 +91,12 @@ const Home = () => {
 
   return (
     <div className={classes.root}>
-      <section className="hero">
-        <div className="hero-body">
-          <div className={classes.video}>la vidéo</div>
-        </div>
-      </section>
       <section className={`hero is-fullwidth ${classes.numbers}`}>
-        <Typography
-          className={classes.title}
-          color="textPrimary"
-          variant="h3"
-          gutterBottom
-        >
+        <Typography className={classes.title} gutterBottom>
           Plogging en chiffres !
         </Typography>
+
+        <img src={Arbre} className={classes.arbreImg} />
         <Grid
           className={classes.grid}
           direction="row"
@@ -100,6 +111,7 @@ const Home = () => {
             </Grid>
           ))}{" "}
         </Grid>
+        <img src={espace1} className={classes.espace1} />
       </section>
       <section className={`hero is-fullwidth ${classes.events}`}>
         <div className="">

@@ -5,7 +5,7 @@ import Data from "data/menu";
 import youtube from "assets/icones/youtube.svg";
 import fb from "assets/icones/fb.svg";
 import insta from "assets/icones/insta.svg";
-import logo from "assets/logo2.png";
+import logo from "assets/logoL.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -73,27 +73,13 @@ const useStyles = makeStyles((theme) => ({
   },
   //5C8F3E A3CD39 D7E279
   rootIcon: {
-    background: "rgb(92,143,62)",
-    backgroundImage:
-      "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 58%, rgba(215,226,121,1) 100%)",
-    //backgroundImage: "linear-gradient(to right,#019240  20%,#72d469 )",
-    position: "relative",
-    top: 7,
-    height: 220,
-    width: 250,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: "50%",
+    width: 220,
+    height: 220,
   },
-  logo: {
-    width: "97%",
-    height: "97%",
-    //boxShadow: "inset 0px 0px 0px 12px white",
-    boxSizing: "border-box",
-    borderRadius: "50%",
-    backgroundColor: "white",
-  },
+  logo: {},
   navItemTitlte: {
     fontFamily: "Comic Sans MS",
     fontSize: "30px",
