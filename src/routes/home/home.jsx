@@ -84,6 +84,39 @@ const useStyles = makeStyles((theme) => ({
     right: -130,
     top: -20,
   },
+  "@media (min-width: 1600px)": {
+    arbreImg: {
+      position: "absolute",
+      height: 550,
+      width: 600,
+      right: -130,
+    },
+    title: {
+      fontSize: "45px",
+    },
+  },
+  "@media (min-width: 1700px)": {
+    arbreImg: {
+      position: "absolute",
+      height: 600,
+      width: 650,
+      right: -130,
+    },
+    title: {
+      fontSize: "45px",
+    },
+  },
+  "@media (min-width: 1900px)": {
+    arbreImg: {
+      position: "absolute",
+      height: 650,
+      width: 700,
+      right: -130,
+    },
+    title: {
+      fontSize: "45px",
+    },
+  },
   espace1: {
     position: "absolute",
     zIndex: 0,
