@@ -8,8 +8,8 @@ import EventBox from "components/event-box";
 import eti1 from "assets/etiquettes/eti1.png";
 import eti2 from "assets/etiquettes/eti2.png";
 import Event from "components/event-box/event";
-import Arbre from "assets/home/arbre.svg";
-import espace1 from "assets/home/espace gris.svg";
+import Arbre from "assets/home/arbreSH.png";
+import espaceG from "assets/home/espaceG.svg";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -29,16 +29,20 @@ const useStyles = makeStyles((theme) => ({
   numbers: {
     position: "relative",
   },
+  titleContainer: {
+    padding: "9% 30% 0% 0%",
+  },
   title: {
+    textAlign: "center",
     paddingLeft: "5%",
-    fontFamily: "Comic Sans MS",
-    color: "#0a451d",
-    fontSize: "30px",
+    fontFamily: "Autolinker",
+    color: "#023302",
+    fontSize: "35px",
     fontWeight: "900",
-    marginTop: "2%",
   },
   grid: {
-    padding: "5% 25% 0% 2%",
+    padding: "0% 35% 0% 2%",
+    marginTop: "2%",
   },
   slogan: {
     marginTop: "5%",
@@ -75,14 +79,14 @@ const useStyles = makeStyles((theme) => ({
   },
   arbreImg: {
     position: "absolute",
-    right: -450,
-    top: -170,
+    height: 500,
+    width: 550,
+    right: -130,
+    top: -20,
   },
   espace1: {
     position: "absolute",
     zIndex: 0,
-    left: -175,
-    top: -80,
   },
 }));
 
@@ -92,10 +96,11 @@ const Home = () => {
   return (
     <div className={classes.root}>
       <section className={`hero is-fullwidth ${classes.numbers}`}>
-        <Typography className={classes.title} gutterBottom>
-          Plogging en chiffres !
-        </Typography>
-
+        <div className={classes.titleContainer}>
+          <Typography className={classes.title} gutterBottom>
+            Plogging en chiffres !
+          </Typography>
+        </div>
         <img src={Arbre} className={classes.arbreImg} />
         <Grid
           className={classes.grid}
@@ -111,7 +116,7 @@ const Home = () => {
             </Grid>
           ))}{" "}
         </Grid>
-        <img src={espace1} className={classes.espace1} />
+        <img src={espaceG} className={classes.espace1} />
       </section>
       <section className={`hero is-fullwidth ${classes.events}`}>
         <div className="">

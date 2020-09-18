@@ -21,7 +21,7 @@ function App() {
     const handler = (e) => setMatches(e.matches);
     mediaMatch.addListener(handler);
     return () => mediaMatch.removeListener(handler);
-  });
+  }, [mediaMatch]);
 
   let header = matches ? <Nav /> : <MobilNav />;
   return (
