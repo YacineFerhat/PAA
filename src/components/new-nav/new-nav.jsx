@@ -124,8 +124,9 @@ const useStyles = makeStyles((theme) => ({
 const Navbar = () => {
   const classes = useStyles();
   const toggleSubMenu = () => {};
+  console.log(Data);
   const dataLeft = Data.slice(0, 3);
-  const dataRight = Data.slice(4, 7);
+  const dataRight = Data.slice(3, 7);
   const [idToShow, setIdToShow] = useState(10);
   const [showNav, setShowNav] = useState(false);
   const constToggleNav = (state, id) => {
@@ -188,7 +189,7 @@ const Navbar = () => {
                     <div className={classes.triangle} />
                     {lien.sub.map((subLink) => (
                       <Link
-                        to={`${lien.link}/${subLink.link}`}
+                        to={`${lien.link}${subLink.link}`}
                         key={subLink.id}
                         className={classes.subNavLink}
                       >
@@ -211,18 +212,26 @@ const Navbar = () => {
                 <Link to={lien.link}>
                   <div
                     className={classes.navItem}
-                    onMouseEnter={() => toggleSubMenu(1, "enter")}
-                    onMouseLeave={() => toggleSubMenu(0, "leave")}
+                    onMouseEnter={() => constToggleNav(true, lien.id)}
+                    onMouseLeave={() => constToggleNav(false, lien.id)}
                   >
                     <span className={classes.navItemTitlte}>{lien.title}</span>
                   </div>
                 </Link>
                 {lien.sub && (
-                  <div className={classes.subNav}>
+                  <div
+                    className={classes.subNav}
+                    style={{
+                      display:
+                        showNav && idToShow === lien.id ? "flex" : "none",
+                    }}
+                    onMouseEnter={() => constToggleNav(true, lien.id)}
+                    onMouseLeave={() => constToggleNav(false, lien.id)}
+                  >
                     <div className={classes.triangle} />
                     {lien.sub.map((subLink) => (
                       <Link
-                        to={`${lien.link}/${subLink.link}`}
+                        to={`${lien.link}${subLink.link}`}
                         key={subLink.id}
                         className={classes.subNavLink}
                       >

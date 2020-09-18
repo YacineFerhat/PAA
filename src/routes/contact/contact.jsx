@@ -20,6 +20,7 @@ const Contact = () => {
             title=" Contact"
             sub="Voulez-vous rentrer en contact avec nous? Rien de plus simple, choisissez le moyen que vous préferez"
           />
+
           <Grid
             className={classes.grid}
             justify="center"

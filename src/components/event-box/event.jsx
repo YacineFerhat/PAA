@@ -3,10 +3,12 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: 300,
-    borderRadius: "10%",
+    width: 350,
+    height: 250,
+    borderRadius: "30px",
     padding: "1rem",
-    background: "linear-gradient(to right, #66d366 50%, #009245)",
+    background:
+      "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 81%, rgba(215,226,121,1) 100%)",
     position: "relative",
     margin: "0% 10%",
     display: "flex",
@@ -14,15 +16,17 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   box: {
-    background: "white",
-    height: 280,
+    background: "#f3f3f3",
+    height: 230,
     width: "100%",
-    borderRadius: "10%",
+    borderRadius: "30px",
   },
   hbar: {
     width: "95%",
     height: 15,
-    backgroundImage: "linear-gradient(to right, #66d366 50%, #009245)",
+    backgroundImage:
+      "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 81%, rgba(215,226,121,1) 100%)",
+
     position: "absolute",
     top: 70,
   },
@@ -32,7 +36,8 @@ const useStyles = makeStyles((theme) => ({
     left: 100,
     top: -20,
     borderRadius: "10%",
-    backgroundImage: "linear-gradient(to right, #66d366 50%, #009245)",
+    backgroundImage:
+      "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 81%, rgba(215,226,121,1) 100%)",
     position: "absolute",
   },
   vbar2: {
@@ -41,7 +46,8 @@ const useStyles = makeStyles((theme) => ({
     height: 40,
     right: 100,
     borderRadius: "10%",
-    backgroundImage: "linear-gradient(to right, #66d366 50%, #009245)",
+    backgroundImage:
+      "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 81%, rgba(215,226,121,1) 100%)",
     position: "absolute",
   },
 }));

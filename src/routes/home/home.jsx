@@ -10,6 +10,15 @@ import eti2 from "assets/etiquettes/eti2.png";
 import Event from "components/event-box/event";
 import Arbre from "assets/home/arbreSH.png";
 import espaceG from "assets/home/espaceG.svg";
+import espaceD from "assets/home/espaceD.svg";
+import oiseau1 from "assets/home/oiseau1.svg";
+import oiseau2 from "assets/home/oiseau2.svg";
+import oiseau3 from "assets/home/oiseau3.svg";
+import oiseau4 from "assets/home/oiseau4.svg";
+import oiseau5 from "assets/home/oiseau5.svg";
+import calendier from "assets/home/calendrier.svg";
+import lampe from "assets/home/lampe.svg";
+import recyclage from "assets/home/recyclage.svg";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -57,8 +66,15 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Inconsolata, monospace",
   },
   events: {
-    marginTop: "40%",
+    marginTop: "10%",
     padding: "0 5% 0% 20%",
+    position: "relative",
+    marginBottom: "15%",
+  },
+  birdContainer: {
+    position: "absolute",
+    height: 400,
+    width: 500,
   },
   eventTitle: {
     paddingLeft: "5%",
@@ -121,6 +137,16 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     zIndex: 0,
   },
+  espaceD: {
+    position: "absolute",
+    zIndex: 0,
+    left: 2.5,
+    top: -120,
+  },
+  oiseau: {
+    height: 500,
+    width: 500,
+  },
 }));
 
 const Home = () => {
@@ -152,22 +178,31 @@ const Home = () => {
         <img src={espaceG} className={classes.espace1} />
       </section>
       <section className={`hero is-fullwidth ${classes.events}`}>
-        <div className="">
+        <div className={classes.birdContainer}>
+          <img src={oiseau1} />
+          <img src={oiseau2} />
+          <img src={oiseau3} />
+          <img src={oiseau4} />
+          <img src={oiseau5} />
+        </div>
+        <img src={espaceD} className={classes.espaceD} />
+
+        <div className={classes.titleContainer}>
           <Typography
-            className={classes.title && classes.eventTitle}
+            className={classes.title}
             color="textPrimary"
             variant="h3"
             gutterBottom
           >
             Evénement à venir !
           </Typography>
-          <div className={`columns ${classes.event}`}>
-            <div className={`column is-5 ${classes.desc}`}>
-              Phrae d'accorce/ description à rajouter
-            </div>
-            <div className="column is-7">
-              <Event />
-            </div>
+        </div>
+        <div className={`columns ${classes.event}`}>
+          <div className={`column is-5 ${classes.desc}`}>
+            <img src={recyclage} />
+          </div>
+          <div className="column is-7">
+            <Event />
           </div>
         </div>
       </section>

@@ -58,6 +58,16 @@ const Data = [
   },
 
   {
+    id: 6,
+    title: "Articles",
+    link: "/Articles",
+  },
+  {
+    id: 4,
+    title: "Collaborateurs",
+    link: "/Collaborateurs",
+  },
+  {
     id: 1,
     title: "A propos",
     link: "/Apropos",
@@ -87,23 +97,12 @@ const Data = [
         title: "Nous rejoindre",
         link: "/RejoignezNous",
       },
+      {
+        id: 6,
+        title: "Contact",
+        link: "/Contacts",
+      },
     ],
-  },
-
-  {
-    id: 4,
-    title: "Collaborateurs",
-    link: "/Collaborateurs",
-  },
-  {
-    id: 6,
-    title: "Articles",
-    link: "/Articles",
-  },
-  {
-    id: 7,
-    title: "Contact",
-    link: "/Contacts",
   },
 ];
 
