@@ -5,14 +5,16 @@ const useStyles = makeStyles({
   root: {},
   title: {
     marginTop: "3%",
-    fontFamily: "Autolinker",
+    color: "#023302",
+    fontSize: "35px",
+    fontWeight: "900",
   },
 });
 const DoubleTitle = ({ sub, title }) => {
   const classes = useStyles();
   return (
     <div className={`has-text-centered ${classes.root}`}>
-      <h1 className={`title is-3 ${classes.title}`}>{title}</h1>
+      <h1 className={classes.title}>{title}</h1>
       <h1
         className="subtitle is-5"
         style={{

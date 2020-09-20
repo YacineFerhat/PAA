@@ -2,6 +2,11 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+    margin: "6% 10% 0% 10%",
+    backgroundColor: "white",
+  },
   figure: {
     display: "flex",
     justifyContent: "center",
@@ -15,7 +20,7 @@ const Conf = () => {
   const classes = useStyles();
 
   return (
-    <section className="hero ">
+    <section className={`hero ${classes.root}`}>
       <div className="hero-body">
         <div className="container">
           <div className="columns">

@@ -2,9 +2,20 @@ import React from "react";
 import j2 from "assets/pictures/j2.jpg";
 import j3 from "assets/pictures/j3.jpg";
 import j4 from "assets/pictures/j4.jpg";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+    margin: "6% 10% 0% 10%",
+    backgroundColor: "white",
+  },
+});
+
 const Junior = () => {
+  const classes = useStyles();
   return (
-    <section className="hero ">
+    <section className={`hero ${classes.root}`}>
       <div className="hero-body">
         <div className="container">
           <div className="columns">

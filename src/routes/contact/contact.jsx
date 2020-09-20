@@ -5,6 +5,11 @@ import ContactBox from "components/contact-box";
 import contact from "data/contact";
 import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+    margin: "6% 10% 0% 10%",
+    backgroundColor: "white",
+  },
   grid: {
     marginTop: "2%",
   },
@@ -13,7 +18,7 @@ const Contact = () => {
   const classes = useStyles();
 
   return (
-    <section className="hero is-fullheight">
+    <section className={`hero is-fullheight ${classes.root}`}>
       <div className="hero-main">
         <div className="container">
           <DoubleTitle

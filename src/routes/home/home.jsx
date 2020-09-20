@@ -11,14 +11,17 @@ import Event from "components/event-box/event";
 import Arbre from "assets/home/arbreSH.png";
 import espaceG from "assets/home/espaceG.svg";
 import espaceD from "assets/home/espaceD.svg";
-import oiseau1 from "assets/home/oiseau1.svg";
-import oiseau2 from "assets/home/oiseau2.svg";
-import oiseau3 from "assets/home/oiseau3.svg";
-import oiseau4 from "assets/home/oiseau4.svg";
-import oiseau5 from "assets/home/oiseau5.svg";
-import calendier from "assets/home/calendrier.svg";
-import lampe from "assets/home/lampe.svg";
-import recyclage from "assets/home/recyclage.svg";
+import oiseau1 from "assets/home/oiseau1.png";
+import oiseau2 from "assets/home/oiseau2.png";
+import oiseau3 from "assets/home/oiseau3.png";
+import oiseau4 from "assets/home/oiseau4.png";
+import oiseau5 from "assets/home/oiseau5.png";
+import calendrier from "assets/home/calendrier.png";
+import lampe from "assets/home/lampe.png";
+import recyclage from "assets/home/recyclage.png";
+import quote from "assets/home/quote.jpg";
+import ReactPlayer from "react-player/lazy";
+import slogan from "assets/home/slogan.jpg";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -83,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
   desc: {
     display: "flex",
     padding: "0% 5%",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
     fontSize: "20px",
   },
@@ -143,17 +146,53 @@ const useStyles = makeStyles((theme) => ({
     left: 2.5,
     top: -120,
   },
-  oiseau: {
-    height: 500,
-    width: 500,
+  icon: {
+    height: 150,
+    width: 90,
   },
+
+  bird1: {
+    position: "absolute",
+    top: 220,
+    left: -90,
+  },
+  bird2: {
+    position: "absolute",
+    top: 120,
+    left: -90,
+  },
+  bird3: {
+    position: "absolute",
+    top: 20,
+  },
+  bird4: {
+    position: "absolute",
+    left: 100,
+    top: -30,
+  },
+  bird5: {
+    position: "absolute",
+    left: 300,
+    top: -60,
+  },
+  quote: {
+    width: "45%",
+    padding: "0% 5%",
+    color: "white",
+    fontSize: "50px",
+  },
+  calendrier: {},
 }));
 
 const Home = () => {
   const classes = useStyles();
 
+  let link = "https://www.youtube.com/watch?v=WUn_F8GSatA";
   return (
     <div className={classes.root}>
+      <section className="hero">
+        <ReactPlayer playing={false} width="100%" url={link} />
+      </section>
       <section className={`hero is-fullwidth ${classes.numbers}`}>
         <div className={classes.titleContainer}>
           <Typography className={classes.title} gutterBottom>
@@ -179,11 +218,11 @@ const Home = () => {
       </section>
       <section className={`hero is-fullwidth ${classes.events}`}>
         <div className={classes.birdContainer}>
-          <img src={oiseau1} />
-          <img src={oiseau2} />
-          <img src={oiseau3} />
-          <img src={oiseau4} />
-          <img src={oiseau5} />
+          <img src={oiseau5} className={classes.bird1} />
+          <img src={oiseau4} className={classes.bird2} />
+          <img src={oiseau3} className={classes.bird3} />
+          <img src={oiseau2} className={classes.bird4} />
+          <img src={oiseau1} className={classes.bird5} />
         </div>
         <img src={espaceD} className={classes.espaceD} />
 
@@ -198,16 +237,29 @@ const Home = () => {
           </Typography>
         </div>
         <div className={`columns ${classes.event}`}>
-          <div className={`column is-5 ${classes.desc}`}>
-            <img src={recyclage} />
+          <div className={`column is-6 ${classes.desc}`}>
+            <img src={recyclage} className={classes.icon} />
+            <img src={lampe} className={classes.icon} />
           </div>
-          <div className="column is-7">
-            <Event />
+          <div className="column is-6">
+            <img src={calendrier} className={classes.calendrier} />
           </div>
         </div>
       </section>
-      <section className="hero-is-fullwidth">
-        <div className={classes.slogan}>"Ensemble on est plus fort"</div>
+      <section
+        className=" hero is-medium"
+        style={{
+          backgroundImage: `url(${slogan})`,
+          height: "500px",
+          backgroundSize: "100% 500px",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          display: "flex",
+          justifyContent: "center ",
+          alignItems: "flex-start",
+        }}
+      >
+        <div className={classes.quote}>Not my garbage, but it's my planet</div>
       </section>
     </div>
   );

@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
   },
+  grid: {
+    padding: "0% 2%",
+  },
 }));
 
 const Main = () => {
@@ -29,9 +32,15 @@ const Main = () => {
           />
 
           <div className={classes.root}>
-            <Grid container spacing={3} direction="row" justify="center">
+            <Grid
+              container
+              spacing={3}
+              justify="center"
+              className={classes.grid}
+              alignItems="center"
+            >
               {MediaAbout.map((media) => (
-                <Grid key={media.id} item xs={12} sm={6} md={3} xl={2}>
+                <Grid key={media.id} item xs={12} sm={6} md={4} xl={2}>
                   <MediaCard data={media} className={classes.paper}>
                     xs=12
                   </MediaCard>

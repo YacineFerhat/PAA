@@ -19,11 +19,13 @@ import { TagsData, categorieData } from "data/articleCategorie.js";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    marginTop: "2%",
+    margin: "6% 10% 0% 10%",
+    backgroundColor: "white",
   },
-  hero: {
-    backgroundColor: "#eeeeee",
+  grid: {
+    padding: "2%",
   },
+
   title: {
     textTransform: "uppercase",
     marginLeft: "5%",
@@ -49,70 +51,60 @@ const useStyles = makeStyles((theme) => ({
 const Blog = () => {
   const classes = useStyles();
   return (
-    <section className={`hero ${classes.hero}`}>
+    <section className={`hero ${classes.root}`}>
       <div className="hero-main">
         <div className="container">
           {" "}
           <DoubleTitle sub="Phrase d'accorche" title="Nos artircles" />
-          <div className={classes.root}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} sm={12} md={10} lg={9}>
-                {article.map((data) => (
-                  <MediaCard id={data.id} data={data} />
-                ))}
-              </Grid>
-              <Grid item xs={12} sm={12} md={2} lg={3}>
-                <List
-                  className={classes.list}
-                  component="nav"
-                  aria-label="main mailbox folders"
-                >
-                  <Typography
-                    className={classes.title}
-                    variant="h6"
-                    gutterBottom
-                  >
-                    Catégories :
-                  </Typography>
-                  <Divider />
-
-                  {categorieData.map((categorie) => (
-                    <ListItem key={categorie.id} button>
-                      <ListItemIcon>
-                        <ArrowForwardIosIcon className={classes.icon} />
-                      </ListItemIcon>
-                      <ListItemText primary={categorie.title} />
-                    </ListItem>
-                  ))}
-                </List>
-                <List
-                  style={{ marginTop: "10%" }}
-                  className={classes.list}
-                  component="nav"
-                  aria-label="main mailbox folders"
-                >
-                  <Typography
-                    className={classes.title}
-                    variant="h6"
-                    gutterBottom
-                  >
-                    Tags :
-                  </Typography>
-                  <Divider />
-
-                  {TagsData.map((categorie) => (
-                    <Button
-                      id={categorie.id}
-                      className={classes.button}
-                      variant="contained"
-                    >
-                      {categorie.title}
-                    </Button>
-                  ))}
-                </List>
-              </Grid>
+          <Grid className={classes.grid} container spacing={3}>
+            <Grid item xs={12} sm={12} md={10} lg={9}>
+              {article.map((data) => (
+                <MediaCard id={data.id} data={data} />
+              ))}
             </Grid>
-          </div>
+            <Grid item xs={12} sm={12} md={2} lg={3}>
+              <List
+                className={classes.list}
+                component="nav"
+                aria-label="main mailbox folders"
+              >
+                <Typography className={classes.title} variant="h6" gutterBottom>
+                  Catégories :
+                </Typography>
+                <Divider />
+
+                {categorieData.map((categorie) => (
+                  <ListItem key={categorie.id} button>
+                    <ListItemIcon>
+                      <ArrowForwardIosIcon className={classes.icon} />
+                    </ListItemIcon>
+                    <ListItemText primary={categorie.title} />
+                  </ListItem>
+                ))}
+              </List>
+              <List
+                style={{ marginTop: "10%" }}
+                className={classes.list}
+                component="nav"
+                aria-label="main mailbox folders"
+              >
+                <Typography className={classes.title} variant="h6" gutterBottom>
+                  Tags :
+                </Typography>
+                <Divider />
+
+                {TagsData.map((categorie) => (
+                  <Button
+                    id={categorie.id}
+                    className={classes.button}
+                    variant="contained"
+                  >
+                    {categorie.title}
+                  </Button>
+                ))}
+              </List>
+            </Grid>
+          </Grid>
         </div>
       </div>
     </section>

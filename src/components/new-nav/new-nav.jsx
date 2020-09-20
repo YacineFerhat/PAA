@@ -53,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     height: "100%",
   },
-  link: {},
   left: {
     display: "flex",
     justifyContent: "space-around",
@@ -70,6 +69,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-around",
     width: "100%",
+    alignItems: "center",
+
+    height: "100%",
   },
   //5C8F3E A3CD39 D7E279
   rootIcon: {
@@ -114,7 +116,8 @@ const useStyles = makeStyles((theme) => ({
     padding: "5%",
     fontFamily: "Comic Sans MS",
     "&:hover": {
-      backgroundImage: "linear-gradient(to right, #66d366 50%, #009245)",
+      backgroundImage:
+        "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 81%, rgba(215,226,121,1) 100%)",
       cursor: "pointer",
       transition: "1s ease",
       color: "white",
@@ -133,6 +136,9 @@ const Navbar = () => {
     setIdToShow(id);
     setShowNav(state);
   };
+  console.log(idToShow);
+  console.log(showNav);
+
   return (
     <>
       <div className={classes.root}>
@@ -209,12 +215,13 @@ const Navbar = () => {
           <div className={classes.right}>
             {dataRight.map((lien) => (
               <>
-                <Link to={lien.link}>
-                  <div
-                    className={classes.navItem}
-                    onMouseEnter={() => constToggleNav(true, lien.id)}
-                    onMouseLeave={() => constToggleNav(false, lien.id)}
-                  >
+                <Link
+                  className={classes.link}
+                  onMouseEnter={() => constToggleNav(true, lien.id)}
+                  onMouseLeave={() => constToggleNav(false, lien.id)}
+                  to={lien.link}
+                >
+                  <div className={classes.navItem}>
                     <span className={classes.navItemTitlte}>{lien.title}</span>
                   </div>
                 </Link>

@@ -8,6 +8,11 @@ import team from "data/team";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    margin: "6% 10% 0% 10%",
+    backgroundColor: "white",
+  },
+  grid: {
+    padding: "0% 2%",
   },
   paper: {
     padding: theme.spacing(2),
@@ -20,7 +25,7 @@ const Teams = () => {
   const classes = useStyles();
 
   return (
-    <section className="hero is-fullheight">
+    <section className={`hero is-fullheight ${classes.root}`}>
       <div className="hero-main">
         <div className="container">
           <DoubleTitle
@@ -28,11 +33,17 @@ const Teams = () => {
             title="Nos teams!"
           />
 
-          <div className={classes.root}>
+          <div>
             {" "}
-            <Grid container spacing={3}>
+            <Grid
+              container
+              spacing={3}
+              justify="center"
+              className={classes.grid}
+              alignItems="center"
+            >
               {team.map((media) => (
-                <Grid key={media.id} item xs={12} sm={6} md={3} xl={12}>
+                <Grid key={media.id} item xs={12} sm={6} md={4} xl={3}>
                   <MediaCard data={media} className={classes.paper}>
                     xs=12
                   </MediaCard>

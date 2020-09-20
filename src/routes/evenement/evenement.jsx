@@ -6,9 +6,9 @@ import Media from "components/media-event";
 
 const useStyles = makeStyles((theme) => ({
   oldEvent: {
-    marginBottom: "50px",
-    width: "100%",
-    margin: "auto",
+    flexGrow: 1,
+    margin: "6% 10% 0% 10%",
+    backgroundColor: "white",
   },
   oldEv: {
     marginTop: "50px",

@@ -2,9 +2,20 @@ import React from "react";
 import s2 from "assets/pictures/s2.jpg";
 import s3 from "assets/pictures/s3.jpg";
 import s4 from "assets/pictures/s4.jpg";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+    margin: "6% 10% 0% 10%",
+    backgroundColor: "white",
+  },
+});
 const Sport = () => {
+  const classes = useStyles();
+
   return (
-    <section className="hero is-fullheight">
+    <section className={`hero is-fullwidth ${classes.root}`}>
       <div className="hero-body">
         <div className="container">
           <div className="columns">

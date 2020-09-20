@@ -12,7 +12,9 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    marginTop: "5%",
+    margin: "6% 10% 0% 10%",
+    backgroundColor: "white",
+    padding: "3%",
   },
   media: {
     height: 400,
@@ -51,9 +53,9 @@ const BlogArticle = () => {
   let filteredData = article[0];
   console.log(filteredData);
   return (
-    <section className="hero is-fullheight">
+    <section className={`hero is-fullheight ${classes.root}`}>
       <div className="hero-main">
-        <div className={`container ${classes.root}`}>
+        <div className={`container `}>
           <Typography gutterBottom variant="h3" component="h2">
             {filteredData.title}
           </Typography>

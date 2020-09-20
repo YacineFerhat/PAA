@@ -62,11 +62,7 @@ const Data = [
     title: "Articles",
     link: "/Articles",
   },
-  {
-    id: 4,
-    title: "Collaborateurs",
-    link: "/Collaborateurs",
-  },
+
   {
     id: 1,
     title: "A propos",
@@ -103,6 +99,11 @@ const Data = [
         link: "/Contacts",
       },
     ],
+  },
+  {
+    id: 4,
+    title: "Collaborateurs",
+    link: "/Collaborateurs",
   },
 ];
 

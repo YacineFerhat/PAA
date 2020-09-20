@@ -1,9 +1,19 @@
 import React from "react";
 import DoubleTitle from "components/double-title";
 import colab from "data/colab";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    margin: "6% 10% 0% 10%",
+    backgroundColor: "white",
+  },
+}));
 const Colab = () => {
+  const classes = useStyles();
   return (
-    <section className="hero is-fullheight">
+    <section className={`hero is-fullheight ${classes.root}`}>
       <div className="hero-main">
         <div className="container">
           <DoubleTitle sub="Phrase d'accorche" title="Collaborateurs" />
