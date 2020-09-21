@@ -4,11 +4,7 @@ import colab from "data/colab";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    margin: "6% 10% 0% 10%",
-    backgroundColor: "white",
-  },
+  root: {},
 }));
 const Colab = () => {
   const classes = useStyles();

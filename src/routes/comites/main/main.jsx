@@ -6,11 +6,7 @@ import DoubleTitle from "components/double-title";
 import Comites from "data/comites";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    margin: "6% 10% 0% 10%",
-    backgroundColor: "white",
-  },
+  root: {},
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",

@@ -5,11 +5,7 @@ import j4 from "assets/pictures/j4.jpg";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-    margin: "6% 10% 0% 10%",
-    backgroundColor: "white",
-  },
+  root: {},
 });
 
 const Junior = () => {

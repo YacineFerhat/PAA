@@ -6,11 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import team from "data/team";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    margin: "6% 10% 0% 10%",
-    backgroundColor: "white",
-  },
+  root: {},
   grid: {
     padding: "0% 2%",
   },

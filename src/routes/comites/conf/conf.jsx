@@ -2,11 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-    margin: "6% 10% 0% 10%",
-    backgroundColor: "white",
-  },
+  root: {},
   figure: {
     display: "flex",
     justifyContent: "center",

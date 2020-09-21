@@ -10,12 +10,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    margin: "6% 10% 0% 10%",
-    backgroundColor: "white",
-    padding: "3%",
-  },
+  root: {},
   media: {
     height: 400,
   },

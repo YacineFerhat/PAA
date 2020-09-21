@@ -5,11 +5,7 @@ import s4 from "assets/pictures/s4.jpg";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-    margin: "6% 10% 0% 10%",
-    backgroundColor: "white",
-  },
+  root: {},
 });
 const Sport = () => {
   const classes = useStyles();

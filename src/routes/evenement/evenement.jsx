@@ -5,11 +5,7 @@ import EventCard from "components/event-card";
 import Media from "components/media-event";
 
 const useStyles = makeStyles((theme) => ({
-  oldEvent: {
-    flexGrow: 1,
-    margin: "6% 10% 0% 10%",
-    backgroundColor: "white",
-  },
+  oldEvent: {},
   oldEv: {
     marginTop: "50px",
     color: "#177a63",

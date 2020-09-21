@@ -17,11 +17,7 @@ import Button from "@material-ui/core/Button";
 import { TagsData, categorieData } from "data/articleCategorie.js";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    margin: "6% 10% 0% 10%",
-    backgroundColor: "white",
-  },
+  root: {},
   grid: {
     padding: "2%",
   },

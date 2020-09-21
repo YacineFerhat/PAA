@@ -4,10 +4,7 @@ import ReviewBox from "components/review-box";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import EventBox from "components/event-box";
-import eti1 from "assets/etiquettes/eti1.png";
-import eti2 from "assets/etiquettes/eti2.png";
-import Event from "components/event-box/event";
+
 import Arbre from "assets/home/arbreSH.png";
 import espaceG from "assets/home/espaceG.svg";
 import espaceD from "assets/home/espaceD.svg";
@@ -23,11 +20,7 @@ import quote from "assets/home/quote.jpg";
 import ReactPlayer from "react-player/lazy";
 import slogan from "assets/home/slogan.jpg";
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    margin: "6% 10% 0% 10%",
-    backgroundColor: "white",
-  },
+  root: {},
   video: {
     display: "flex",
     justifyContent: "center",
@@ -187,11 +180,11 @@ const useStyles = makeStyles((theme) => ({
 const Home = () => {
   const classes = useStyles();
 
-  let link = "https://www.youtube.com/watch?v=WUn_F8GSatA";
+  let link = "https://www.youtube.com/watch?v=MnYNZ42Pwxc";
   return (
     <div className={classes.root}>
       <section className="hero">
-        <ReactPlayer playing={false} width="100%" url={link} />
+        <ReactPlayer playing width="100%" url={link} />
       </section>
       <section className={`hero is-fullwidth ${classes.numbers}`}>
         <div className={classes.titleContainer}>
@@ -210,7 +203,7 @@ const Home = () => {
         >
           {review.map((data) => (
             <Grid key={data.id} item xs={6} sm={6} md={4} lg={2} xl={2}>
-              <ReviewBox className="column is-2" data={data} />
+              <ReviewBox style={"laptop"} className="column is-2" data={data} />
             </Grid>
           ))}{" "}
         </Grid>
@@ -259,16 +252,12 @@ const Home = () => {
           alignItems: "flex-start",
         }}
       >
-        <div className={classes.quote}>Not my garbage, but it's my planet</div>
+        <div className={classes.quote}>
+          It's not my garbage, but it's my planet
+        </div>
       </section>
     </div>
   );
 };
 
 export default Home;
-/*
- Vous voulez préserver notre planète terre? nettoyer ses villes,
-              plages et montagnes? Tout ceci dans une très bonne ambiance ? Ne
-              réflaichissez plus ! Participiez à un de nos prochains événements
-              (A travailler)
-*/
