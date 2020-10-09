@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import Apropos from "routes/a-propos";
 import Comites from "routes/comites";
 import Teams from "routes/teams";
 import Blog from "routes/blog";
 import Colab from "routes/colab";
-import BreadCrumb from "components/breadcrumb";
 import BlogArticle from "routes/blog-article";
 import Nav from "components/new-nav";
 import Event from "routes/evenement";
@@ -15,8 +14,9 @@ import GlobalFonts from "fonts/font";
 import Container from "components/container";
 import Home from "routes/home";
 import Footer from "components/footer";
-import "./App.css";
-function App() {
+import Admin from "routes/admin";
+
+const App = withRouter(({ location }) => {
   const mediaMatch = window.matchMedia("(min-width: 1114px)");
   const [matches, setMatches] = useState(mediaMatch.matches);
   useEffect(() => {
@@ -24,13 +24,16 @@ function App() {
     mediaMatch.addListener(handler);
     return () => mediaMatch.removeListener(handler);
   }, [mediaMatch]);
+  //      <Loader />
 
   let header = matches ? <Nav /> : <MobilNav />;
   return (
     <div className="App" style={{ backgroundColor: "#e5e5e5" }}>
-      <Loader />
       <GlobalFonts />
-      {header}
+      {location.pathname.includes("administration") ||
+      location.pathname.includes("Administration")
+        ? null
+        : header}
       <Container>
         <div className="App">
           <Switch>
@@ -59,12 +62,18 @@ function App() {
             <Route path="/Evenements">
               <Event />
             </Route>
+            <Route path="/administration">
+              <Admin />
+            </Route>
           </Switch>
         </div>
       </Container>
-      <Footer />
+      {location.pathname.includes("administration") ||
+      location.pathname.includes("Administration") ? null : (
+        <Footer />
+      )}
     </div>
   );
-}
+});
 
 export default App;

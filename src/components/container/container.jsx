@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,9 +15,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Container = ({ children }) => {
+const Container = withRouter(({ location, children }) => {
   const classes = useStyles();
-  return <div className={classes.root}>{children}</div>;
-};
+  return (
+    <div
+      className={
+        location.pathname.includes("admin") ||
+        location.pathname.includes("Admin")
+          ? null
+          : classes.root
+      }
+    >
+      {children}
+    </div>
+  );
+});
 
 export default Container;
