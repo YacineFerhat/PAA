@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   Button,
-  Switch,
   Grid,
   Paper,
   TextField,
@@ -11,7 +10,6 @@ import {
   ListItemText,
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
-import CloseIcon from "@material-ui/icons/Close";
 import axios from "axios";
 import { useFetchGlobalInfo } from "hooks/useFetchGlobalInfo";
 import Alert from "components/alert";
