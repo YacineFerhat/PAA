@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
       "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 81%, rgba(215,226,121,1) 100%)",
     padding: "0% 5%",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
     position: "relative",
   },
@@ -77,6 +77,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
+  icon: {
+    height: 30,
+    margin: "0px 5px",
+  },
 }));
 const MobileNav = () => {
   const classes = useStyles();
@@ -86,24 +90,33 @@ const MobileNav = () => {
     <>
       {" "}
       <div className={classes.root}>
-        <Link to="/" className={classes.flex}>
-          <img
-            src={logo}
-            alt="logo plogging association algerie"
-            className={classes.image}
-          />
-        </Link>
-        {toggle ? (
-          <CloseIcon
-            className={classes.burger}
-            onClick={() => setToggle(false)}
-          />
-        ) : (
-          <MenuIcon
-            className={classes.burger}
-            onClick={() => setToggle(true)}
-          />
-        )}
+        <div className={classes.flex}>
+          <img src={youtube} className={classes.icon} />
+          <img src={fb} className={classes.icon} />
+          <img src={insta} className={classes.icon} />
+        </div>
+        <div className={classes.flex}>
+          {" "}
+          <Link to="/" className={classes.flex}>
+            <img
+              src={logo}
+              alt="logo plogging association algerie"
+              className={classes.image}
+            />
+          </Link>
+          {toggle ? (
+            <CloseIcon
+              className={classes.burger}
+              onClick={() => setToggle(false)}
+            />
+          ) : (
+            <MenuIcon
+              className={classes.burger}
+              onClick={() => setToggle(true)}
+            />
+          )}
+        </div>
+        <div></div>
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div

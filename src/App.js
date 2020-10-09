@@ -15,6 +15,7 @@ import GlobalFonts from "fonts/font";
 import Container from "components/container";
 import Home from "routes/home";
 import Footer from "components/footer";
+import "./App.css";
 function App() {
   const mediaMatch = window.matchMedia("(min-width: 1114px)");
   const [matches, setMatches] = useState(mediaMatch.matches);
@@ -26,7 +27,7 @@ function App() {
 
   let header = matches ? <Nav /> : <MobilNav />;
   return (
-    <>
+    <div className="App" style={{ backgroundColor: "#e5e5e5" }}>
       <Loader />
       <GlobalFonts />
       {header}
@@ -62,7 +63,7 @@ function App() {
         </div>
       </Container>
       <Footer />
-    </>
+    </div>
   );
 }
 

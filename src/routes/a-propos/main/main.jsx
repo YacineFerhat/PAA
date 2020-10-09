@@ -8,6 +8,7 @@ import DoubleTitle from "components/double-title";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginTop: "5%",
   },
   paper: {
     padding: theme.spacing(2),
@@ -15,7 +16,9 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   grid: {
-    padding: "0% 2%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
 }));
 
@@ -30,17 +33,18 @@ const Main = () => {
             title=" PLOGGING ASSOCIATION ALGERIA"
             sub="Venez découvrir Plogging Association Algeria !"
           />
-
           <div className={classes.root}>
-            <Grid
-              container
-              spacing={3}
-              justify="center"
-              className={classes.grid}
-              alignItems="center"
-            >
+            <Grid container spacing={3} justify="center" alignItems="center">
               {MediaAbout.map((media) => (
-                <Grid key={media.id} item xs={12} sm={6} md={4} xl={2}>
+                <Grid
+                  className={classes.grid}
+                  key={media.id}
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  xl={2}
+                >
                   <MediaCard data={media} className={classes.paper}>
                     xs=12
                   </MediaCard>

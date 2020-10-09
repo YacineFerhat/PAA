@@ -6,14 +6,19 @@ import { makeStyles } from "@material-ui/core/styles";
 import team from "data/team";
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
-  grid: {
-    padding: "0% 2%",
+  root: {
+    flexGrow: 1,
+    marginTop: "5%",
   },
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.secondary,
+  },
+  grid: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
 }));
 
@@ -29,17 +34,18 @@ const Teams = () => {
             title="Nos teams!"
           />
 
-          <div>
-            {" "}
-            <Grid
-              container
-              spacing={3}
-              justify="center"
-              className={classes.grid}
-              alignItems="center"
-            >
+          <div className={classes.root}>
+            <Grid container spacing={3} justify="center" alignItems="center">
               {team.map((media) => (
-                <Grid key={media.id} item xs={12} sm={6} md={4} xl={3}>
+                <Grid
+                  className={classes.grid}
+                  key={media.id}
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  xl={2}
+                >
                   <MediaCard data={media} className={classes.paper}>
                     xs=12
                   </MediaCard>
