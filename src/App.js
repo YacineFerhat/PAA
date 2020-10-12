@@ -52,7 +52,7 @@ const App = withRouter(({ location }) => {
             <Route exact path="/Articles">
               <Blog />
             </Route>
-            <Route path="/Articles/:id">
+            <Route path="/Articles/:title">
               <BlogArticle />
             </Route>
 

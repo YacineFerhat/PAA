@@ -11,10 +11,12 @@ import {
   TableHead,
   TableRow,
 } from "@material-ui/core";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link, useRouteMatch, useHistory } from "react-router-dom";
 import { useFetchArticles } from "hooks/useFetchArticles";
 import ClearIcon from "@material-ui/icons/Clear";
 import SearchIcon from "@material-ui/icons/Search";
+import axios from "axios";
+import Alert from "components/alert";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: "2% 2%",
@@ -70,12 +72,31 @@ const useStyles = makeStyles((theme) => ({
 
 const Article = () => {
   const classes = useStyles();
+  const [reload, setReload] = useState(0);
   let { path } = useRouteMatch();
-  let data = useFetchArticles();
-  console.log(data);
-
-  const handleDeleteArticle = () => {};
-  const handlePushArticle = () => {};
+  let data = useFetchArticles(reload);
+  let history = useHistory();
+  const handlePushArticle = (title) => {
+    history.push(`/Articles/${title}`);
+  };
+  const [status, setStatus] = useState(0);
+  const [displayAlert, setDisplayAlert] = useState(false);
+  const [type, setType] = useState("");
+  const handleDeleteArticle = (idToDelete) => {
+    axios
+      .delete(`/api/articles/${idToDelete}`)
+      .then((res) => {
+        setStatus(res.status);
+        setDisplayAlert(true);
+        setReload(reload + 1);
+        setType("Suppression");
+      })
+      .catch((error) => {
+        setStatus(error.status);
+        setDisplayAlert(true);
+        setType("Suppression");
+      });
+  };
   return (
     <div className={classes.root}>
       <div className={classes.titleContainer}>
@@ -88,6 +109,7 @@ const Article = () => {
           Ecrire un nouvel article
         </Button>
       </Link>
+      <Alert type={type} displayAlert={displayAlert} status={status} />
       <Paper className={classes.paper}>
         <div className={classes.titleContainer}>
           <div className={classes.smvl} />
@@ -122,11 +144,13 @@ const Article = () => {
                       <ClearIcon
                         className={classes.icon}
                         fontSize="large"
+                        onClick={() => handleDeleteArticle(article._id)}
                         color="secondary"
                       />
                       <SearchIcon
                         className={classes.icon}
                         fontSize="large"
+                        onClick={() => handlePushArticle(article.title)}
                         color="primary"
                       />{" "}
                     </TableCell>

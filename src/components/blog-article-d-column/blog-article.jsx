@@ -79,7 +79,7 @@ const MediaCard = ({
       </CardActionArea>
       <CardActions>
         <Button size="small" className={classes.button}>
-          <Link to={`/Articles/${id}`} className={classes.link}>
+          <Link to={`/Articles/${title}`} className={classes.link}>
             {" "}
             Lire l'article
           </Link>

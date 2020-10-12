@@ -114,7 +114,6 @@ const NewArticle = () => {
   const [status, setStatus] = useState(0);
   const [displayAlert, setDisplayAlert] = useState(false);
   const [type, setType] = useState("");
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -123,7 +122,7 @@ const NewArticle = () => {
     formData.append("categories", input.categories);
     formData.append("hashtags", input.hashtags);
     formData.append("picture", formState.inputs.image.value);
-    formData.append("description", JSON.stringify(contentState));
+    formData.append("description", JSON.stringify(contentState.blocks));
     axios
       .post("/api/articles/", formData)
       .then((res) => {
@@ -228,6 +227,7 @@ const NewArticle = () => {
         <hr />
         <Editor
           className={classes.editor}
+          handlePastedText={() => false}
           wrapperClassName="demo-wrapper"
           editorClassName="demo-editor"
           onContentStateChange={onContentStateChange}
