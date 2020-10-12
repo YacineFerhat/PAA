@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Button,
-  Grid,
   Paper,
   TextField,
   Table,
@@ -60,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "500",
   },
   smvl: {
-    width: "5px",
+    width: "3px",
     height: "25px",
     backgroundColor: "#8cc63f",
     marginRight: "5px",
@@ -82,6 +81,7 @@ const Team = () => {
   const [toggleAddTeam, setToggleAddTeam] = useState(false);
   const handleAddTeam = () => {
     setToggleAddTeam(true);
+    setDisplayAlert(false);
   };
 
   const [formState, inputHandler] = useForm(

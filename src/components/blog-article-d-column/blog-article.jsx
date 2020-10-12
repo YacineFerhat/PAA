@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     width: "100%",
   },
   media: {
-    height: 400,
+    height: 450,
   },
   header: {
     display: "flex",
@@ -42,7 +42,7 @@ const useStyles = makeStyles({
 });
 
 const MediaCard = ({
-  data: { id, title, subtitle, picture, categorie, date },
+  data: { id, title, picture, categorie, date, shortDescription },
 }) => {
   const classes = useStyles();
 
@@ -73,7 +73,7 @@ const MediaCard = ({
             {title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {subtitle}
+            {shortDescription}
           </Typography>
         </CardContent>
       </CardActionArea>

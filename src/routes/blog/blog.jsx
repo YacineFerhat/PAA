@@ -5,15 +5,17 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import article from "data/articles";
 import MediaCard from "components/blog-article-d-column";
-import Typography from "@material-ui/core/Typography";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import Divider from "@material-ui/core/Divider";
+import {
+  Typography,
+  Button,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Divider,
+} from "@material-ui/core";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import Button from "@material-ui/core/Button";
-
+import { useFetchArticles } from "hooks/useFetchArticles";
 import { TagsData, categorieData } from "data/articleCategorie.js";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,6 +48,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Blog = () => {
   const classes = useStyles();
+  const data = useFetchArticles();
+  console.log(data);
   return (
     <section className={`hero ${classes.root}`}>
       <div className="hero-main">
@@ -54,8 +58,8 @@ const Blog = () => {
           <DoubleTitle sub="Phrase d'accorche" title="Nos artircles" />
           <Grid className={classes.grid} container spacing={3}>
             <Grid item xs={12} sm={12} md={10} lg={9}>
-              {article.map((data) => (
-                <MediaCard id={data.id} data={data} />
+              {data.map((article) => (
+                <MediaCard id={article.id} data={article} />
               ))}
             </Grid>
             <Grid item xs={12} sm={12} md={2} lg={3}>

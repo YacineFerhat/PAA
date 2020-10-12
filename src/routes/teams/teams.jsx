@@ -1,9 +1,10 @@
 import React from "react";
 import DoubleTitle from "components/double-title";
-import MediaCard from "components/media-card";
+import MediaCard from "components/media-card-db";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import team from "data/team";
+import { useFetchTeams } from "hooks/useFetchTeams";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Teams = () => {
   const classes = useStyles();
-
+  const data = useFetchTeams();
   return (
     <section className={`hero is-fullheight ${classes.root}`}>
       <div className="hero-main">
@@ -36,7 +37,7 @@ const Teams = () => {
 
           <div className={classes.root}>
             <Grid container spacing={3} justify="center" alignItems="center">
-              {team.map((media) => (
+              {data?.map((media) => (
                 <Grid
                   className={classes.grid}
                   key={media.id}

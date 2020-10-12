@@ -127,7 +127,6 @@ const useStyles = makeStyles((theme) => ({
 const Navbar = () => {
   const classes = useStyles();
   const toggleSubMenu = () => {};
-  console.log(Data);
   const dataLeft = Data.slice(0, 3);
   const dataRight = Data.slice(3, 7);
   const [idToShow, setIdToShow] = useState(10);
@@ -136,9 +135,6 @@ const Navbar = () => {
     setIdToShow(id);
     setShowNav(state);
   };
-  console.log(idToShow);
-  console.log(showNav);
-
   return (
     <>
       <div className={classes.root}>
