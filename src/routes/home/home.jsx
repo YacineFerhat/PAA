@@ -19,6 +19,8 @@ import recyclage from "assets/home/recyclage.png";
 import quote from "assets/home/quote.jpg";
 import ReactPlayer from "react-player/lazy";
 import slogan from "assets/home/slogan.jpg";
+import { useFetchDisplayInfo } from "hooks/useFetchDisplayInfo";
+
 const useStyles = makeStyles((theme) => ({
   root: {},
   video: {
@@ -91,10 +93,56 @@ const useStyles = makeStyles((theme) => ({
   },
   arbreImg: {
     position: "absolute",
-    height: 500,
-    width: 550,
+    height: 400,
+    width: 450,
     right: -130,
-    top: -20,
+    top: -10,
+  },
+  youtube: {
+    height: 750,
+  },
+  "@media (min-width: 1050px)": {
+    arbreImg: {
+      height: 400,
+      width: 450,
+      right: -130,
+      top: -10,
+    },
+  },
+  "@media (min-width: 1200px)": {
+    arbreImg: {
+      height: 425,
+      width: 475,
+      right: -130,
+      top: -10,
+    },
+  },
+  "@media (min-width: 1300px)": {
+    arbreImg: {
+      height: 450,
+      width: 500,
+      right: -130,
+      top: -10,
+    },
+  },
+  "@media (min-width: 1400px)": {
+    arbreImg: {
+      height: 475,
+      width: 525,
+      right: -130,
+      top: -10,
+    },
+  },
+  "@media (min-width: 1500px)": {
+    title: {
+      fontSize: "38px",
+    },
+    arbreImg: {
+      height: 525,
+      width: 575,
+      right: -130,
+      top: -10,
+    },
   },
   "@media (min-width: 1600px)": {
     arbreImg: {
@@ -104,7 +152,7 @@ const useStyles = makeStyles((theme) => ({
       right: -130,
     },
     title: {
-      fontSize: "45px",
+      fontSize: "42px",
     },
   },
   "@media (min-width: 1700px)": {
@@ -115,7 +163,7 @@ const useStyles = makeStyles((theme) => ({
       right: -130,
     },
     title: {
-      fontSize: "45px",
+      fontSize: "48px",
     },
   },
   "@media (min-width: 1900px)": {
@@ -126,7 +174,45 @@ const useStyles = makeStyles((theme) => ({
       right: -130,
     },
     title: {
-      fontSize: "45px",
+      fontSize: "56px",
+    },
+  },
+  "@media (min-width: 2100px)": {
+    title: {
+      fontSize: "60px",
+    },
+    arbreImg: {
+      position: "absolute",
+      height: 650,
+      width: 700,
+      right: -130,
+    },
+  },
+  "@media (min-width: 2200px)": {
+    arbreImg: {
+      position: "absolute",
+      height: 700,
+      width: 750,
+      right: -130,
+      top: 0,
+    },
+  },
+  "@media (min-width: 2300px)": {
+    arbreImg: {
+      position: "absolute",
+      height: 725,
+      width: 775,
+      right: -130,
+      top: 20,
+    },
+  },
+  "@media (min-width: 2400px)": {
+    arbreImg: {
+      position: "absolute",
+      height: 750,
+      width: 800,
+      right: -130,
+      top: 30,
     },
   },
   espace1: {
@@ -179,12 +265,12 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = () => {
   const classes = useStyles();
-
+  const info = useFetchDisplayInfo();
   let link = "https://www.youtube.com/watch?v=MnYNZ42Pwxc";
   return (
     <div className={classes.root}>
       <section className="hero">
-        <ReactPlayer playing width="100%" url={link} />
+        <ReactPlayer width="100%" classes={classes.youtube} url={link} />
       </section>
       <section className={`hero is-fullwidth ${classes.numbers}`}>
         <div className={classes.titleContainer}>
@@ -201,8 +287,8 @@ const Home = () => {
           container
           spacing={3}
         >
-          {review.map((data) => (
-            <Grid key={data.id} item xs={6} sm={6} md={4} lg={2} xl={2}>
+          {info.map((data) => (
+            <Grid key={data.id} item xs={6} sm={6} md={2} lg={2} xl={2}>
               <ReviewBox style={"laptop"} className="column is-2" data={data} />
             </Grid>
           ))}{" "}
