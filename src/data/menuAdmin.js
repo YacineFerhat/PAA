@@ -25,6 +25,11 @@ const Data = [
     link: "/Evénements",
   },
   {
+    id: 6,
+    titre: "Collaborateurs",
+    link: "/Collaborateurs",
+  },
+  {
     id: 5,
     titre: "Utilisateurs",
     link: "/Utilisateurs",
