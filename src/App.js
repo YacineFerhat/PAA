@@ -15,7 +15,7 @@ import Container from "components/container";
 import Home from "routes/home";
 import Footer from "components/footer";
 import Admin from "routes/admin";
-
+import ScrollToTop from "components/scroll-to-top";
 const App = withRouter(({ location }) => {
   const mediaMatch = window.matchMedia("(min-width: 1114px)");
   const [matches, setMatches] = useState(mediaMatch.matches);
@@ -29,6 +29,7 @@ const App = withRouter(({ location }) => {
   let header = matches ? <Nav /> : <MobilNav />;
   return (
     <div className="App" style={{ backgroundColor: "#e5e5e5" }}>
+      <ScrollToTop />
       <GlobalFonts />
       {location.pathname.includes("administration") ||
       location.pathname.includes("Administration")

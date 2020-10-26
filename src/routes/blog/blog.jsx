@@ -3,7 +3,6 @@ import DoubleTitle from "components/double-title";
 import BlogArticle from "components/blog-article";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import article from "data/articles";
 import MediaCard from "components/blog-article-d-column";
 import {
   Typography,
@@ -35,13 +34,15 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     fontSize: "20px",
-    color: "#177a63",
+    color: "rgba(92,143,62,1)",
   },
   button: {
+    color: "white",
     margin: "3% 5%",
+    backgroundImage:
+      "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 100%)",
     "&:hover": {
-      color: "white",
-      backgroundColor: "#177a63",
+      opacity: 0.8,
     },
   },
 }));
@@ -49,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
 const Blog = () => {
   const classes = useStyles();
   const data = useFetchArticles();
-  console.log(data);
   return (
     <section className={`hero ${classes.root}`}>
       <div className="hero-main">

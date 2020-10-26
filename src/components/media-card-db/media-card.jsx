@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     width: "100%",
   },
   title: {
-    fontFamily: "Ink Free",
+    fontFamily: "Comic Sans MS",
     height: 30,
   },
 });
@@ -48,7 +48,7 @@ const MediaCard = ({ data: { name, picture } }) => {
               align="center"
               gutterBottom
               paragraph
-              variant="h3"
+              variant="h4"
               component="h2"
             >
               {name}

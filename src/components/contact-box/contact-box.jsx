@@ -36,7 +36,17 @@ const useStyles = makeStyles({
     wordWrap: "break-word",
     color: "#5C8F3E",
     fontFamily: "Comic Sans MS",
-    fontSize: "16px",
+    fontSize: "12px",
+  },
+  "@media (min-width: 1450px)": {
+    typo: {
+      fontSize: "13px",
+    },
+  },
+  "@media (min-width: 1600px)": {
+    typo: {
+      fontSize: "15px",
+    },
   },
   bullet: {
     display: "inline-block",

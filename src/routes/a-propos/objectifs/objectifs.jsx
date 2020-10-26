@@ -3,7 +3,12 @@ import g5 from "assets/pictures/g5.jpg";
 import g1 from "assets/pictures/g1.jpg";
 const Objectifs = () => {
   return (
-    <section className="hero is-fullheight">
+    <section
+      style={{
+        fontFamily: "Comic Sans MS",
+      }}
+      className="hero is-fullheight"
+    >
       <div className="hero-body">
         <div className="container">
           <div className="columns is-variable is-1-tablet is-6-desktop is-6-widescreen is-8-fullhd">

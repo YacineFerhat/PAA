@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     display: "flex",
   },
   date: {
-    color: "#177a63",
+    color: "rgba(92,143,62,1)",
   },
   categorie: {
     marginLeft: "3%",
@@ -27,17 +27,24 @@ const useStyles = makeStyles({
   },
   button: {
     "&:hover": {
-      backgroundColor: "#177a63",
-      borderColor: "#177a63",
+      backgroundImage:
+        "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 100%)",
       boxShadow: "none",
     },
   },
+
   link: {
     textDecoration: "none",
-    color: "hsl(141, 53%, 53%)",
+    color: "rgba(92,143,62,1)",
     "&:hover": {
       color: "white",
     },
+  },
+  title: {
+    fontFamily: "Comic Sans MS",
+  },
+  desc: {
+    fontFamily: "Comic Sans MS",
   },
 });
 
@@ -69,10 +76,20 @@ const MediaCard = ({
               {categorie}
             </Typography>
           </div>
-          <Typography gutterBottom variant="h4" component="h2">
+          <Typography
+            className={classes.title}
+            gutterBottom
+            variant="h4"
+            component="h2"
+          >
             {title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography
+            className={classes.desc}
+            variant="body2"
+            color="textSecondary"
+            component="p"
+          >
             {shortDescription}
           </Typography>
         </CardContent>

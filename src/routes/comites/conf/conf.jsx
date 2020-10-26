@@ -1,8 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-
+import p1 from "assets/pictures/c2.JPG";
+import p2 from "assets/pictures/c3.JPG";
+import p3 from "assets/pictures/c4.jpg";
 const useStyles = makeStyles({
-  root: {},
+  root: {
+    fontFamily: "Comic Sans MS",
+  },
   figure: {
     display: "flex",
     justifyContent: "center",
@@ -21,10 +25,11 @@ const Conf = () => {
         <div className="container">
           <div className="columns">
             <div className="column is-6">
-              <figure className={classes.figure}>
+              <figure class="image is-square">
                 <img
                   className={classes.image}
-                  src="https://bulma.io/images/placeholders/128x128.png"
+                  src={p1}
+                  alt="Débat au milieu d'un jardin"
                 />
               </figure>
             </div>
@@ -65,10 +70,11 @@ const Conf = () => {
               </p>
             </div>
             <div className="column is-6">
-              <figure className={classes.figure}>
+              <figure class="image is-square">
                 <img
                   className={classes.image}
-                  src="https://bulma.io/images/placeholders/128x128.png"
+                  src={p2}
+                  alt="Débat au milieu d'un jardin"
                 />
               </figure>
             </div>
@@ -77,10 +83,11 @@ const Conf = () => {
 
           <div className="columns">
             <div className="column is-6">
-              <figure className={classes.figure}>
+              <figure class="image is-square">
                 <img
                   className={classes.image}
-                  src="https://bulma.io/images/placeholders/128x128.png"
+                  src={p3}
+                  alt="Conférence faite par un membre de PAA"
                 />
               </figure>
             </div>

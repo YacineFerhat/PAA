@@ -96,7 +96,7 @@ const Data = [
       {
         id: 6,
         title: "Contact",
-        link: "/Contacts",
+        link: "/Contact",
       },
     ],
   },

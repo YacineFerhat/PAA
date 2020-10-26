@@ -26,14 +26,9 @@ const Contact = () => {
             sub="Voulez-vous rentrer en contact avec nous? Rien de plus simple, choisissez le moyen que vous préferez"
           />
 
-          <Grid
-            className={classes.grid}
-            justify="center"
-            container
-            spacing={10}
-          >
+          <Grid className={classes.grid} justify="center" container spacing={3}>
             {contact.map((data) => (
-              <Grid key={data.id} item xs={12} sm={6} md={4} xl={12}>
+              <Grid key={data.id} item xs={12} sm={6} md={4} xl={4}>
                 <ContactBox data={data} />
               </Grid>
             ))}

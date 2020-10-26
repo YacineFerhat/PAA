@@ -5,7 +5,7 @@ import j4 from "assets/pictures/j4.jpg";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
-  root: {},
+  root: { fontFamily: "Comic Sans MS" },
 });
 
 const Junior = () => {

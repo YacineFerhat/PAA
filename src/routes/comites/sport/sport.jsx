@@ -5,7 +5,7 @@ import s4 from "assets/pictures/s4.jpg";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
-  root: {},
+  root: { fontFamily: "Comic Sans MS" },
 });
 const Sport = () => {
   const classes = useStyles();

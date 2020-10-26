@@ -10,13 +10,18 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { useFetchArticleByTitle } from "hooks/useFetchArticleByTitle";
+import { stateToHTML } from "draft-js-export-html";
+import { convertFromRaw } from "draft-js";
+import { useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {},
   media: {
     height: 400,
   },
   title: {
+    fontFamily: "Comic Sans MS",
     padding: "2% 0%",
+    fontWeight: 600,
     textAlign: "center",
   },
   dataContainer: {
@@ -31,35 +36,56 @@ const useStyles = makeStyles((theme) => ({
     color: "#177a63",
   },
   categorie: {
+    fontFamily: "Comic Sans MS",
+
     marginLeft: "3%",
     textTransform: "uppercase",
   },
   tag: {
     textWeight: "bold",
+    fontFamily: "Comic Sans MS",
   },
   body: {
+    fontFamily: "Comic Sans MS",
     textIndent: "20px",
     lineHeight: "35px",
   },
   button: {
     color: "white",
-    backgroundColor: "#177a63",
+    backgroundImage:
+      "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 100%)",
     "&:hover": {
-      backgroundColor: "#233015",
+      opacity: 0.8,
     },
   },
 }));
 
 const BlogArticle = () => {
   const classes = useStyles();
-  let filteredData = article[0];
   let data = useFetchArticleByTitle(useParams().title);
   const { title, date, hashtags, description, categories, picture } = data;
-  console.log(hashtags);
-  let descToShow = description ? description[0] : [];
-  console.log(descToShow);
-  //let descToShow = data ? data.description.blocks : null;
-  //console.log(descToShow);
+  let history = useHistory();
+  const content = {
+    entityMap: {},
+    blocks: [
+      {
+        key: "637gr",
+        text: "Chargement des données.",
+        type: "unstyled",
+        depth: 0,
+        inlineStyleRanges: [],
+        entityRanges: [],
+        data: {},
+      },
+    ],
+  };
+  const convertCommentFromJSONToHTML = (text) => {
+    return stateToHTML(convertFromRaw(text));
+  };
+  const display = data.description === undefined ? content : data.description;
+  const handlePushHistory = () => {
+    history.push("/Articles");
+  };
   return (
     <section className={`hero is-fullheight ${classes.root}`}>
       <div className="hero-main">
@@ -67,7 +93,7 @@ const BlogArticle = () => {
           <Typography
             className={classes.title}
             gutterBottom
-            variant="h3"
+            variant="h4"
             component="h2"
           >
             {title}
@@ -109,15 +135,21 @@ const BlogArticle = () => {
                 <span>#{hash}</span>
               ))}
             </Typography>
-            <Typography
-              variant="body1"
-              className={classes.body}
-              gutterBottom
-            ></Typography>
+            <Typography variant="body1" className={classes.body} gutterBottom>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: convertCommentFromJSONToHTML(display),
+                }}
+              />
+            </Typography>
           </div>{" "}
           <CardActions>
-            <Button size="small" className={classes.button}>
-              Lire l'article
+            <Button
+              onClick={handlePushHistory}
+              size="small"
+              className={classes.button}
+            >
+              Lire les autres articles
             </Button>
           </CardActions>
         </div>

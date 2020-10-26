@@ -70,9 +70,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#8cc63f",
     marginRight: "5px",
   },
-  editor: {
-    marginTop: "2%",
-  },
+
   btnHolder: {
     width: "100%",
     display: "flex",
@@ -80,6 +78,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
 }));
+
 const NewArticle = () => {
   const classes = useStyles();
   const [input, setInput] = useState({
@@ -88,6 +87,7 @@ const NewArticle = () => {
     categories: "",
     hashtags: "",
   });
+
   const handleChangeInput = (event) => {
     setInput({
       ...input,
@@ -122,7 +122,7 @@ const NewArticle = () => {
     formData.append("categories", input.categories);
     formData.append("hashtags", input.hashtags);
     formData.append("picture", formState.inputs.image.value);
-    formData.append("description", JSON.stringify(contentState.blocks));
+    formData.append("description", JSON.stringify(contentState));
     axios
       .post("/api/articles/", formData)
       .then((res) => {
@@ -230,8 +230,19 @@ const NewArticle = () => {
           handlePastedText={() => false}
           wrapperClassName="demo-wrapper"
           editorClassName="demo-editor"
+          editorStyle={{
+            border: "1px solid #C0C0C0",
+            padding: "10px",
+            borderRadius: "2px",
+            height: "300px",
+            width: "100%",
+          }}
           onContentStateChange={onContentStateChange}
         />{" "}
+        <Typography variant="caption" display="block" gutterBottom>
+          *Les icones importées depuis les postes Facebook ne sont pas affichées
+          à l'intérieur de l'éditeur mais le seront dans l'article
+        </Typography>
         <div className={classes.btnHolder}>
           <Button variant="contained" color="primary" onClick={handleSubmit}>
             Valider

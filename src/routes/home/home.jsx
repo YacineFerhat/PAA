@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
     top: -10,
   },
   youtube: {
-    height: 750,
+    height: 1000,
   },
   "@media (min-width: 1050px)": {
     arbreImg: {
@@ -270,7 +270,12 @@ const Home = () => {
   return (
     <div className={classes.root}>
       <section className="hero">
-        <ReactPlayer width="100%" classes={classes.youtube} url={link} />
+        <ReactPlayer
+          height="500"
+          width="100%"
+          classes={classes.youtube}
+          url={link}
+        />
       </section>
       <section className={`hero is-fullwidth ${classes.numbers}`}>
         <div className={classes.titleContainer}>

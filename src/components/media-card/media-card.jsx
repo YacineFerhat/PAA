@@ -24,7 +24,11 @@ const useStyles = makeStyles({
     width: "100%",
   },
   title: {
-    height: 30,
+    fontFamily: "Comic Sans MS",
+    height: 50,
+  },
+  desc: {
+    fontFamily: "Comic Sans MS",
   },
 });
 
@@ -57,7 +61,12 @@ const MediaCard = ({ data: { link, title, desc, picture, icon } }) => {
                   {title}
                 </Typography>
               </div>
-              <Typography variant="body2" color="textSecondary" component="p">
+              <Typography
+                className={classes.desc}
+                variant="body2"
+                color="textSecondary"
+                component="p"
+              >
                 {desc}
               </Typography>
             </CardContent>
