@@ -222,7 +222,7 @@ const NewArticle = () => {
           *Taille maximum d'1Mo, sinon l'image ne passera pas.
         </Typography>
         <Typography variant="caption" display="block" gutterBottom>
-          *Utiliser une image de 6x4 (largeur/longueur).
+          *Utiliser une image carrée.
         </Typography>
         <hr />
         <Editor

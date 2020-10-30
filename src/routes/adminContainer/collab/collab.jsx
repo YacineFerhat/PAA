@@ -155,7 +155,6 @@ const Collab = () => {
   const [editData, setEditData] = useState(false);
   const [logo, setLogo] = useState([]);
   const [newLink, setNewLink] = useState("");
-  console.log(logo);
   const handleEdit = (data) => {
     setLogo(data);
     setEditData(true);

@@ -8,6 +8,7 @@ import Info from "./info";
 import Team from "./team";
 import Utilisateur from "./utilisateur";
 import Collab from "./collab";
+import Comite from "./comite";
 const useStyles = makeStyles((theme) => ({
   root: {},
 }));
@@ -37,6 +38,9 @@ const AdminContainer = () => {
         </Route>
         <Route path={`${path}/Collaborateurs`}>
           <Collab />
+        </Route>
+        <Route path={`${path}/Inscriptions`}>
+          <Comite />
         </Route>
       </Switch>
     </div>

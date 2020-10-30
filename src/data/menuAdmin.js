@@ -30,6 +30,11 @@ const Data = [
     link: "/Collaborateurs",
   },
   {
+    id: 7,
+    titre: "Inscriptions",
+    link: "/Inscriptions",
+  },
+  {
     id: 5,
     titre: "Utilisateurs",
     link: "/Utilisateurs",
