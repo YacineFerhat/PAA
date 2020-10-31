@@ -7,14 +7,9 @@ import QuiSommesNous from "./qui-sommes-nous";
 import Rejoindre from "./rejoindre";
 import Activite from "./activites";
 import Contact from "routes/contact";
-import { makeStyles } from "@material-ui/core/styles";
+import Recrutement from "./rejoindre/recrutement/main";
 
-const useStyles = makeStyles((theme) => ({
-  root: {},
-}));
 const Apropos = () => {
-  const classes = useStyles();
-
   let { path } = useRouteMatch();
   return (
     <Switch>
@@ -33,6 +28,7 @@ const Apropos = () => {
       <Route path={`${path}/RejoignezNous`}>
         <Rejoindre />
       </Route>
+
       <Route path={`${path}/Activités`}>
         <Activite />
       </Route>

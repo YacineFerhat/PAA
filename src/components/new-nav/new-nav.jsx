@@ -27,6 +27,11 @@ const useStyles = makeStyles((theme) => ({
     height: 40,
   },
   links: {
+    minWidth: 120,
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  link: {
     textDecoration: "none",
     "&:hover": {
       color: "rgba(255,255,255, 0.7)",
@@ -140,23 +145,23 @@ const Navbar = () => {
       <div className={classes.root}>
         <div className={classes.nav1}>
           <div></div>
-          <div>
+          <div className={classes.links}>
             <a
-              className={`links ${classes.links}`}
+              className={`link ${classes.link}`}
               href="https://www.youtube.com/channel/UC9NDD6jwR0GdiJUodVdQesA"
               target="_blank"
             >
               <img src={youtube} className={classes.icon} />
             </a>
             <a
-              className={`links ${classes.links}`}
+              className={`link ${classes.link}`}
               href="https://www.instagram.com/plogging_association_algeria/?hl=fr"
               target="_blank"
             >
               <img src={insta} className={classes.icon} />
             </a>
             <a
-              className={`links ${classes.links}`}
+              className={`link ${classes.link}`}
               href="https://www.facebook.com/PloggingAssociationAlgeria/"
               target="_blank"
             >

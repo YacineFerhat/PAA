@@ -3,7 +3,6 @@ import DoubleTitle from "components/double-title";
 import MediaCard from "components/media-card-db";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import team from "data/team";
 import { useFetchTeams } from "hooks/useFetchTeams";
 
 const useStyles = makeStyles((theme) => ({

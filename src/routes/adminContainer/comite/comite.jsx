@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Paper, Typography, Switch } from "@material-ui/core";
+import { Button, Paper, Switch } from "@material-ui/core";
 import axios from "axios";
 import Alert from "components/alert";
 import { useFetchComites } from "hooks/useFetchComites";

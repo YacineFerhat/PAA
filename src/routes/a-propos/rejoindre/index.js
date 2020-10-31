@@ -1,1 +1,1 @@
-export { default } from "./rejoindre.jsx";
+export { default } from "./main.jsx";

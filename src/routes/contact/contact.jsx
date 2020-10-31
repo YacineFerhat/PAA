@@ -7,8 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    margin: "6% 10% 0% 10%",
-    backgroundColor: "white",
+    margin: "5% 0%",
   },
   grid: {
     marginTop: "2%",
