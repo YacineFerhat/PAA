@@ -79,6 +79,15 @@ const Input = (props) => {
         value={inputState.value}
         className={classes.textField}
       />
+    ) : props.element === "textareaBig" ? (
+      <textarea
+        multiline
+        id={props.id}
+        rows={10}
+        onChange={changeHandler}
+        onBlur={touchHandler}
+        value={inputState.value}
+      />
     ) : (
       <textarea
         multiline

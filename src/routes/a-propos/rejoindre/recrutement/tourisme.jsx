@@ -41,6 +41,10 @@ const useStyles = makeStyles((theme) => ({
       opacity: 0.8,
     },
   },
+  formControl: {
+    padding: "0.15rem 0.25rem",
+    margin: "1rem 0",
+  },
 }));
 const Eco = () => {
   const classes = useStyles();
@@ -94,7 +98,6 @@ const Eco = () => {
     },
     false
   );
-  console.log(formState);
   const [connaissanceEco, setConnaissanceEco] = useState("");
   const [pratiqueEco, setPratiqueEco] = useState("");
   const [time, setTime] = useState("");
@@ -107,7 +110,6 @@ const Eco = () => {
   const handleChangeTime = (event) => {
     setTime(event.target.value);
   };
-  console.log(connaissanceEco, pratiqueEco, time);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -130,8 +132,12 @@ const Eco = () => {
     };
     axios
       .post("/api/inscriptions/eco-tourisme", dataObject)
-      .then((res) => {})
-      .catch((error) => {});
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -259,40 +265,42 @@ const Eco = () => {
               />{" "}
             </Grid>
             <Grid item md={6} sm={12} xs={12}>
-              <Typography
-                variant="h6"
-                gutterBottom
-                htmlFor="radio group knowledge"
-              >
-                Avez-vous des connaissances dans le tourisme local ? * :
-              </Typography>
-              <RadioGroup
-                aria-label="gender"
-                name="gender1"
-                value={time}
-                onChange={handleChangeTime}
-              >
-                <FormControlLabel
-                  value="1h/jour"
-                  control={<Radio />}
-                  label="1h/jour"
-                />
-                <FormControlLabel
-                  value="2h/jour"
-                  control={<Radio />}
-                  label="2h/jour"
-                />
-                <FormControlLabel
-                  value="Une journée/semaine"
-                  control={<Radio />}
-                  label="Une journée/semaine"
-                />
-                <FormControlLabel
-                  value="Le week-end"
-                  control={<Radio />}
-                  label="Le week-end"
-                />
-              </RadioGroup>
+              <div className={classes.formControl}>
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  htmlFor="radio group knowledge"
+                >
+                  Combien de temps pouvez-vous consacrer au comité ? * :
+                </Typography>
+                <RadioGroup
+                  aria-label="gender"
+                  name="gender1"
+                  value={time}
+                  onChange={handleChangeTime}
+                >
+                  <FormControlLabel
+                    value="1h/jour"
+                    control={<Radio />}
+                    label="1h/jour"
+                  />
+                  <FormControlLabel
+                    value="2h/jour"
+                    control={<Radio />}
+                    label="2h/jour"
+                  />
+                  <FormControlLabel
+                    value="Une journée/semaine"
+                    control={<Radio />}
+                    label="Une journée/semaine"
+                  />
+                  <FormControlLabel
+                    value="Le week-end"
+                    control={<Radio />}
+                    label="Le week-end"
+                  />
+                </RadioGroup>
+              </div>
             </Grid>
           </Grid>
 

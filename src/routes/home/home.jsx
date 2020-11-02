@@ -271,7 +271,7 @@ const Home = () => {
     <div className={classes.root}>
       <section className="hero">
         <ReactPlayer
-          height="500"
+          height="500px"
           width="100%"
           classes={classes.youtube}
           url={link}

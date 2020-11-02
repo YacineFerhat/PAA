@@ -1,5 +1,12 @@
-import React from "react";
-import { Grid, TextField } from "@material-ui/core";
+import React, { useState } from "react";
+import {
+  Grid,
+  Radio,
+  FormControlLabel,
+  Typography,
+  RadioGroup,
+  Button,
+} from "@material-ui/core";
 import Input from "components/input";
 import {
   VALIDATOR_REQUIRE,
@@ -10,6 +17,7 @@ import {
 import { useForm } from "hooks/useForm";
 import DoubleTitle from "components/double-title";
 import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,6 +25,26 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "5%",
     fontFamily: "Autolinker",
     padding: "0% 2%",
+  },
+  btnHolder: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+  },
+  btn: {
+    width: 150,
+    color: "white",
+    marginBottom: 50,
+    backgroundImage:
+      "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 100%)",
+    "&:hover": {
+      opacity: 0.8,
+    },
+  },
+  formControl: {
+    padding: "0.15rem 0.25rem",
+    margin: "1rem 0",
   },
 }));
 const Junior = () => {
@@ -59,13 +87,59 @@ const Junior = () => {
         value: "",
         isValid: false,
       },
-      time: {
+      experienceJunior: {
+        value: "",
+        isValid: false,
+      },
+      importanceJunior: {
+        value: "",
+        isValid: false,
+      },
+      enfantJunior: {
+        value: "",
+        isValid: false,
+      },
+      activiteJunior: {
         value: "",
         isValid: false,
       },
     },
     false
   );
+
+  const [time, setTime] = useState("");
+  const handleChangeTime = (event) => {
+    setTime(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const dataObject = {
+      nom: formState.inputs.nom.value,
+      prenom: formState.inputs.prenom.value,
+      birth: formState.inputs.birth.value,
+      adresse: formState.inputs.adresse.value,
+      mail: formState.inputs.mail.value,
+      numero: formState.inputs.numero.value,
+      etude: formState.inputs.etude.value,
+      connaissance: formState.inputs.connaissance.value,
+      motivation: formState.inputs.motivation.value,
+      experienceJunior: formState.inputs.experienceJunior.value,
+      importanceJunior: formState.inputs.importanceJunior.value,
+      enfantJunior: formState.inputs.enfantJunior.value,
+      activiteJunior: formState.inputs.activiteJunior.value,
+      time: time,
+      comite: "Junior",
+    };
+    axios
+      .post("/api/inscriptions/junior", dataObject)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <section className={`hero is-fullheight ${classes.root}`}>
       <div className="hero-main">
@@ -190,18 +264,106 @@ const Junior = () => {
                 onInput={inputHandler}
               />{" "}
             </Grid>
+            <Grid item md={6} sm={12} xs={12} className={classes.formControl}>
+              <Typography
+                variant="h6"
+                gutterBottom
+                htmlFor="radio group knowledge"
+              >
+                Combien de temps pouvez-vous consacrer au comité ? * :
+              </Typography>
+              <RadioGroup
+                aria-label="gender"
+                name="gender1"
+                value={time}
+                onChange={handleChangeTime}
+              >
+                <FormControlLabel
+                  value="1h/jour"
+                  control={<Radio />}
+                  label="1h/jour"
+                />
+                <FormControlLabel
+                  value="2h/jour"
+                  control={<Radio />}
+                  label="2h/jour"
+                />
+                <FormControlLabel
+                  value="Une journée/semaine"
+                  control={<Radio />}
+                  label="Une journée/semaine"
+                />
+                <FormControlLabel
+                  value="Le week-end"
+                  control={<Radio />}
+                  label="Le week-end"
+                />
+              </RadioGroup>
+            </Grid>
+          </Grid>
+          <Grid container spacing={3}>
             <Grid item md={6} sm={12} xs={12}>
               <Input
-                id="time"
+                id="experienceJunior"
                 element="input"
                 type="text"
-                label="Combien de temps pouvez-vous consacrer au comité ? *"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="S'il vous plait introduisez un temps valide."
+                label="Avez vous une expérience avec les enfants dans le bénévolat *"
+                validators={[VALIDATOR_REQUIRE()] && [VALIDATOR_MINLENGTH(4)]}
+                errorText="S'il vous plait introduisez un nom valide."
+                onInput={inputHandler}
+              />{" "}
+            </Grid>
+            <Grid item md={6} sm={12} xs={12}>
+              <Input
+                id="importanceJunior"
+                element="input"
+                type="text"
+                label="Quelle est pour vous l'importance de sensibiliser l'enfant à l'écologie ? *"
+                validators={[VALIDATOR_REQUIRE()] && [VALIDATOR_MINLENGTH(4)]}
+                errorText="S'il vous plait introduisez un prénom valide."
                 onInput={inputHandler}
               />{" "}
             </Grid>
           </Grid>
+          <Grid container spacing={3}>
+            <Grid item md={6} sm={12} xs={12}>
+              <Input
+                id="enfantJunior"
+                element="input"
+                type="text"
+                label="Pensez vous qu'en Algérie les enfants sont dévoués à la cause environnemental ? *"
+                validators={[VALIDATOR_REQUIRE()] && [VALIDATOR_MINLENGTH(4)]}
+                errorText="S'il vous plait introduisez un nom valide."
+                onInput={inputHandler}
+              />{" "}
+            </Grid>
+            <Grid item md={6} sm={12} xs={12}>
+              <Input
+                id="activiteJunior"
+                element="input"
+                type="text"
+                label="Quelles sont pour vous les activités qu'un enfant peut faire, hormis le plogging ? *"
+                validators={[VALIDATOR_REQUIRE()] && [VALIDATOR_MINLENGTH(4)]}
+                errorText="S'il vous plait introduisez un prénom valide."
+                onInput={inputHandler}
+              />{" "}
+            </Grid>
+          </Grid>
+          <div className={classes.btnHolder}>
+            {formState.isValid && time !== "" ? (
+              <Button
+                variant="contained"
+                onClick={handleSubmit}
+                className={classes.btn}
+              >
+                Valider
+              </Button>
+            ) : (
+              <Button variant="contained" disabled className={classes.btn}>
+                Valider
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </section>

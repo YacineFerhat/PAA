@@ -78,7 +78,6 @@ const useStyles = makeStyles((theme) => ({
 
     height: "100%",
   },
-  //5C8F3E A3CD39 D7E279
   rootIcon: {
     display: "flex",
     justifyContent: "center",
@@ -86,7 +85,10 @@ const useStyles = makeStyles((theme) => ({
     width: 220,
     height: 220,
   },
-  logo: {},
+  logo: {
+    height: 220,
+    width: 220,
+  },
   navItemTitlte: {
     fontFamily: "Comic Sans MS",
     fontSize: "30px",
