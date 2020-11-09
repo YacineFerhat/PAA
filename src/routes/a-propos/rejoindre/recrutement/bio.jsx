@@ -1,5 +1,12 @@
-import React from "react";
-import { Grid, TextField } from "@material-ui/core";
+import React, { useState } from "react";
+import {
+  Grid,
+  Radio,
+  FormControlLabel,
+  Typography,
+  RadioGroup,
+  Button,
+} from "@material-ui/core";
 import Input from "components/input";
 import {
   VALIDATOR_REQUIRE,
@@ -10,6 +17,7 @@ import {
 import { useForm } from "hooks/useForm";
 import DoubleTitle from "components/double-title";
 import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,6 +25,26 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "5%",
     fontFamily: "Autolinker",
     padding: "0% 2%",
+  },
+  btnHolder: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+  },
+  btn: {
+    width: 150,
+    color: "white",
+    marginBottom: 50,
+    backgroundImage:
+      "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 100%)",
+    "&:hover": {
+      opacity: 0.8,
+    },
+  },
+  formControl: {
+    padding: "0.15rem 0.25rem",
+    margin: "1rem 0",
   },
 }));
 const Bio = () => {
@@ -59,13 +87,69 @@ const Bio = () => {
         value: "",
         isValid: false,
       },
-      time: {
+      whatIsBio: {
+        value: "",
+        isValid: false,
+      },
+      importanceBio: {
+        value: "",
+        isValid: false,
+      },
+      solutionBio: {
+        value: "",
+        isValid: false,
+      },
+      skillsBio: {
         value: "",
         isValid: false,
       },
     },
     false
   );
+  const [time, setTime] = useState("");
+  const handleChangeTime = (event) => {
+    setTime(event.target.value);
+  };
+  const [knowledgeBio, setKnowledgeBio] = useState("");
+  const handleChangeKnowledgeBio = (event) => {
+    setKnowledgeBio(event.target.value);
+  };
+
+  const [knowledgeAgroBio, setKnowledgeAgroBio] = useState("");
+  const handleChangeKnowledgeAgroBio = (event) => {
+    setKnowledgeAgroBio(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const dataObject = {
+      nom: formState.inputs.nom.value,
+      prenom: formState.inputs.prenom.value,
+      birth: formState.inputs.birth.value,
+      adresse: formState.inputs.adresse.value,
+      mail: formState.inputs.mail.value,
+      numero: formState.inputs.numero.value,
+      etude: formState.inputs.etude.value,
+      connaissance: formState.inputs.connaissance.value,
+      motivation: formState.inputs.motivation.value,
+      whatIsBio: formState.inputs.whatIsBio.value,
+      importanceBio: formState.inputs.importanceBio.value,
+      solutionBio: formState.inputs.solutionBio.value,
+      skillsBio: formState.inputs.skillsBio.value,
+      knowledgeBio: knowledgeBio,
+      knowledgeAgroBio: knowledgeAgroBio,
+      time: time,
+      comite: "Biodiversité",
+    };
+    axios
+      .post("/api/inscriptions/bio", dataObject)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <section className={`hero is-fullheight ${classes.root}`}>
       <div className="hero-main">
@@ -190,18 +274,149 @@ const Bio = () => {
                 onInput={inputHandler}
               />{" "}
             </Grid>
+            <Grid item md={6} sm={12} xs={12} className={classes.formControl}>
+              <Typography
+                variant="h6"
+                gutterBottom
+                htmlFor="radio group knowledge"
+              >
+                Combien de temps pouvez-vous consacrer au comité ? * :
+              </Typography>
+              <RadioGroup
+                aria-label="gender"
+                name="gender1"
+                value={time}
+                onChange={handleChangeTime}
+              >
+                <FormControlLabel
+                  value="1h/jour"
+                  control={<Radio />}
+                  label="1h/jour"
+                />
+                <FormControlLabel
+                  value="2h/jour"
+                  control={<Radio />}
+                  label="2h/jour"
+                />
+                <FormControlLabel
+                  value="Une journée/semaine"
+                  control={<Radio />}
+                  label="Une journée/semaine"
+                />
+                <FormControlLabel
+                  value="Le week-end"
+                  control={<Radio />}
+                  label="Le week-end"
+                />
+              </RadioGroup>
+            </Grid>
+          </Grid>
+          <Grid container spacing={3}>
+            <Grid item md={6} sm={12} xs={12} className={classes.formControl}>
+              <Typography
+                variant="h6"
+                gutterBottom
+                htmlFor="radio group knowledge"
+              >
+                Avez-vous des connaissances dans le domaine de la biodiversité ?
+                * :{" "}
+              </Typography>
+              <RadioGroup
+                aria-label="gender"
+                name="gender1"
+                value={knowledgeBio}
+                onChange={handleChangeKnowledgeBio}
+              >
+                <FormControlLabel value="Oui" control={<Radio />} label="Oui" />
+                <FormControlLabel value="Nom" control={<Radio />} label="Nom" />
+              </RadioGroup>
+            </Grid>
+            <Grid item md={6} sm={12} xs={12} className={classes.formControl}>
+              <Typography
+                variant="h6"
+                gutterBottom
+                htmlFor="radio group knowledge"
+              >
+                Avez-vous des connaissances dans le domaine de l'agronomie ? * :
+              </Typography>
+              <RadioGroup
+                aria-label="gender"
+                name="gender1"
+                value={knowledgeAgroBio}
+                onChange={handleChangeKnowledgeAgroBio}
+              >
+                <FormControlLabel value="Oui" control={<Radio />} label="Oui" />
+                <FormControlLabel value="Nom" control={<Radio />} label="Nom" />
+              </RadioGroup>
+            </Grid>
+          </Grid>
+          <Grid container spacing={3}>
             <Grid item md={6} sm={12} xs={12}>
               <Input
-                id="time"
-                element="input"
+                id="whatIsBio"
+                element="textarea"
                 type="text"
-                label="Combien de temps pouvez-vous consacrer au comité ? *"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="S'il vous plait introduisez un temps valide."
+                label="Qu'est ce que la biodiversité ? *"
+                validators={[VALIDATOR_REQUIRE()] && [VALIDATOR_MINLENGTH(10)]}
+                errorText="S'il vous plait introduisez une définition."
+                onInput={inputHandler}
+              />{" "}
+            </Grid>
+            <Grid item md={6} sm={12} xs={12}>
+              <Input
+                id="skillsBio"
+                element="texarea"
+                type="text"
+                label="Citez vos points forts et vos points d'efforts *"
+                validators={[VALIDATOR_REQUIRE()] && [VALIDATOR_MINLENGTH(4)]}
+                errorText="S'il vous plait repmlissez le champ"
+                onInput={inputHandler}
+              />{" "}
+            </Grid>
+          </Grid>{" "}
+          <Grid container spacing={3}>
+            <Grid item md={6} sm={12} xs={12}>
+              <Input
+                id="solutionBio"
+                element="textarea"
+                type="text"
+                label="Quelles sont les solutions que vous pouvez proposer pour aider a la préservation de la biodiversité ? *"
+                validators={[VALIDATOR_REQUIRE()] && [VALIDATOR_MINLENGTH(10)]}
+                errorText="S'il vous plait introduisez vos solutions."
+                onInput={inputHandler}
+              />{" "}
+            </Grid>
+
+            <Grid item md={6} sm={12} xs={12}>
+              <Input
+                id="importanceBio"
+                element="texarea"
+                type="text"
+                label="Quelle est pour vous l'importance de la préservation de la biodiversité? "
+                validators={[VALIDATOR_REQUIRE()] && [VALIDATOR_MINLENGTH(4)]}
+                errorText="S'il vous plait repmlissez le champ"
                 onInput={inputHandler}
               />{" "}
             </Grid>
           </Grid>
+          <div className={classes.btnHolder}>
+            {formState.isValid &&
+            knowledgeAgroBio !== "" &&
+            time !== "" &&
+            knowledgeBio !== "" ? (
+              <Button
+                variant="contained"
+                onClick={handleSubmit}
+                className={classes.btn}
+              >
+                Valider
+              </Button>
+            ) : (
+              <Button variant="contained" disabled className={classes.btn}>
+                Valider
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </section>

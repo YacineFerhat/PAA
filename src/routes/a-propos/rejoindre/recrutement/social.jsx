@@ -18,6 +18,7 @@ import { useForm } from "hooks/useForm";
 import DoubleTitle from "components/double-title";
 import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -46,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "1rem 0",
   },
 }));
-const Conf = () => {
+const Social = () => {
   const classes = useStyles();
   const [formState, inputHandler] = useForm(
     {
@@ -82,15 +83,27 @@ const Conf = () => {
         value: "",
         isValid: false,
       },
-      themeConf: {
-        value: "",
-        isValid: false,
-      },
       motivation: {
         value: "",
         isValid: false,
       },
-      languesConf: {
+      experienceOuiSocial: {
+        value: "",
+        isValid: false,
+      },
+      skillsSocial: {
+        value: "",
+        isValid: false,
+      },
+      languesSocial: {
+        value: "",
+        isValid: false,
+      },
+      feedbackSocial: {
+        value: "",
+        isValid: false,
+      },
+      ideasSocial: {
         value: "",
         isValid: false,
       },
@@ -101,10 +114,21 @@ const Conf = () => {
   const handleChangeTime = (event) => {
     setTime(event.target.value);
   };
-  const [maitriseConf, setMaitriseConf] = useState("");
-  const handleMaitrise = (event) => {
-    setMaitriseConf(event.target.value);
+  const [experienceSocial, setExperienceSocial] = useState("");
+  const handleChangeExperienceSocial = (event) => {
+    setExperienceSocial(event.target.value);
   };
+
+  const [socialUsedSocial, setSocialUsedSocial] = useState("");
+  const handleChangeSocialUsedSocial = (event) => {
+    setSocialUsedSocial(event.target.value);
+  };
+
+  const [followingSocial, setFollowingSocial] = useState("");
+  const handleChangeFollowingSocial = (event) => {
+    setFollowingSocial(event.target.value);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const dataObject = {
@@ -117,14 +141,21 @@ const Conf = () => {
       etude: formState.inputs.etude.value,
       connaissance: formState.inputs.connaissance.value,
       motivation: formState.inputs.motivation.value,
-      themeConf: formState.inputs.themeConf.value,
-      languesConf: formState.inputs.languesConf.value,
-      maitriseConf: maitriseConf,
+
+      experienceOuiSocial: formState.inputs.experienceOuiSocial.value,
+      skillsSocial: formState.inputs.skillsSocial.value,
+      languesSocial: formState.inputs.languesSocial.value,
+      feedbackSocial: formState.inputs.feedbackSocial.value,
+      ideasSocial: formState.inputs.ideasSocial.value,
+
+      socialUsedSocial: socialUsedSocial,
+      experienceSocial: experienceSocial,
+      followingSocial: followingSocial,
       time: time,
-      comite: "Conférence",
+      comite: "Réseaux sociaux",
     };
     axios
-      .post("/api/inscriptions/conf", dataObject)
+      .post("/api/inscriptions/social", dataObject)
       .then((res) => {
         console.log(res);
       })
@@ -137,8 +168,11 @@ const Conf = () => {
       <div className="hero-main">
         <div className="container">
           <DoubleTitle
-            title="Conférence"
-            sub="Envie de faire partie du comité Conférence? remplissez ce formulaire."
+            title="Réseaux sociaux"
+            sub="Le comité réseaux sociaux est le comité responsable de la communication . 
+            Le comité se charge de la gestion des réseaux sociaux : c'est la vitrine de l'association!
+            Vous êtes intéressé ? Vous voulez l’intégrer ? Remplissez ce formulaire .
+            Bonne chance à vous ."
           />
           <Grid container spacing={3}>
             <Grid item md={6} sm={12} xs={12}>
@@ -294,16 +328,91 @@ const Conf = () => {
             </Grid>
           </Grid>
           <Grid container spacing={3}>
+            <Grid item md={6} sm={12} xs={12} className={classes.formControl}>
+              <Typography
+                variant="h6"
+                gutterBottom
+                htmlFor="radio group knowledge"
+              >
+                Avez vous déjà une expérience dans le domaine ? * :{" "}
+              </Typography>
+              <RadioGroup
+                aria-label="gender"
+                name="gender1"
+                value={experienceSocial}
+                onChange={handleChangeExperienceSocial}
+              >
+                <FormControlLabel value="Oui" control={<Radio />} label="Oui" />
+                <FormControlLabel value="Nom" control={<Radio />} label="Nom" />
+              </RadioGroup>
+            </Grid>
             <Grid item md={6} sm={12} xs={12}>
               <Input
-                id="themeConf"
+                id="experienceOuiSocial"
                 element="input"
                 type="text"
-                label="Quels sont les thèmes que vous souhaiteriez aborder au sein du comité ? * *"
-                validators={[VALIDATOR_REQUIRE()] && [VALIDATOR_MINLENGTH(3)]}
-                errorText="S'il vous plait introduisez un thème."
+                label="laquelle ?"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="S'il vous plait repmlissez le champ"
                 onInput={inputHandler}
               />{" "}
+            </Grid>
+          </Grid>
+          <Grid container spacing={3}>
+            <Grid item md={6} sm={12} xs={12}>
+              <Input
+                id="skillsSocial"
+                element="input"
+                type="text"
+                label="Quelles sont vos compétences ? ( Maîtrise d'Applications / logiciels / Autres ) *"
+                validators={[VALIDATOR_REQUIRE()] && [VALIDATOR_MINLENGTH(10)]}
+                errorText="S'il vous plait introduisez vos compétences."
+                onInput={inputHandler}
+              />{" "}
+            </Grid>
+            <Grid item md={6} sm={12} xs={12}>
+              <Input
+                id="languesSocial"
+                element="input"
+                type="text"
+                label="Quelles langues maitrisez vous ? *"
+                validators={[VALIDATOR_REQUIRE()] && [VALIDATOR_MINLENGTH(4)]}
+                errorText="S'il vous plait repmlissez le champ"
+                onInput={inputHandler}
+              />{" "}
+            </Grid>
+          </Grid>{" "}
+          <Grid container spacing={3}>
+            <Grid item md={6} sm={12} xs={12} className={classes.formControl}>
+              <Typography
+                variant="h6"
+                gutterBottom
+                htmlFor="radio group knowledge"
+              >
+                Quel est le réseaux social que vous utilisez le plus ? *{" "}
+              </Typography>
+              <RadioGroup
+                aria-label="gender"
+                name="gender1"
+                value={socialUsedSocial}
+                onChange={handleChangeSocialUsedSocial}
+              >
+                <FormControlLabel
+                  value="Facebook"
+                  control={<Radio />}
+                  label="Facebook"
+                />
+                <FormControlLabel
+                  value="Instagram"
+                  control={<Radio />}
+                  label="Instagram"
+                />{" "}
+                <FormControlLabel
+                  value="Autre"
+                  control={<Radio />}
+                  label="Autre"
+                />
+              </RadioGroup>
             </Grid>
             <Grid item md={6} sm={12} xs={12} className={classes.formControl}>
               <Typography
@@ -311,52 +420,58 @@ const Conf = () => {
                 gutterBottom
                 htmlFor="radio group knowledge"
               >
-                Maitrisez-vous Power-Point ? *{" "}
+                Sur quelle plateforme nous suivez-vous ? *{" "}
               </Typography>
               <RadioGroup
                 aria-label="gender"
                 name="gender1"
-                value={maitriseConf}
-                onChange={handleMaitrise}
+                value={followingSocial}
+                onChange={handleChangeFollowingSocial}
               >
                 <FormControlLabel
-                  value="Débutant"
+                  value="Facebook"
                   control={<Radio />}
-                  label="Débutant"
+                  label="Facebook"
                 />
                 <FormControlLabel
-                  value="Intermédiaire"
+                  value="Instagram"
                   control={<Radio />}
-                  label="Intermédiaire"
-                />
-                <FormControlLabel
-                  value="Avancé"
-                  control={<Radio />}
-                  label="Avancé"
-                />
-                <FormControlLabel
-                  value="Expert"
-                  control={<Radio />}
-                  label="Expert"
-                />
+                  label="Instagram"
+                />{" "}
               </RadioGroup>
             </Grid>
-          </Grid>{" "}
+          </Grid>
           <Grid container spacing={3}>
             <Grid item md={6} sm={12} xs={12}>
               <Input
-                id="languesConf"
-                element="input"
+                id="feedbackSocial"
+                element="textarea"
                 type="text"
-                label="Quelles sont les langues que vous maitrisez ? *"
-                validators={[VALIDATOR_REQUIRE()] && [VALIDATOR_MINLENGTH(5)]}
-                errorText="S'il vous plait introduisez le nombre de mots demandés."
+                label="Que pensez vous du contenu facebook/ Instagram de l'Association ? *"
+                validators={[VALIDATOR_REQUIRE()] && [VALIDATOR_MINLENGTH(10)]}
+                errorText="S'il vous plait remplissez le champ"
                 onInput={inputHandler}
               />{" "}
             </Grid>
-          </Grid>{" "}
+
+            <Grid item md={6} sm={12} xs={12}>
+              <Input
+                id="ideasSocial"
+                element="texarea"
+                type="text"
+                label="Quelles sont les améliorations que vous pourriez apporter ? * "
+                validators={[VALIDATOR_REQUIRE()] && [VALIDATOR_MINLENGTH(4)]}
+                errorText="S'il vous plait remplissez le champ"
+                onInput={inputHandler}
+              />{" "}
+            </Grid>
+          </Grid>
           <div className={classes.btnHolder}>
-            {formState.isValid && time !== "" && maitriseConf !== "" ? (
+            {formState.isValid &&
+            socialUsedSocial !== "" &&
+            followingSocial !== "" &&
+            experienceSocial !== "" &&
+            time !== "" ? (
               <Button
                 variant="contained"
                 onClick={handleSubmit}
@@ -376,4 +491,4 @@ const Conf = () => {
   );
 };
 
-export default Conf;
+export default Social;

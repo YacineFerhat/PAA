@@ -9,6 +9,7 @@ import Redact from "./recrutement/redac";
 import Sport from "./recrutement/sport";
 import Tourisme from "./recrutement/tourisme";
 import Rejoindre from "./rejoindre";
+import Social from "./recrutement/social";
 const Apropos = () => {
   let { path } = useRouteMatch();
   return (
@@ -39,6 +40,9 @@ const Apropos = () => {
       </Route>
       <Route path={`${path}/Rédaction`}>
         <Redact />
+      </Route>
+      <Route path={`${path}/Réseaux sociaux`}>
+        <Social />
       </Route>
     </Switch>
   );
