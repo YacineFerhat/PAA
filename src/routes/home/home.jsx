@@ -1,5 +1,4 @@
-import React from "react";
-import review from "data/review";
+import React, { useState, useEffect } from "react";
 import ReviewBox from "components/review-box";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -16,9 +15,8 @@ import oiseau5 from "assets/home/oiseau5.png";
 import calendrier from "assets/home/calendrier.png";
 import lampe from "assets/home/lampe.png";
 import recyclage from "assets/home/recyclage.png";
-import quote from "assets/home/quote.jpg";
 import ReactPlayer from "react-player/lazy";
-import slogan from "assets/home/slogan.jpg";
+import slogan from "assets/home/slogan3.jpg";
 import { useFetchDisplayInfo } from "hooks/useFetchDisplayInfo";
 
 const useStyles = makeStyles((theme) => ({
@@ -98,8 +96,64 @@ const useStyles = makeStyles((theme) => ({
     right: -130,
     top: -10,
   },
-  youtube: {
-    height: 1000,
+  youtube: {},
+  espace1: {
+    position: "absolute",
+    zIndex: 0,
+  },
+  espaceD: {
+    position: "absolute",
+    zIndex: 0,
+    left: 2.5,
+    top: -120,
+  },
+  icon: {
+    height: 150,
+    width: 90,
+  },
+
+  bird1: {
+    position: "absolute",
+    top: 220,
+    left: -90,
+  },
+  bird2: {
+    position: "absolute",
+    top: 120,
+    left: -90,
+  },
+  bird3: {
+    position: "absolute",
+    top: 20,
+  },
+  bird4: {
+    position: "absolute",
+    left: 100,
+    top: -30,
+  },
+  bird5: {
+    position: "absolute",
+    left: 300,
+    top: -60,
+  },
+  calendrier: {},
+  slogan: {
+    height: 600,
+    backgroundSize: "100% 600px",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    display: "flex",
+    justifyContent: "center ",
+    alignItems: "flex-start",
+  },
+  reactPlayer: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+  },
+  playerWrapper: {
+    paddingTop: "177.78%", // Percentage ratio for 16:9
+    position: "relative", // Set to relative
   },
   "@media (min-width: 1050px)": {
     arbreImg: {
@@ -155,7 +209,12 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "42px",
     },
   },
+
   "@media (min-width: 1700px)": {
+    slogan: {
+      height: 700,
+      backgroundSize: "100% 700px",
+    },
     arbreImg: {
       position: "absolute",
       height: 600,
@@ -167,6 +226,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   "@media (min-width: 1900px)": {
+    slogan: {
+      height: 800,
+      backgroundSize: "100% 800px",
+    },
     arbreImg: {
       position: "absolute",
       height: 650,
@@ -178,6 +241,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   "@media (min-width: 2100px)": {
+    slogan: {
+      height: 800,
+      backgroundSize: "100% 800px",
+    },
     title: {
       fontSize: "60px",
     },
@@ -215,67 +282,26 @@ const useStyles = makeStyles((theme) => ({
       top: 30,
     },
   },
-  espace1: {
-    position: "absolute",
-    zIndex: 0,
-  },
-  espaceD: {
-    position: "absolute",
-    zIndex: 0,
-    left: 2.5,
-    top: -120,
-  },
-  icon: {
-    height: 150,
-    width: 90,
-  },
-
-  bird1: {
-    position: "absolute",
-    top: 220,
-    left: -90,
-  },
-  bird2: {
-    position: "absolute",
-    top: 120,
-    left: -90,
-  },
-  bird3: {
-    position: "absolute",
-    top: 20,
-  },
-  bird4: {
-    position: "absolute",
-    left: 100,
-    top: -30,
-  },
-  bird5: {
-    position: "absolute",
-    left: 300,
-    top: -60,
-  },
-  quote: {
-    width: "45%",
-    padding: "0% 5%",
-    color: "white",
-    fontSize: "50px",
-  },
-  calendrier: {},
 }));
 
 const Home = () => {
   const classes = useStyles();
   const info = useFetchDisplayInfo();
   let link = "https://www.youtube.com/watch?v=MnYNZ42Pwxc";
+
+  const mediaMatch = window.matchMedia("(min-width: 1600px)");
+  const [matches, setMatches] = useState(mediaMatch.matches);
+  useEffect(() => {
+    const handler = (e) => setMatches(e.matches);
+    mediaMatch.addListener(handler);
+    return () => mediaMatch.removeListener(handler);
+  }, [mediaMatch]);
+  console.log(matches);
+  let height = matches ? 950 : 750;
   return (
     <div className={classes.root}>
-      <section className="hero">
-        <ReactPlayer
-          height="500px"
-          width="100%"
-          classes={classes.youtube}
-          url={link}
-        />
+      <section>
+        <ReactPlayer height={height} width="100%" url={link} />
       </section>
       <section className={`hero is-fullwidth ${classes.numbers}`}>
         <div className={classes.titleContainer}>
@@ -334,19 +360,9 @@ const Home = () => {
         className=" hero is-medium"
         style={{
           backgroundImage: `url(${slogan})`,
-          height: "500px",
-          backgroundSize: "100% 500px",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          display: "flex",
-          justifyContent: "center ",
-          alignItems: "flex-start",
         }}
-      >
-        <div className={classes.quote}>
-          It's not my garbage, but it's my planet
-        </div>
-      </section>
+        className={classes.slogan}
+      ></section>
     </div>
   );
 };

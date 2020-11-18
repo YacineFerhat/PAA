@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import Article from "./article";
 import Dash from "./dash";
@@ -9,14 +8,14 @@ import Team from "./team";
 import Utilisateur from "./utilisateur";
 import Collab from "./collab";
 import Comite from "./comite";
-const useStyles = makeStyles((theme) => ({
-  root: {},
-}));
+import { useAuth } from "hooks/useAuth";
 
 const AdminContainer = () => {
   let { path } = useRouteMatch();
-  return (
-    <div>
+  const { userGrade } = useAuth();
+  let routes;
+  if (userGrade === "Admin") {
+    routes = (
       <Switch>
         <Route exact path={path}>
           <Dash />
@@ -43,8 +42,35 @@ const AdminContainer = () => {
           <Comite />
         </Route>
       </Switch>
-    </div>
-  );
+    );
+  } else {
+    routes = (
+      <Switch>
+        <Route exact path={path}>
+          <Dash />
+        </Route>
+        <Route path={`${path}/Informations`}>
+          <Info />
+        </Route>
+        <Route path={`${path}/Teams`}>
+          <Team />
+        </Route>
+        <Route path={`${path}/Articles`}>
+          <Article />
+        </Route>
+        <Route path={`${path}/Evénements`}>
+          <Event />
+        </Route>
+        <Route path={`${path}/Collaborateurs`}>
+          <Collab />
+        </Route>
+        <Route path={`${path}/Inscriptions`}>
+          <Comite />
+        </Route>
+      </Switch>
+    );
+  }
+  return <div>{routes}</div>;
 };
 
 export default AdminContainer;

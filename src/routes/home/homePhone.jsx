@@ -8,8 +8,7 @@ import calendrier from "assets/home/calendrier.png";
 
 import espaceGris from "assets/home/espaceGT2.svg";
 import ReactPlayer from "react-player/lazy";
-import slogan1 from "assets/home/sloganT1.jpg";
-import slogan2 from "assets/home/sloganT2.jpg";
+import slogan2 from "assets/home/slogan3.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,6 +42,104 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     marginTop: "5px",
     marginRight: "10px",
+  },
+  video: {
+    height: 600,
+    margin: "5% 0%",
+  },
+  number: {
+    width: "100%",
+    display: "flex",
+    justifyontent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+    height: "auto",
+  },
+  espace1: {
+    position: "absolute",
+    zIndex: -1,
+    width: "100%",
+  },
+  title: {
+    textAlign: "center",
+    fontFamily: "Autolinker",
+    zIndex: 2,
+    color: "#023302",
+    fontSize: "30px",
+    fontWeight: "900",
+    marginTop: "8%",
+  },
+  secondLine: {
+    marginLeft: "25px",
+    display: "flex",
+    alignItems: "flex-start",
+  },
+  grid: {
+    marginTop: "2%",
+  },
+  event: {
+    margin: "5% 0%",
+  },
+  eventContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  calendrier: {
+    width: "70%",
+  },
+  svg: {
+    zIndex: 0,
+    position: "absolute",
+  },
+
+  text2: {
+    width: "45%",
+    padding: "0% 2%",
+    color: "black",
+    fontSize: "25px",
+  },
+  span: {
+    color: "red",
+  },
+  slogan: {
+    backgroundSize: "100% 300px",
+    backgroundRepeat: "no-repeat",
+    height: 300,
+    width: "100%",
+    backgroundPosition: "center",
+  },
+
+  "@media (min-width: 950px)": {
+    slogan: {
+      backgroundSize: "100% 450px",
+      height: 450,
+    },
+  },
+  "@media (min-width: 800px)": {
+    slogan: {
+      backgroundSize: "100% 425px",
+      height: 425,
+    },
+  },
+
+  "@media (min-width: 650px)": {
+    slogan: {
+      backgroundSize: "100% 400px",
+      height: 400,
+    },
+  },
+  "@media (min-width: 500px)": {
+    slogan: {
+      backgroundSize: "100% 375px",
+      height: 375,
+    },
+  },
+  "@media (min-width: 400px)": {
+    slogan: {
+      backgroundSize: "100% 350px",
+      height: 350,
+    },
   },
   "@media (max-width: 700px)": {
     text: {
@@ -116,68 +213,6 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "0.2px",
     },
   },
-  video: {
-    height: 600,
-    margin: "5% 0%",
-  },
-  number: {
-    width: "100%",
-    display: "flex",
-    justifyontent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-    height: "auto",
-  },
-  espace1: {
-    position: "absolute",
-    zIndex: -1,
-    width: "100%",
-  },
-  title: {
-    textAlign: "center",
-    fontFamily: "Autolinker",
-    zIndex: 2,
-    color: "#023302",
-    fontSize: "30px",
-    fontWeight: "900",
-    marginTop: "8%",
-  },
-  secondLine: {
-    marginLeft: "25px",
-    display: "flex",
-    alignItems: "flex-start",
-  },
-  grid: {
-    marginTop: "2%",
-  },
-  event: {
-    margin: "5% 0%",
-  },
-  eventContainer: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  calendrier: {
-    width: "70%",
-  },
-  svg: {
-    zIndex: 0,
-    position: "absolute",
-  },
-  slogan: {
-    height: "100%",
-    width: "100%",
-  },
-  text2: {
-    width: "45%",
-    padding: "0% 2%",
-    color: "black",
-    fontSize: "25px",
-  },
-  span: {
-    color: "red",
-  },
 }));
 const HomePhone = () => {
   const classes = useStyles();
@@ -185,27 +220,6 @@ const HomePhone = () => {
 
   return (
     <div className={classes.root}>
-      <div
-        className={classes.quote}
-        style={{
-          backgroundImage: `url(${slogan1})`,
-          backgroundSize: "100% 300px",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className={classes.text}>
-          <div>
-            THERE IS{" "}
-            <span style={{ marginLeft: "10px", color: "red" }}>NO</span>{" "}
-          </div>
-          <div className={classes.secondLine}>
-            {" "}
-            <div>PLAN</div>
-            <div className={classes.planet}>ET</div> <div>B</div>
-          </div>
-        </div>
-      </div>
       <ReactPlayer
         className={classes.video}
         playing={false}
@@ -241,19 +255,11 @@ const HomePhone = () => {
         </div>
       </div>{" "}
       <div
-        className={classes.quote}
+        className={classes.slogan}
         style={{
           backgroundImage: `url(${slogan2})`,
-          backgroundSize: "100% 300px",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
         }}
-      >
-        <div className={classes.text2}>
-          IT'S NOT MY <span className={classes.span}>GARBAGE</span>, BUT IT'S MY{" "}
-          <span className={classes.span}>PLANET</span>
-        </div>
-      </div>
+      ></div>
     </div>
   );
 };

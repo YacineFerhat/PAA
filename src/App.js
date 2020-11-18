@@ -15,8 +15,13 @@ import Container from "components/container";
 import Home from "routes/home";
 import Footer from "components/footer";
 import Admin from "routes/admin";
+import Auth from "routes/auth";
 import ScrollToTop from "components/scroll-to-top";
+import { AuthContext } from "context/authContext";
+import { useAuth } from "hooks/useAuth";
+
 const App = withRouter(({ location }) => {
+  const { token, login, logout, userId } = useAuth();
   const mediaMatch = window.matchMedia("(min-width: 1114px)");
   const [matches, setMatches] = useState(mediaMatch.matches);
   useEffect(() => {
@@ -25,55 +30,103 @@ const App = withRouter(({ location }) => {
     return () => mediaMatch.removeListener(handler);
   }, [mediaMatch]);
   //      <Loader />
-
+  let routes;
+  if (token) {
+    routes = (
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/Apropos">
+          <Apropos />
+        </Route>
+        <Route path="/Comités">
+          <Comites />
+        </Route>
+        <Route path="/Teams">
+          <Teams />
+        </Route>
+        <Route exact path="/Articles">
+          <Blog />
+        </Route>
+        <Route path="/Articles/:title">
+          <BlogArticle />
+        </Route>
+        <Route path="/Login">
+          <Auth />
+        </Route>
+        <Route path="/Collaborateurs">
+          <Colab />
+        </Route>
+        <Route path="/Evenements">
+          <Event />
+        </Route>
+        <Route path="/administration">
+          <Admin />
+        </Route>
+      </Switch>
+    );
+  } else {
+    routes = (
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/Apropos">
+          <Apropos />
+        </Route>
+        <Route path="/Comités">
+          <Comites />
+        </Route>
+        <Route path="/Teams">
+          <Teams />
+        </Route>
+        <Route exact path="/Articles">
+          <Blog />
+        </Route>
+        <Route path="/Articles/:title">
+          <BlogArticle />
+        </Route>
+        <Route path="/Login">
+          <Auth />
+        </Route>
+        <Route path="/Collaborateurs">
+          <Colab />
+        </Route>
+        <Route path="/Evenements">
+          <Event />
+        </Route>
+      </Switch>
+    );
+  }
+  console.log(token);
   let header = matches ? <Nav /> : <MobilNav />;
   return (
-    <div className="App" style={{ backgroundColor: "#e5e5e5" }}>
-      <ScrollToTop />
-      <GlobalFonts />
-      {location.pathname.includes("administration") ||
-      location.pathname.includes("Administration")
-        ? null
-        : header}
-      <Container>
-        <div className="App">
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/Apropos">
-              <Apropos />
-            </Route>
-            <Route path="/Comités">
-              <Comites />
-            </Route>
-            <Route path="/Teams">
-              <Teams />
-            </Route>
-            <Route exact path="/Articles">
-              <Blog />
-            </Route>
-            <Route path="/Articles/:title">
-              <BlogArticle />
-            </Route>
-
-            <Route path="/Collaborateurs">
-              <Colab />
-            </Route>
-            <Route path="/Evenements">
-              <Event />
-            </Route>
-            <Route path="/administration">
-              <Admin />
-            </Route>
-          </Switch>
-        </div>
-      </Container>
-      {location.pathname.includes("administration") ||
-      location.pathname.includes("Administration") ? null : (
-        <Footer />
-      )}
-    </div>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: !!token,
+        token: token,
+        userId: userId,
+        login: login,
+        logout: logout,
+      }}
+    >
+      <div className="App" style={{ backgroundColor: "#e5e5e5" }}>
+        <ScrollToTop />
+        <GlobalFonts />
+        {location.pathname.includes("administration") ||
+        location.pathname.includes("Administration")
+          ? null
+          : header}
+        <Container>
+          <div className="App">{routes}</div>
+        </Container>
+        {location.pathname.includes("administration") ||
+        location.pathname.includes("Administration") ? null : (
+          <Footer />
+        )}
+      </div>{" "}
+    </AuthContext.Provider>
   );
 });
 

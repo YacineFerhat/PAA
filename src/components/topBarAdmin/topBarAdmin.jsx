@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-
+import { AuthContext } from "context/authContext";
+import { useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: 75,
@@ -28,6 +29,12 @@ const useStyles = makeStyles((theme) => ({
 
 const TopBar = () => {
   const classes = useStyles();
+  const auth = useContext(AuthContext);
+  let history = useHistory();
+  const handleLogout = () => {
+    auth.logout();
+    history.push("/");
+  };
   return (
     <div className={classes.root}>
       <div></div>
@@ -36,7 +43,11 @@ const TopBar = () => {
           {" "}
           Visiter le site
         </div>
-        <div className={classes.command} style={{ color: "#a6a6a6" }}>
+        <div
+          onClick={handleLogout}
+          className={classes.command}
+          style={{ color: "#a6a6a6" }}
+        >
           Déconnexion
         </div>
       </div>
