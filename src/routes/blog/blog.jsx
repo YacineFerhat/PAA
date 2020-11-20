@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DoubleTitle from "components/double-title";
-import BlogArticle from "components/blog-article";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import MediaCard from "components/blog-article-d-column";
@@ -16,7 +15,9 @@ import {
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import { useFetchArticles } from "hooks/useFetchArticles";
 import { TagsData, categorieData } from "data/articleCategorie.js";
-
+import { useFetchArticlesByCategories } from "hooks/useFetchArticlesByCategories";
+import { useFetchArticlesByTags } from "hooks/useFetchArticlesByTags";
+import axios from "axios";
 const useStyles = makeStyles((theme) => ({
   root: {},
   grid: {
@@ -48,8 +49,46 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Blog = () => {
+  const [articles, setArticles] = useState([]);
+  const [data, setData] = useState([]);
   const classes = useStyles();
-  const data = useFetchArticles();
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await axios.get("/api/articles/");
+      setArticles(data.data.article);
+      setData(data.data.article);
+    }
+    fetchData();
+  }, []);
+  let categories = useFetchArticlesByCategories();
+  let tags = useFetchArticlesByTags();
+  const [tag, setTag] = useState("");
+  const [category, setCategory] = useState("");
+  useEffect(() => {
+    if (tag !== "" && category !== "") {
+      setArticles(
+        data.filter(
+          (article) =>
+            article.categories.includes(category) &&
+            article.hashtags.includes(tag)
+        )
+      );
+    } else if (tag !== "") {
+      setArticles(data.filter((article) => article.hashtags.includes(tag)));
+    } else {
+      setArticles(
+        data.filter((article) => article.categories.includes(category))
+      );
+    }
+  }, [tag, category]);
+  const handleFilterByTags = (event) => {
+    setTag(event);
+  };
+  const handleFilterByCategories = (event) => {
+    setCategory(event);
+  };
+
   return (
     <section className={`hero ${classes.root}`}>
       <div className="hero-main">
@@ -58,7 +97,7 @@ const Blog = () => {
           <DoubleTitle sub="Phrase d'accorche" title="Nos artircles" />
           <Grid className={classes.grid} container spacing={3}>
             <Grid item xs={12} sm={12} md={10} lg={9}>
-              {data.map((article) => (
+              {articles.map((article) => (
                 <MediaCard id={article.id} data={article} />
               ))}
             </Grid>
@@ -73,12 +112,16 @@ const Blog = () => {
                 </Typography>
                 <Divider />
 
-                {categorieData.map((categorie) => (
-                  <ListItem key={categorie.id} button>
+                {categories.map((categorie) => (
+                  <ListItem
+                    onClick={() => handleFilterByCategories(categorie)}
+                    key={categorie}
+                    button
+                  >
                     <ListItemIcon>
                       <ArrowForwardIosIcon className={classes.icon} />
                     </ListItemIcon>
-                    <ListItemText primary={categorie.title} />
+                    <ListItemText primary={categorie} />
                   </ListItem>
                 ))}
               </List>
@@ -93,16 +136,46 @@ const Blog = () => {
                 </Typography>
                 <Divider />
 
-                {TagsData.map((categorie) => (
+                {tags.map((tag) => (
                   <Button
-                    id={categorie.id}
+                    onClick={() => handleFilterByTags(tag)}
+                    id={tag}
                     className={classes.button}
                     variant="contained"
                   >
-                    {categorie.title}
+                    {tag}
                   </Button>
                 ))}
               </List>
+              {tag !== "" || category !== "" ? (
+                <List
+                  className={classes.list}
+                  component="nav"
+                  aria-label="main mailbox folders"
+                >
+                  <Typography
+                    className={classes.title}
+                    variant="h6"
+                    gutterBottom
+                  >
+                    Filtres actifs :
+                  </Typography>
+                  <Divider />
+
+                  {tag !== "" && (
+                    <ListItem button>
+                      Tag :
+                      <ListItemText primary={tag} />
+                    </ListItem>
+                  )}
+                  {category !== "" && (
+                    <ListItem button>
+                      Catégorie :
+                      <ListItemText primary={category} />
+                    </ListItem>
+                  )}
+                </List>
+              ) : null}
             </Grid>
           </Grid>
         </div>

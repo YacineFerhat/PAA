@@ -56,7 +56,7 @@ const MediaCard = ({
   return (
     <Card className={classes.root} style={{ marginTop: id !== 0 ? "5%" : "" }}>
       <CardActionArea>
-        <CardMedia className={classes.media} image={picture} title={title} />
+        <CardMedia className="image is-square" image={picture} title={title} />
         <CardContent>
           <div className={classes.header}>
             <Typography

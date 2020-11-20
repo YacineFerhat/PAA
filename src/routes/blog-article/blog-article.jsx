@@ -16,7 +16,8 @@ import { useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {},
   media: {
-    height: 400,
+    width: "100%",
+    height: "auto",
   },
   title: {
     fontFamily: "Comic Sans MS",
