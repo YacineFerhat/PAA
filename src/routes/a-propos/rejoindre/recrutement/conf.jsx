@@ -124,7 +124,10 @@ const Conf = () => {
       comite: "Conférence",
     };
     axios
-      .post("/api/inscriptions/conf", dataObject)
+      .post(
+        `${process.env.REACT_APP_BACKEND_URL}/api/inscriptions/conf`,
+        dataObject
+      )
       .then((res) => {
         console.log(res);
       })

@@ -128,7 +128,7 @@ const NewEvent = () => {
     formData.append("picture", formState.inputs.image.value);
     formData.append("description", contentState.blocks);
     axios
-      .post("/api/events/", formData)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/events/`, formData)
       .then((res) => {
         setStatus(res.status);
         setDisplayAlert(true);

@@ -56,7 +56,11 @@ const MediaCard = ({
   return (
     <Card className={classes.root} style={{ marginTop: id !== 0 ? "5%" : "" }}>
       <CardActionArea>
-        <CardMedia className="image is-square" image={picture} title={title} />
+        <CardMedia
+          className="image is-square"
+          image={`${process.env.REACT_APP_PICTURE_URL}/${picture}`}
+          title={title}
+        />
         <CardContent>
           <div className={classes.header}>
             <Typography

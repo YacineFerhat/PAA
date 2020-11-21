@@ -5,7 +5,9 @@ export const useFetchComites = (reload) => {
   const [comites, setComites] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      const data = await axios.get("/api/recrutements/");
+      const data = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/recrutements/`
+      );
       setComites(data.data.recrutement);
     }
     fetchData();

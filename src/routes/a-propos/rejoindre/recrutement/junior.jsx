@@ -132,7 +132,10 @@ const Junior = () => {
       comite: "Junior",
     };
     axios
-      .post("/api/inscriptions/junior", dataObject)
+      .post(
+        `${process.env.REACT_APP_BACKEND_URL}/api/inscriptions/junior`,
+        dataObject
+      )
       .then((res) => {
         console.log(res);
       })

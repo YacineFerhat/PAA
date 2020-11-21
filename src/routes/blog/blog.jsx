@@ -55,7 +55,9 @@ const Blog = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await axios.get("/api/articles/");
+      const data = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/api/articles/`
+      );
       setArticles(data.data.article);
       setData(data.data.article);
     }

@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export const useFetchConf = (reload) => {
-  const [data, setData] = useState([]);
+export const useFetchLogosSponsors = (reload) => {
+  const [logos, setLogos] = useState([]);
   useEffect(() => {
     async function fetchData() {
       const data = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/inscriptions/conf`
+        `${process.env.REACT_APP_BACKEND_URL}/api/logos/sponsors`
       );
-      setData(data.data.inscription);
+      setLogos(data.data.logo);
     }
     fetchData();
   }, [reload]);
-  return data;
+  return logos;
 };

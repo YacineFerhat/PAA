@@ -105,7 +105,7 @@ const BlogArticle = () => {
             height="140"
             className={classes.media}
             title={title}
-            image={`http://localhost:4000/${picture}`}
+            image={`${process.env.REACT_APP_PICTURE_URL}/${picture}`}
           />
           <div className={classes.dataContainer}>
             <div className={classes.header}>

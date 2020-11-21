@@ -155,7 +155,10 @@ const Social = () => {
       comite: "Réseaux sociaux",
     };
     axios
-      .post("/api/inscriptions/social", dataObject)
+      .post(
+        `${process.env.REACT_APP_BACKEND_URL}/api/inscriptions/social`,
+        dataObject
+      )
       .then((res) => {
         console.log(res);
       })

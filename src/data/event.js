@@ -1,10 +1,9 @@
-import picture from "components/HTML-pages/bg_1.jpg";
 const Data = [
   {
     id: 1,
     date: "14 Novembre 2019",
     title: "Nwa3i Wlidi",
-    picture: picture,
+    picture: "",
     time: "10h",
     place: "Alger",
     desc:
@@ -17,7 +16,7 @@ const Data = [
     desc:
       "La plantation d’un arbre est un geste qui nous permet de redonner vie à notre environnement sur le long terme. Par ce geste simple, nous compensons l’impact désastreux de la déforestation et du réchauffement climatique sur notre environnement. Et Contribuons ainsi à l’amélioration de la vie de demain",
     time: "09h",
-    picture: picture,
+    picture: "",
     place: "Blida",
   },
 ];

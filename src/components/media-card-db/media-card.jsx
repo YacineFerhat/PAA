@@ -38,7 +38,7 @@ const MediaCard = ({ data: { name, picture } }) => {
         <CardMedia className={classes.media} title={name}>
           <img
             className={classes.image}
-            src={`http://localhost:4000/${picture}`}
+            src={`${process.env.REACT_APP_PICTURE_URL}/${picture}`}
           />
         </CardMedia>
         <CardContent>

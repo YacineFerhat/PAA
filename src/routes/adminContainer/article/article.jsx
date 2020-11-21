@@ -84,7 +84,7 @@ const Article = () => {
   const [type, setType] = useState("");
   const handleDeleteArticle = (idToDelete) => {
     axios
-      .delete(`/api/articles/${idToDelete}`)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/api/articles/${idToDelete}`)
       .then((res) => {
         setStatus(res.status);
         setDisplayAlert(true);

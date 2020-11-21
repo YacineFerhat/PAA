@@ -131,7 +131,10 @@ const Sport = () => {
       comite: "Sport",
     };
     axios
-      .post("/api/inscriptions/sport", dataObject)
+      .post(
+        `${process.env.REACT_APP_BACKEND_URL}/api/inscriptions/sport`,
+        dataObject
+      )
       .then((res) => {
         console.log(res);
       })

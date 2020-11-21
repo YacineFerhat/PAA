@@ -64,7 +64,7 @@ const Auth = () => {
       password: formState.inputs.password.value,
     };
     axios
-      .post("/api/users/login", dataObject)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/users/login`, dataObject)
       .then((res) => {
         auth.login(res.data.userId, res.data.token, res.data.grade);
         history.push("/administration");

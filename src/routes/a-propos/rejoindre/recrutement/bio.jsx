@@ -142,7 +142,10 @@ const Bio = () => {
       comite: "Biodiversité",
     };
     axios
-      .post("/api/inscriptions/bio", dataObject)
+      .post(
+        `${process.env.REACT_APP_BACKEND_URL}/api/inscriptions/bio`,
+        dataObject
+      )
       .then((res) => {
         console.log(res);
       })

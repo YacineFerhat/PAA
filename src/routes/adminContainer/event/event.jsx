@@ -74,7 +74,7 @@ const Event = () => {
   const classes = useStyles();
   const [reload, setReload] = useState(0);
   let { path } = useRouteMatch();
-  let data = useFetchArticles(reload);
+  let datadata = useFetchArticles(reload);
   let history = useHistory();
   const handlePushArticle = (title) => {
     history.push(`/Articles/${title}`);
@@ -84,7 +84,7 @@ const Event = () => {
   const [type, setType] = useState("");
   const handleDeleteArticle = (idToDelete) => {
     axios
-      .delete(`/api/articles/${idToDelete}`)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/api/articles/${idToDelete}`)
       .then((res) => {
         setStatus(res.status);
         setDisplayAlert(true);
@@ -113,53 +113,8 @@ const Event = () => {
       <Paper className={classes.paper}>
         <div className={classes.titleContainer}>
           <div className={classes.smvl} />
-          <div className={classes.smallTitle}> Articles présents :</div>
+          <div className={classes.smallTitle}> Events créés :</div>
         </div>
-        <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell className={classes.fontBold}>Index</TableCell>
-                <TableCell className={classes.fontBold}>Nom</TableCell>
-                <TableCell className={classes.fontBold}>description</TableCell>
-                <TableCell className={classes.fontBold}>date</TableCell>
-                <TableCell className={classes.fontBold}>Action</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {data?.map((article, i) => {
-                return (
-                  <TableRow key={article._id}>
-                    <TableCell component="th" scope="row">
-                      {i + 1}
-                    </TableCell>
-                    <TableCell component="th" scope="row">
-                      {article.title}
-                    </TableCell>
-                    <TableCell align="right">
-                      {article.shortDescription}
-                    </TableCell>
-                    <TableCell align="right">{article.date}</TableCell>
-                    <TableCell align="right">
-                      <ClearIcon
-                        className={classes.icon}
-                        fontSize="large"
-                        onClick={() => handleDeleteArticle(article._id)}
-                        color="secondary"
-                      />
-                      <SearchIcon
-                        className={classes.icon}
-                        fontSize="large"
-                        onClick={() => handlePushArticle(article.title)}
-                        color="primary"
-                      />{" "}
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
-        </TableContainer>
       </Paper>
     </div>
   );

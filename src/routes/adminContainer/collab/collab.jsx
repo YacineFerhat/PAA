@@ -9,7 +9,11 @@ import {
   TableCell,
   TableContainer,
   TableHead,
+  InputLabel,
   Typography,
+  MenuItem,
+  FormControl,
+  Select,
   TableRow,
 } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -84,6 +88,10 @@ const useStyles = makeStyles((theme) => ({
     height: 150,
     width: 150,
   },
+  inputLabel: {
+    minWidth: 150,
+    marginBottom: 25,
+  },
 }));
 const Collab = () => {
   const classes = useStyles();
@@ -114,14 +122,19 @@ const Collab = () => {
   const [displayAlert, setDisplayAlert] = useState(false);
   const [type, setType] = useState("");
   const [reload, setReload] = useState(0);
+  const [colab, setColab] = useState("");
+  const handleChangeColab = (event) => {
+    setColab(event.target.value);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("link", link.link);
+    formData.append("type", colab);
     formData.append("picture", formState.inputs.image.value);
     axios
-      .post("/api/logos/", formData)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/logos/`, formData)
       .then((res) => {
         setStatus(res.status);
         setDisplayAlert(true);
@@ -138,7 +151,7 @@ const Collab = () => {
 
   const handleDeleteData = (idToDelete) => {
     axios
-      .delete(`/api/logos/${idToDelete}`)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/api/logos/${idToDelete}`)
       .then((res) => {
         setStatus(res.status);
         setDisplayAlert(true);
@@ -171,16 +184,16 @@ const Collab = () => {
     data.append("link", newLink);
     data.append("picture", formState.inputs.image.value);
     axios
-      .patch(`/api/logos/${logo._id}`, data)
+      .patch(`${process.env.REACT_APP_BACKEND_URL}/api/logos/${logo._id}`)
       .then((res) => {
         setStatus(res.status);
         setDisplayAlert(true);
-        setType("Ajout");
+        setType("Modification");
       })
       .catch((error) => {
         setStatus(error.status);
         setDisplayAlert(true);
-        setType("Ajout");
+        setType("Modification");
       });
   };
 
@@ -230,6 +243,23 @@ const Collab = () => {
           <Typography variant="caption" display="block" gutterBottom>
             *N'importe quel lien fera l'affaire(page web, FB, insta...).
           </Typography>
+          <FormControl className={classes.inputLabel}>
+            <InputLabel
+              id="demo-simple-select-label"
+              className={classes.inputLabel}
+            >
+              Type
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={colab}
+              onChange={handleChangeColab}
+            >
+              <MenuItem value="association">Associations & amis</MenuItem>
+              <MenuItem value="sponsor">Sponsors</MenuItem>
+            </Select>
+          </FormControl>
           <Button onClick={handleSubmit} variant="contained" color="primary">
             Valider
           </Button>
@@ -242,7 +272,7 @@ const Collab = () => {
           </Typography>
           <img
             className={classes.image}
-            src={`http://localhost:4000/${logo.picture}`}
+            src={`${process.env.REACT_APP_PICTURE_URL}/${logo.picture}`}
             alt={logo.link}
           />
           <ImageUpload
@@ -313,7 +343,7 @@ const Collab = () => {
                       <img
                         alt={team.link}
                         className={classes.image}
-                        src={`http://localhost:4000/${team.picture}`}
+                        src={`${process.env.REACT_APP_PICTURE_URL}/${team.picture}`}
                       />
                     </TableCell>
                     <TableCell align="right">

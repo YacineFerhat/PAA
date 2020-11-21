@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export const useFetchConf = (reload) => {
-  const [data, setData] = useState([]);
+export const useFetchUsers = (reload) => {
+  const [teams, setTeams] = useState([]);
   useEffect(() => {
     async function fetchData() {
       const data = await axios.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/inscriptions/conf`
+        `${process.env.REACT_APP_BACKEND_URL}/api/users/`
       );
-      setData(data.data.inscription);
+      setTeams(data.data.users);
     }
     fetchData();
   }, [reload]);
-  return data;
+  return teams;
 };

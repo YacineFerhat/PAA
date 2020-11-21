@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
-import Apropos from "routes/a-propos";
-import Comites from "routes/comites";
-import Teams from "routes/teams";
+
 import Blog from "routes/blog";
 import Colab from "routes/colab";
 import BlogArticle from "routes/blog-article";
@@ -14,11 +12,19 @@ import GlobalFonts from "fonts/font";
 import Container from "components/container";
 import Home from "routes/home";
 import Footer from "components/footer";
-import Admin from "routes/admin";
 import Auth from "routes/auth";
 import ScrollToTop from "components/scroll-to-top";
 import { AuthContext } from "context/authContext";
 import { useAuth } from "hooks/useAuth";
+//import Apropos from "routes/a-propos";
+//import Admin from "routes/admin";
+//import Comites from "routes/comites";
+//import Teams from "routes/teams";
+
+const Admin = React.lazy(() => import("routes/admin"));
+const Apropos = React.lazy(() => import("routes/a-propos"));
+const Comites = React.lazy(() => import("routes/comites"));
+const Teams = React.lazy(() => import("routes/teams"));
 
 const App = withRouter(({ location }) => {
   const { token, login, logout, userId } = useAuth();
@@ -99,7 +105,6 @@ const App = withRouter(({ location }) => {
       </Switch>
     );
   }
-  console.log(token);
   let header = matches ? <Nav /> : <MobilNav />;
   return (
     <AuthContext.Provider
@@ -119,7 +124,9 @@ const App = withRouter(({ location }) => {
           ? null
           : header}
         <Container>
-          <div className="App">{routes}</div>
+          <Suspense fallback={<Loader />}>
+            <div className="App">{routes}</div>
+          </Suspense>
         </Container>
         {location.pathname.includes("administration") ||
         location.pathname.includes("Administration") ? null : (

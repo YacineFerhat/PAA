@@ -65,7 +65,10 @@ const Comite = () => {
       open: !comite.open,
     };
     axios
-      .patch(`/api/recrutements/${comite._id}`, dataObject)
+      .patch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/recrutements/${comite._id}`,
+        dataObject
+      )
       .then((res) => {
         setStatus(res.status);
         setDisplayAlert(true);

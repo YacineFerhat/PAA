@@ -131,7 +131,10 @@ const Eco = () => {
       comite: "Eco-tourisme",
     };
     axios
-      .post("/api/inscriptions/eco-tourisme", dataObject)
+      .post(
+        `${process.env.REACT_APP_BACKEND_URL}/api/inscriptions/eco-tourisme`,
+        dataObject
+      )
       .then((res) => {
         console.log(res);
       })

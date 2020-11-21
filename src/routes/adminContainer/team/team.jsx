@@ -112,7 +112,7 @@ const Team = () => {
     formData.append("name", name.name);
     formData.append("picture", formState.inputs.image.value);
     axios
-      .post("/api/teams/", formData)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/teams/`, formData)
       .then((res) => {
         setStatus(res.status);
         setDisplayAlert(true);
@@ -128,9 +128,8 @@ const Team = () => {
   };
 
   const handleDeleteData = (idToDelete) => {
-    console.log(idToDelete);
     axios
-      .delete(`/api/teams/${idToDelete}`)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/api/teams/${idToDelete}`)
       .then((res) => {
         setStatus(res.status);
         setDisplayAlert(true);
@@ -211,7 +210,7 @@ const Team = () => {
                     <TableCell align="right">
                       <img
                         className={classes.image}
-                        src={`http://localhost:4000/${team.picture}`}
+                        src={`${process.env.REACT_APP_PICTURE_URL}/${team.picture}`}
                       />
                     </TableCell>
                     <TableCell align="right">

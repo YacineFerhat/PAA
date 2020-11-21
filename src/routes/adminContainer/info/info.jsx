@@ -128,7 +128,7 @@ const Info = () => {
       childs: input.childs,
     };
     axios
-      .post("/api/infos", infoObject)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/infos/`, infoObject)
       .then((res) => {
         setStatus(res.status);
         setDisplayAlert(true);
@@ -145,7 +145,7 @@ const Info = () => {
 
   const handleDeleteData = (idToDelete) => {
     axios
-      .delete(`/api/infos/${idToDelete}`)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/api/infos/${idToDelete}`)
       .then((res) => {
         setStatus(res.status);
         setDisplayAlert(true);
@@ -183,7 +183,10 @@ const Info = () => {
       childs: parseInt(dataToUpdate.childs),
     };
     axios
-      .patch(`/api/infos/${dataToUpdate._id}`, infoObject)
+      .patch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/infos/${dataToUpdate._id}`,
+        infoObject
+      )
       .then((res) => {
         setStatus(res.status);
         setDisplayAlert(true);

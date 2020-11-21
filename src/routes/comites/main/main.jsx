@@ -8,7 +8,7 @@ import Comites from "data/comites";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    marginTop: "5%",
+    margin: "5% 0%",
   },
   paper: {
     padding: theme.spacing(2),

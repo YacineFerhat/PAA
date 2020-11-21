@@ -2,23 +2,22 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Button,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
   Paper,
   TextField,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
   Typography,
-  TableRow,
 } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import AddIcon from "@material-ui/icons/Add";
 import ImageUpload from "components/imageUpload";
 import axios from "axios";
 import Alert from "components/alert";
-import { useFetchLogos } from "hooks/useFetchLogos";
 import EditIcon from "@material-ui/icons/Edit";
+import { useFetchUsers } from "hooks/useFetchUsers";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: "2% 2%",
@@ -109,17 +108,15 @@ const Utilisateur = () => {
   const [reload, setReload] = useState(0);
 
   const handleEdit = async (event) => {};
-  console.log(input);
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = {
       userName: input.userName,
       password: input.password,
-      grade: "Admin",
     };
 
     axios
-      .post("/api/users/", data)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/users/`, data)
       .then((res) => {
         setStatus(res.status);
         setDisplayAlert(true);
@@ -135,9 +132,9 @@ const Utilisateur = () => {
       });
   };
 
-  const handleDeleteData = (idToDelete) => {
+  const handleDeleteUser = (idToDelete) => {
     axios
-      .delete(`/api/logos/${idToDelete}`)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/api/users/${idToDelete}`)
       .then((res) => {
         setStatus(res.status);
         setDisplayAlert(true);
@@ -151,7 +148,7 @@ const Utilisateur = () => {
       });
   };
 
-  const data = useFetchLogos(reload);
+  let users = useFetchUsers(reload);
 
   return (
     <div className={classes.root}>
@@ -195,52 +192,21 @@ const Utilisateur = () => {
       <Paper className={classes.paper}>
         <div className={classes.titleContainer}>
           <div className={classes.smvl} />
-          <div className={classes.smallTitle}> Collaborateurs actuels :</div>
+          <div className={classes.smallTitle}> Utilisateurs créés :</div>
         </div>
-
-        <TableContainer component={Paper}>
-          <Table className={classes.table} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell className={classes.fontBold}>Index</TableCell>
-                <TableCell className={classes.fontBold}>Lien</TableCell>
-                <TableCell className={classes.fontBold}>Logo</TableCell>
-                <TableCell className={classes.fontBold}>Action</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {data?.map((team, i) => {
-                return (
-                  <TableRow key={team._id}>
-                    <TableCell component="th" scope="row">
-                      {i}
-                    </TableCell>
-                    <TableCell component="th" scope="row">
-                      {team.link}
-                    </TableCell>
-                    <TableCell align="right">
-                      <img
-                        alt={team.link}
-                        className={classes.image}
-                        src={`http://localhost:4000/${team.picture}`}
-                      />
-                    </TableCell>
-                    <TableCell align="right">
-                      <DeleteIcon
-                        onClick={() => handleDeleteData(team._id)}
-                        className={classes.icon}
-                      />
-                      <EditIcon
-                        onClick={() => handleEdit(team)}
-                        className={classes.iconEdit}
-                      />
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <List component="nav" aria-label="main mailbox folders">
+          {users?.map((user) => (
+            <ListItem key={user._id} button>
+              <ListItemIcon>
+                <DeleteIcon
+                  color="secondary"
+                  onClick={() => handleDeleteUser(user._id)}
+                />
+              </ListItemIcon>
+              <ListItemText primary={user.userName} />
+            </ListItem>
+          ))}
+        </List>
       </Paper>
     </div>
   );

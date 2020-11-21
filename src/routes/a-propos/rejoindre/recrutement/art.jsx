@@ -127,7 +127,10 @@ const Art = () => {
       comite: "Art",
     };
     axios
-      .post("/api/inscriptions/art", dataObject)
+      .post(
+        `${process.env.REACT_APP_BACKEND_URL}/api/inscriptions/art`,
+        dataObject
+      )
       .then((res) => {
         console.log(res);
       })

@@ -9,7 +9,6 @@ const Catalogue = () => {
       <Route exact path={path}>
         <Article />
       </Route>
-
       <Route path={`${path}/NouvelArticle`}>
         <NewArticle />
       </Route>

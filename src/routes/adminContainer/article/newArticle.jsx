@@ -124,7 +124,7 @@ const NewArticle = () => {
     formData.append("picture", formState.inputs.image.value);
     formData.append("description", JSON.stringify(contentState));
     axios
-      .post("/api/articles/", formData)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/articles/`, formData)
       .then((res) => {
         setStatus(res.status);
         setDisplayAlert(true);

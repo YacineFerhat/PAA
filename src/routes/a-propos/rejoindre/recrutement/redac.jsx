@@ -127,7 +127,10 @@ const Redac = () => {
       comite: "Redaction",
     };
     axios
-      .post("/api/inscriptions/redac", dataObject)
+      .post(
+        `${process.env.REACT_APP_BACKEND_URL}/api/inscriptions/redac`,
+        dataObject
+      )
       .then((res) => {
         console.log(res);
       })

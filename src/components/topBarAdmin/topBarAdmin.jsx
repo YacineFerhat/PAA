@@ -39,10 +39,6 @@ const TopBar = () => {
     <div className={classes.root}>
       <div></div>
       <div className={classes.commands}>
-        <div className={classes.command} style={{ color: "#8cc63f" }}>
-          {" "}
-          Visiter le site
-        </div>
         <div
           onClick={handleLogout}
           className={classes.command}
