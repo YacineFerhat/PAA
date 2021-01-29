@@ -3,13 +3,13 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
-    fontFamily: "Autolinker",
+    fontFamily: "arial",
   },
   title: {
-    marginTop: "3%",
-    color: "#023302",
+    color: "#1d7b63",
     fontSize: "35px",
-    fontWeight: "900",
+    fontWeight: "400",
+    letterSpacing: 2.5,
   },
 });
 const DoubleTitle = ({ sub, title }) => {

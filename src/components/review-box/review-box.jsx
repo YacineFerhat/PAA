@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { useCountUp } from "react-countup";
 
 const useStyles = makeStyles({
   root: {
     height: 200,
     display: "flex",
-    alignItems: "space-between",
+    alignItems: "center",
     flexDirection: "column",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
   },
   rootPhone: {
     height: 110,
   },
   figure: {
     height: 100,
+    width: 100,
   },
   figurePhone: {
     height: 50,
@@ -28,17 +28,32 @@ const useStyles = makeStyles({
     height: 45,
     width: 45,
   },
+  data: {
+    height: 100,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
   title: {
-    fontFamily: "Comic Sans MS",
-    fontSize: "16px",
+    fontFamily: "arial",
+    fontSize: "18px",
+    color: "#bdfcdb",
+    textShadow:
+      "-1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000",
   },
   titlePhone: {
-    fontFamily: "Comic Sans MS",
+    fontFamily: "arial",
     fontSize: "12px",
+    color: "#bdfcdb",
+    textShadow:
+      "-1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000",
   },
   number: {
-    fontWeight: "semi-bold",
-    fontSize: "20px",
+    fontWeight: "bold",
+    fontSize: "30px",
+    color: "#bdfcdb",
+    textShadow:
+      "-1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000",
   },
 
   "@media (max-width: 1250px)": {
@@ -109,12 +124,6 @@ const useStyles = makeStyles({
 });
 
 const ReviewBox = ({ data: { title, icon, number, id }, style }) => {
-  const { countUp } = useCountUp({
-    start: 0,
-    redraw: true,
-    end: number,
-    duration: 5,
-  });
   const classes = useStyles();
   return (
     <div
@@ -130,16 +139,18 @@ const ReviewBox = ({ data: { title, icon, number, id }, style }) => {
           src={icon}
         />
       </div>
-      <Typography className={classes.number} color="textPrimary" gutterBottom>
-        {number}
-      </Typography>
-      <Typography
-        className={style !== "phone" ? classes.title : classes.titlePhone}
-        color="textPrimary"
-        gutterBottom
-      >
-        {title}
-      </Typography>
+      <div className={classes.data}>
+        <Typography className={classes.number} color="textPrimary" gutterBottom>
+          {number}
+        </Typography>
+        <Typography
+          className={style !== "phone" ? classes.title : classes.titlePhone}
+          color="textPrimary"
+          gutterBottom
+        >
+          {title}
+        </Typography>
+      </div>
     </div>
   );
 };

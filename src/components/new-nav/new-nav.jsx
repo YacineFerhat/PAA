@@ -2,41 +2,49 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import Data from "data/menu";
-import youtube from "assets/icones/youtube.svg";
-import fb from "assets/icones/fb.svg";
-import insta from "assets/icones/insta.svg";
-import logo from "assets/logoL.png";
-
+import fb from "assets/header/fb.svg";
+import insta from "assets/header/insta.svg";
+import logo from "assets/header/logo.svg";
+import linkdin from "assets/header/linkdin.svg";
+import mail from "assets/header/mail.svg";
+import youtube from "assets/header/yt.svg";
+import phone from "assets/header/phone.svg";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    height: 150,
-    background: "rgb(92,143,62)",
-    backgroundImage:
-      "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 81%, rgba(215,226,121,1) 100%)",
-
-    padding: "0.5% 2%",
+    height: 160,
+    backgroundColor: "#1d7b63",
     color: "white",
     fontSize: "20px",
     fontWeight: "bold",
+    position: "relative",
+  },
+  rootIcon: {
+    position: "absolute",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: 160,
+    height: 160,
+    left: "13%",
+  },
+  logo: {
+    height: 160,
+    width: 160,
   },
   nav1: {
+    height: 20,
+    backgroundColor: "white",
+  },
+  nav2: {
+    padding: "0.5% 2%",
     display: "flex",
     justifyContent: "space-between",
-    height: 40,
+    alignItems: "center",
+    height: 70,
   },
-  links: {
-    minWidth: 120,
-    display: "flex",
-    justifyContent: "space-between",
-  },
-  link: {
-    textDecoration: "none",
-    "&:hover": {
-      color: "rgba(255,255,255, 0.7)",
-    },
-  },
+
   icon: {
     height: 30,
     width: 30,
@@ -44,10 +52,29 @@ const useStyles = makeStyles((theme) => ({
       cursor: "pointer",
     },
   },
-  nav2: {
+  headerTitle: {
+    paddingLeft: "60px",
+    width: "100%",
+    textAlign: "center",
+    fontSize: "30px",
+    letterSpacing: 2.5,
+    fontWeight: 400,
+    textAlign: "center",
+  },
+  nav3: {
     display: "flex",
     alignItems: "center",
-    height: 110,
+    height: 70,
+    padding: "0.5% 2%",
+    backgroundColor: "white",
+    justifyContent: "space-between",
+    borderBottom: "2px solid #e5eeec",
+  },
+  linksHolder: {
+    paddingLeft: "60px",
+    width: 630,
+    display: "flex",
+    height: 70,
     justifyContent: "space-between",
   },
   navItem: {
@@ -55,50 +82,31 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     textDecoration: "none",
-    color: "white",
-    height: "100%",
-  },
-  left: {
-    display: "flex",
-    justifyContent: "space-around",
-    alignItems: "center",
-    width: "100%",
     height: "100%",
   },
   link: {
     height: "100%",
     alignItems: "center",
     display: "flex",
+    textDecoration: "none",
+    color: "black",
   },
-  right: {
+  links: {
+    minWidth: 120,
     display: "flex",
-    justifyContent: "space-around",
-    width: "100%",
-    alignItems: "center",
-
-    height: "100%",
+    justifyContent: "space-between",
   },
-  rootIcon: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    width: 220,
-    height: 220,
-  },
-  logo: {
-    height: 220,
-    width: 220,
-  },
-  navItemTitlte: {
-    fontFamily: "Comic Sans MS",
-    fontSize: "30px",
-    fontWeight: "900",
+  navItemTitle: {
+    fontFamily: "arial",
+    fontSize: "18px",
+    fontWeight: "semibold",
+    letterSpacing: 2.5,
   },
   subNav: {
     position: "absolute",
     display: "flex",
     flexDirection: "column",
-    top: 140,
+    top: 155,
     width: 250,
     backgroundColor: "white",
     boxShadow: "0px 0px 23px 3px rgba(0,0,0,0.35)",
@@ -117,25 +125,85 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 10,
   },
   subNavLink: {
+    fontSize: "15px",
+    fontWeight: "500",
+    letterSpacing: 2.5,
     textDecoration: "none",
     color: "black",
-    fontSize: "16px",
     padding: "5%",
-    fontFamily: "Comic Sans MS",
     "&:hover": {
-      backgroundImage:
-        "linear-gradient(90deg, rgba(92,143,62,1) 0%, rgba(163,205,57,1) 81%, rgba(215,226,121,1) 100%)",
+      backgroundColor: "#1d7b63",
       cursor: "pointer",
       transition: "1s ease",
       color: "white",
+    },
+  },
+  "@media (min-width: 1350px)": {
+    headerTitle: {
+      fontSize: "35px",
+    },
+
+    navItemTitle: {
+      fontSize: "20px",
+    },
+    linksHolder: {
+      width: 720,
+    },
+  },
+
+  "@media (min-width: 1500px)": {
+    headerTitle: {
+      fontSize: "37px",
+    },
+
+    navItemTitle: {
+      fontSize: "22px",
+    },
+    linksHolder: {
+      width: 750,
+    },
+  },
+  "@media (min-width: 1700px)": {
+    headerTitle: {
+      fontSize: "45px",
+    },
+
+    navItemTitle: {
+      fontSize: "25px",
+    },
+    linksHolder: {
+      width: 880,
+    },
+  },
+  "@media (min-width: 1900px)": {
+    headerTitle: {
+      fontSize: "50px",
+    },
+
+    navItemTitle: {
+      fontSize: "26px",
+    },
+    linksHolder: {
+      width: 960,
+    },
+  },
+
+  "@media (min-width: 2100px)": {
+    headerTitle: {
+      fontSize: "55px",
+    },
+
+    navItemTitle: {
+      fontSize: "28px",
+    },
+    linksHolder: {
+      width: 1060,
     },
   },
 }));
 const Navbar = () => {
   const classes = useStyles();
   const toggleSubMenu = () => {};
-  const dataLeft = Data.slice(0, 3);
-  const dataRight = Data.slice(3, 7);
   const [idToShow, setIdToShow] = useState(10);
   const [showNav, setShowNav] = useState(false);
   const constToggleNav = (state, id) => {
@@ -145,8 +213,36 @@ const Navbar = () => {
   return (
     <>
       <div className={classes.root}>
-        <div className={classes.nav1}>
-          <div></div>
+        <Link className={classes.rootIcon} to="/">
+          <img src={logo} className={classes.logo} />
+        </Link>
+        <div className={classes.nav1}></div>
+        <div className={classes.nav2}>
+          <div className={classes.links}>
+            <a
+              className={`link ${classes.link}`}
+              href="mailto:plogging_association_algeria@hotmail.com"
+            >
+              <img src={mail} className={classes.icon} />
+            </a>
+            <a
+              className={`link ${classes.link}`}
+              href="https://www.linkedin.com/company/plogging-association-algeria/about/"
+              target="_blank"
+            >
+              <img src={linkdin} className={classes.icon} />
+            </a>
+            <a
+              className={`link ${classes.link}`}
+              href="https://www.facebook.com/PloggingAssociationAlgeria/"
+              target="_blank"
+            >
+              <img src={phone} className={classes.icon} />
+            </a>
+          </div>
+          <div className={classes.headerTitle}>
+            PLOGGING ASSOCIATION ALGERIA
+          </div>
           <div className={classes.links}>
             <a
               className={`link ${classes.link}`}
@@ -171,20 +267,22 @@ const Navbar = () => {
             </a>
           </div>
         </div>
-        <div className={classes.nav2} style={{ fontFamily: "Comic Sans MS" }}>
-          <div className={classes.left}>
-            {dataLeft.map((lien) => (
-              <>
+        <div className={classes.nav3} style={{ fontFamily: "arial" }}>
+          <div className={classes.links}></div>
+          <div className={classes.linksHolder}>
+            {Data.map((lien, i) => (
+              <React.Fragment key={i}>
                 <Link
                   className={classes.link}
-                  to={lien.link}
+                  to={`${lien.link}`}
                   onMouseEnter={() => constToggleNav(true, lien.id)}
                   onMouseLeave={() => constToggleNav(false, lien.id)}
                 >
                   <div className={classes.navItem}>
-                    <span className={classes.navItemTitlte}>{lien.title}</span>
+                    <span className={classes.navItemTitle}>{lien.title}</span>
                   </div>
                 </Link>
+
                 {lien.sub && (
                   <div
                     className={classes.subNav}
@@ -207,52 +305,10 @@ const Navbar = () => {
                     ))}
                   </div>
                 )}
-              </>
+              </React.Fragment>
             ))}
           </div>
-          <div className={classes.middle}>
-            <Link className={classes.rootIcon} to="/">
-              <img src={logo} className={classes.logo} />
-            </Link>
-          </div>
-          <div className={classes.right}>
-            {dataRight.map((lien) => (
-              <>
-                <Link
-                  className={classes.link}
-                  onMouseEnter={() => constToggleNav(true, lien.id)}
-                  onMouseLeave={() => constToggleNav(false, lien.id)}
-                  to={lien.link}
-                >
-                  <div className={classes.navItem}>
-                    <span className={classes.navItemTitlte}>{lien.title}</span>
-                  </div>
-                </Link>
-                {lien.sub && (
-                  <div
-                    className={classes.subNav}
-                    style={{
-                      display:
-                        showNav && idToShow === lien.id ? "flex" : "none",
-                    }}
-                    onMouseEnter={() => constToggleNav(true, lien.id)}
-                    onMouseLeave={() => constToggleNav(false, lien.id)}
-                  >
-                    <div className={classes.triangle} />
-                    {lien.sub.map((subLink) => (
-                      <Link
-                        to={`${lien.link}${subLink.link}`}
-                        key={subLink.id}
-                        className={classes.subNavLink}
-                      >
-                        {subLink.title}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </>
-            ))}
-          </div>
+          <div className={classes.links}></div>{" "}
         </div>{" "}
       </div>
     </>

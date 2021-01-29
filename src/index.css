@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   width: '100%';
-  font-family: -apple-system, BlinkMacSystemFont, "Autolinker",
+  font-family: -apple-system, BlinkMacSystemFont, "arial",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10,6 +10,6 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "arial",
     monospace;
 }

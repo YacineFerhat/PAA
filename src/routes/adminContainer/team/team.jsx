@@ -10,7 +10,10 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Dialog,
+  DialogTitle,
 } from "@material-ui/core";
+
 import DeleteIcon from "@material-ui/icons/Delete";
 import AddIcon from "@material-ui/icons/Add";
 import { useForm } from "hooks/useForm";
@@ -52,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
   textField: {
     marginTop: "2%",
+    width: "100%",
     marginBottom: "2%",
   },
   smallTitle: {
@@ -93,13 +97,21 @@ const Team = () => {
     },
     false
   );
-  const [name, setName] = useState("");
+  const [input, setInput] = useState({
+    name: "",
+    description: "",
+    adherant: 0,
+    date: "",
+  });
+
   const handleChangeInput = (event) => {
-    setName({
-      ...name,
+    setInput({
+      ...input,
       [event.target.name]: event.target.value,
     });
   };
+
+  console.log(input);
 
   const [status, setStatus] = useState(0);
   const [displayAlert, setDisplayAlert] = useState(false);
@@ -109,7 +121,10 @@ const Team = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-    formData.append("name", name.name);
+    formData.append("name", input.name);
+    formData.append("description", input.description);
+    formData.append("adherant", input.adherant);
+    formData.append("date", input.date);
     formData.append("picture", formState.inputs.image.value);
     axios
       .post(`${process.env.REACT_APP_BACKEND_URL}/api/teams/`, formData)
@@ -127,7 +142,17 @@ const Team = () => {
       });
   };
 
-  const handleDeleteData = (idToDelete) => {
+  const [open, setOpen] = useState(false);
+  const [idToDelete, setIdToDelete] = useState("");
+
+  const handleOpen = (value) => {
+    setIdToDelete(value);
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleDeleteData = () => {
     axios
       .delete(`${process.env.REACT_APP_BACKEND_URL}/api/teams/${idToDelete}`)
       .then((res) => {
@@ -135,14 +160,18 @@ const Team = () => {
         setDisplayAlert(true);
         setReload(reload + 1);
         setType("Suppression");
+        setOpen(false);
       })
       .catch((error) => {
         setStatus(error.status);
         setDisplayAlert(true);
         setType("Suppression");
+        setOpen(false);
       });
   };
+
   const data = useFetchTeams(reload);
+  console.log(data);
   return (
     <div className={classes.root}>
       <div className={classes.titleContainer}>
@@ -175,6 +204,36 @@ const Team = () => {
             type="text"
             className={classes.textField}
             onChange={handleChangeInput}
+          />
+          <TextField
+            id="team name"
+            name="description"
+            label="Description de la team"
+            multiline
+            className={classes.textField}
+            rows={4}
+            variant="outlined"
+            onChange={handleChangeInput}
+          />
+          <TextField
+            id="team name"
+            name="adherant"
+            label="Nombre d'adhérents"
+            variant="outlined"
+            type="Number"
+            className={classes.textField}
+            onChange={handleChangeInput}
+          />
+          <TextField
+            id="date de creation"
+            name="date"
+            label="Date de création"
+            type="date"
+            onChange={handleChangeInput}
+            className={classes.textField}
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
           <Button onClick={handleSubmit} variant="contained" color="primary">
             Valider
@@ -215,7 +274,7 @@ const Team = () => {
                     </TableCell>
                     <TableCell align="right">
                       <DeleteIcon
-                        onClick={() => handleDeleteData(team._id)}
+                        onClick={() => handleOpen(team._id)}
                         className={classes.icon}
                       />
                     </TableCell>
@@ -226,6 +285,21 @@ const Team = () => {
           </Table>
         </TableContainer>
       </Paper>
+      <Dialog
+        onClose={handleClose}
+        aria-labelledby="simple-dialog-title"
+        open={open}
+      >
+        <DialogTitle id="simple-dialog-title">
+          Etes vous sur de vouloir supprimer?
+          <Button onClick={handleDeleteData} color="secondary">
+            Oui
+          </Button>
+          <Button onClick={handleClose} color="primary">
+            Non
+          </Button>
+        </DialogTitle>
+      </Dialog>
     </div>
   );
 };

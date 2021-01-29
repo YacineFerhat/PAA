@@ -65,7 +65,7 @@ const Rejoindre = () => {
     history.push(`${path}/${comite.name}`);
   };
   return (
-    <section className={`hero is-fullheight ${classes.root}`}>
+    <section className={`hero ${classes.root}`}>
       <div className="hero-main">
         <div className="container">
           <DoubleTitle

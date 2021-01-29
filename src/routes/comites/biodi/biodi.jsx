@@ -4,7 +4,9 @@ import p1 from "assets/pictures/b2.jpg";
 import p2 from "assets/pictures/b3.jpg";
 import p3 from "assets/pictures/b4.jpg";
 const useStyles = makeStyles({
-  root: { fontFamily: "Comic Sans MS" },
+  root: {
+    fontFamily: "arial",
+  },
   figure: {
     display: "flex",
     justifyContent: "center",

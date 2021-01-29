@@ -41,10 +41,10 @@ const useStyles = makeStyles({
     },
   },
   title: {
-    fontFamily: "Comic Sans MS",
+    fontFamily: "arial",
   },
   desc: {
-    fontFamily: "Comic Sans MS",
+    fontFamily: "arial",
   },
 });
 

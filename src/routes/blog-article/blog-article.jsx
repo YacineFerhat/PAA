@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     height: "auto",
   },
   title: {
-    fontFamily: "Comic Sans MS",
+    fontFamily: "arial",
     padding: "2% 0%",
     fontWeight: 600,
     textAlign: "center",
@@ -37,17 +37,18 @@ const useStyles = makeStyles((theme) => ({
     color: "#177a63",
   },
   categorie: {
-    fontFamily: "Comic Sans MS",
+    fontFamily: "arial",
 
     marginLeft: "3%",
     textTransform: "uppercase",
   },
   tag: {
     textWeight: "bold",
-    fontFamily: "Comic Sans MS",
+
+    fontFamily: "arial",
   },
   body: {
-    fontFamily: "Comic Sans MS",
+    fontFamily: "arial",
     textIndent: "20px",
     lineHeight: "35px",
   },

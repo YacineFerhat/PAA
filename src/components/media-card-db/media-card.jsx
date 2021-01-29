@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     width: "100%",
   },
   title: {
-    fontFamily: "Comic Sans MS",
+    fontFamily: "arial",
     height: 30,
   },
 });

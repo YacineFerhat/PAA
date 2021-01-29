@@ -5,7 +5,7 @@ import p2 from "assets/pictures/c3.JPG";
 import p3 from "assets/pictures/c4.jpg";
 const useStyles = makeStyles({
   root: {
-    fontFamily: "Comic Sans MS",
+    fontFamily: "arial",
   },
   figure: {
     display: "flex",

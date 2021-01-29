@@ -3,14 +3,14 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "rgba(92,143,62,1)",
+    backgroundColor: "#1d7b63",
     height: 80,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     color: "white",
     marginTop: 80,
-    fontFamily: "Comic Sans MS",
+    fontFamily: "arial",
     textAlign: "center",
   },
 

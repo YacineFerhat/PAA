@@ -1,11 +1,12 @@
 import React from "react";
 import s2 from "assets/pictures/s2.jpg";
 import s3 from "assets/pictures/s3.jpg";
-import s4 from "assets/pictures/s4.jpg";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
-  root: { fontFamily: "Comic Sans MS" },
+  root: {
+    fontFamily: "arial",
+  },
 });
 const Sport = () => {
   const classes = useStyles();

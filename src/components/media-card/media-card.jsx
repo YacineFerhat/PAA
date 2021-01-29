@@ -24,11 +24,13 @@ const useStyles = makeStyles({
     width: "100%",
   },
   title: {
-    fontFamily: "Comic Sans MS",
-    height: 50,
+    fontFamily: "arial",
+    fontSize: "24px",
+    color: "#1d7b63",
   },
   desc: {
-    fontFamily: "Comic Sans MS",
+    fontFamily: "arial",
+    fontSize: "16px",
   },
 });
 

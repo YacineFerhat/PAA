@@ -30,12 +30,12 @@ const useStyles = makeStyles({
     marginLeft: "10%",
     marginRight: "10%",
     height: 100,
-    fontFamily: "Comic Sans MS",
+    fontFamily: "arial",
   },
   typo: {
     wordWrap: "break-word",
-    color: "#5C8F3E",
-    fontFamily: "Comic Sans MS",
+    color: "#1d7b63",
+    fontFamily: "arial",
     fontSize: "12px",
   },
   "@media (min-width: 1450px)": {
@@ -54,8 +54,8 @@ const useStyles = makeStyles({
     transform: "scale(0.8)",
   },
   title: {
-    fontFamily: "Comic Sans MS",
-    color: "#011601",
+    fontFamily: "arial",
+    color: "#1d7b63",
   },
   pos: {
     marginBottom: 12,
@@ -63,16 +63,16 @@ const useStyles = makeStyles({
   icons: {
     display: "flex",
     justifyContent: "space-around",
-    color: "#4caf50",
+    color: "",
     margin: "0% 20%",
   },
   links: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    color: "#4caf50",
+    color: "#1d7b63",
     "&:hover": {
-      color: "#234915",
+      opacity: 0.8,
     },
   },
 

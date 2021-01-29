@@ -5,7 +5,9 @@ import t3 from "assets/pictures/t3.jpg";
 import t4 from "assets/pictures/t4.jpg";
 
 const useStyles = makeStyles({
-  root: { fontFamily: "Comic Sans MS" },
+  root: {
+    fontFamily: "arial",
+  },
   figure: {
     display: "flex",
     justifyContent: "center",

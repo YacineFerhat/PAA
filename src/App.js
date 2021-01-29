@@ -1,29 +1,21 @@
 import React, { useEffect, useState, Suspense } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
-
-import Blog from "routes/blog";
-import Colab from "routes/colab";
-import BlogArticle from "routes/blog-article";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import Nav from "components/new-nav";
-import Event from "routes/evenement";
-import Loader from "components/loader";
 import MobilNav from "components/mobile-nav";
 import GlobalFonts from "fonts/font";
 import Container from "components/container";
-import Home from "routes/home";
 import Footer from "components/footer";
-import Auth from "routes/auth";
 import ScrollToTop from "components/scroll-to-top";
 import { AuthContext } from "context/authContext";
 import { useAuth } from "hooks/useAuth";
-//import Apropos from "routes/a-propos";
-//import Admin from "routes/admin";
-//import Comites from "routes/comites";
-//import Teams from "routes/teams";
-
+const BlogArticle = React.lazy(() => import("routes/blog-article"));
+const Blog = React.lazy(() => import("routes/blog"));
+const Auth = React.lazy(() => import("routes/auth"));
+const Event = React.lazy(() => import("routes/evenement"));
+const Home = React.lazy(() => import("routes/home"));
 const Admin = React.lazy(() => import("routes/admin"));
 const Apropos = React.lazy(() => import("routes/a-propos"));
-const Comites = React.lazy(() => import("routes/comites"));
 const Teams = React.lazy(() => import("routes/teams"));
 
 const App = withRouter(({ location }) => {
@@ -39,70 +31,74 @@ const App = withRouter(({ location }) => {
   let routes;
   if (token) {
     routes = (
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/Apropos">
-          <Apropos />
-        </Route>
-        <Route path="/Comités">
-          <Comites />
-        </Route>
-        <Route path="/Teams">
-          <Teams />
-        </Route>
-        <Route exact path="/Articles">
-          <Blog />
-        </Route>
-        <Route path="/Articles/:title">
-          <BlogArticle />
-        </Route>
-        <Route path="/Login">
-          <Auth />
-        </Route>
-        <Route path="/Collaborateurs">
-          <Colab />
-        </Route>
-        <Route path="/Evenements">
-          <Event />
-        </Route>
-        <Route path="/administration">
-          <Admin />
-        </Route>
-      </Switch>
+      <Suspense
+        fallback={
+          <CircularProgress
+            style={{ color: "#1d7b63", position: "relative", left: "50%" }}
+          />
+        }
+      >
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/Apropos">
+            <Apropos />
+          </Route>
+          <Route path="/Teams">
+            <Teams />
+          </Route>
+          <Route exact path="/Articles">
+            <Blog />
+          </Route>
+          <Route path="/Articles/:title">
+            <BlogArticle />
+          </Route>
+          <Route path="/Login">
+            <Auth />
+          </Route>
+          <Route path="/Evenements">
+            <Event />
+          </Route>
+          <Route path="/administration">
+            <Admin />
+          </Route>
+        </Switch>{" "}
+      </Suspense>
     );
   } else {
     routes = (
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/Apropos">
-          <Apropos />
-        </Route>
-        <Route path="/Comités">
-          <Comites />
-        </Route>
-        <Route path="/Teams">
-          <Teams />
-        </Route>
-        <Route exact path="/Articles">
-          <Blog />
-        </Route>
-        <Route path="/Articles/:title">
-          <BlogArticle />
-        </Route>
-        <Route path="/Login">
-          <Auth />
-        </Route>
-        <Route path="/Collaborateurs">
-          <Colab />
-        </Route>
-        <Route path="/Evenements">
-          <Event />
-        </Route>
-      </Switch>
+      <Suspense
+        fallback={
+          <CircularProgress
+            style={{ color: "#1d7b63", position: "relative", left: "50%" }}
+          />
+        }
+      >
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/Apropos">
+            <Apropos />
+          </Route>
+          <Route path="/Teams">
+            <Teams />
+          </Route>
+          <Route exact path="/Articles">
+            <Blog />
+          </Route>
+          <Route path="/Articles/:title">
+            <BlogArticle />
+          </Route>
+          <Route path="/Login">
+            <Auth />
+          </Route>
+          <Route path="/Evenements">
+            <Event />
+          </Route>
+        </Switch>
+      </Suspense>
     );
   }
   let header = matches ? <Nav /> : <MobilNav />;
@@ -116,7 +112,7 @@ const App = withRouter(({ location }) => {
         logout: logout,
       }}
     >
-      <div className="App" style={{ backgroundColor: "#e5e5e5" }}>
+      <div className="App">
         <ScrollToTop />
         <GlobalFonts />
         {location.pathname.includes("administration") ||
@@ -124,9 +120,7 @@ const App = withRouter(({ location }) => {
           ? null
           : header}
         <Container>
-          <Suspense fallback={<Loader />}>
-            <div className="App">{routes}</div>
-          </Suspense>
+          <div className="App">{routes}</div>
         </Container>
         {location.pathname.includes("administration") ||
         location.pathname.includes("Administration") ? null : (

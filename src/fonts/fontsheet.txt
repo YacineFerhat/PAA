@@ -1,0 +1,11 @@
+- Plogging Association Algeria (53.86pts): Arial Régular
+
+- Polices de onglets (25pts) : Arial Bold
+
+- Tout le reste des polices : Arial Regular
+
+- Polices Des statistiques (chiffres 30pts et texte 18pts) Arial Bold (Couleur): bdfcdb  (Countour 3px): 000000
+
+- Police slogan : Source Code Variable (30pts)
+
+- Couleur des bandes : 1d7b63

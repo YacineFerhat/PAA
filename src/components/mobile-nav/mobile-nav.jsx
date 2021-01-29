@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     fontSize: "20px",
     fontWeight: "500",
-    fontFamily: "Comic Sans MS",
+    fontFamily: "arial",
     width: "100%",
     padding: "0% 5%",
     textAlign: "center",

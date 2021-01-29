@@ -4,9 +4,9 @@ const Plogging = () => {
   return (
     <section
       style={{
-        fontFamily: "Comic Sans MS",
+        fontFamily: "arial",
       }}
-      className="hero is-fullheight"
+      className="hero "
     >
       <div className="hero-body">
         <div className="container">
