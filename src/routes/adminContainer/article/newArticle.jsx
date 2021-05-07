@@ -216,7 +216,7 @@ const NewArticle = () => {
           id="image"
           style="small"
           onInput={inputHandler}
-          errorText="Choissiez une image."
+          errorText="Upload your image."
         />
         <Typography variant="caption" display="block" gutterBottom>
           *Taille maximum d'1Mo, sinon l'image ne passera pas.
